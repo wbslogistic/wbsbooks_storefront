@@ -2,8 +2,7 @@ wbsbooks.com storefront core development
 
 User interface development
 ===================
-You could look at old version of storefront here:
-URL: http://www.wbsbooks.com/
+You could look at old version of storefront here: http://www.wbsbooks.com/
 
 You could get screenshots of old version of storefront here: https://www.dropbox.com/sh/meg64q5lx63d8up/AADuVjOEMT3z8dLqoSJUVhpKa
 
