@@ -1,7 +1,6 @@
 wbsbooks.com storefront core development
 
-Information for user interface development
-
+User interface development
 ===================
 You could look at old version of storefront here:
 URL: http://www.wbsbooks.com/
@@ -15,6 +14,7 @@ Login: oakrasnov@yandex.ru
 Password: 1qaz2wsx
 Project: WBSBooks (storefront)
 
+Platform
 ===================
 Spree official site: http://spreecommerce.com/
 Spree source: https://github.com/spree/spree
@@ -22,6 +22,7 @@ Spree extensions: http://spreecommerce.com/extensions
 Spree user documentation: http://guides.spreecommerce.com/user/
 Spree developer documentation: http://guides.spreecommerce.com/developer/
 
+Development servers
 ===================
 Development server URL: 
 Staging server URL: 
