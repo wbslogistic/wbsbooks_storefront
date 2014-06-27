@@ -22,5 +22,6 @@ Spree developer documentation: http://guides.spreecommerce.com/developer/
 
 <h3>Development servers</h3>
 ===================
-Development server URL: 
-Staging server URL: 
+Development server URL: <br/>
+Login: <br/>
+Password: 
