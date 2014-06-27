@@ -8,9 +8,9 @@ You could get screenshots of old version of storefront here: https://www.dropbox
 
 User interface mockups: http://ninjamock.com/s/whuzww
 
-To edit mockups go to http://ninjamock.com/<br>
-Login: oakrasnov@yandex.ru
-Password: 1qaz2wsx
+To edit mockups go to http://ninjamock.com/<br/>
+Login: oakrasnov@yandex.ru<br/>
+Password: 1qaz2wsx<br/>
 Project: WBSBooks (storefront)
 
 Platform
