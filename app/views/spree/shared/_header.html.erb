@@ -1,0 +1,127 @@
+<!-- <header id="header" class="row" data-hook>
+  <figure id="logo" class="columns six" data-hook><%= logo %></figure>
+  <%= render :partial => 'spree/shared/nav_bar' %>
+  <%= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>
+</header> -->
+
+
+  <div id="toolbar">
+    <div class="container">
+      <div class="row">
+      <div class="toolbar-ct col-xs-12 col-md-6  hidden-sm hidden-xs">
+          <div class="toolbar-ct-5">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= image_tag "eng.png" %><!-- <img alt="English" src="images/eng.png"> -->&nbsp;English</button>
+              <div class="dropdown-menu" role="menu">
+                <div class="t3-module module">
+                  <div class="module-inner">
+                    <div class="module-ct">
+                      <ul class="nav">
+                        <li><%= image_tag "ru.png" , :class => "fa-add2" %><!-- <img class="fa-add2" src="images/ru.png" /> --><a href="#">Russian</a></li>
+                        <li><%= image_tag "eng.png", :class => "fa-add2"  %><!-- <img class="fa-add2" src="images/eng.png" /> --><a href="#">English</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="toolbar-ct-5">
+            <div class="btn-group">
+              <i class="fa fa-dollar fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Dollar</button>
+              <div class="dropdown-menu" role="menu">
+                <div class="t3-module module">
+                  <div class="module-inner">
+                    <div class="module-ct">
+                      <ul class="nav">
+                        <li><i class="fa fa-dollar fa-add"></i><a href="#">Dollar</a></li>
+                        <li><i class="fa fa-ruble fa-add"></i><a href="#">Ruble</a></li>
+                        <li><i class="fa fa-euro fa-add"></i><a href="#">Euro</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="toolbar-ct toolbar-ct-right col-xs-12 col-md-6 pull-right">
+          <div class="toolbar-ct-3">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default">Registration</button>
+            </div>
+            <div class="btn-group" style="margin-left:40px;">
+              <button type="button" class="btn btn-default">Sign in</button>
+            </div>
+          </div>
+          <div class="toolbar-ct-2 ">
+            <div class="t3-module module">
+              <div class="module-inner">
+                <div class="module-ct">
+                  <div id="header_oc">
+                    <div id="cart" style="left:0 !important;">
+                      <div class="heading">
+                        <i class="fa fa-shopping-cart"></i> <a href="order.html">Shopping Cart <span id="cart-total">(0)</span></a></div>
+                          <div class="content_oc">
+                            <div class="empty">Your shopping cart is empty!</div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- HEADER -->
+  <header id="t3-header" class="wrap t3-header navbar-fixed-top">
+    <div class="container">
+      <div class="row"> 
+        <!-- LOGO -->
+        <div class="col-xs-12 col-md-3 logo col-sm-6">
+          <div class="logo-image"> <a href="index.html"> <%= image_tag "logo.png" %><!-- <img class="logo-img" src="images/logo.png" style="width:95%"> --></a></div>
+        </div>
+        <!-- //LOGO --> 
+        
+        <!-- MAIN NAVIGATION -->
+        <nav id="t3-mainnav" class="col-xs-12 col-md-6 t3-mainnav navbar navbar-default hidden-sm"> 
+          <div class="navbar-header"> </div>
+          <div class="t3-navbar navbar-collapse collapse">
+            <div class="t3-megamenu animate slide" data-duration="400" data-responsive="true">
+              <ul class="nav navbar-nav level0">
+                <li class="current active"><a href="#">What's new?</a></li>
+                <li><a href="#">Specials</a></li>
+                <li><a href="bulk.html">Bulk order</a></li>
+                <li><a href="about.html">About Us</a> </li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- //MAIN NAVIGATION -->
+        
+        <div class="col-xs-12 col-md-3 pull-right col-sm-6"> 
+          <!-- HEAD SEARCH -->
+          <div class="head-search ">
+            <div style="text-align:right">
+
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'"  >
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default" onClick="javascript:window.location='search.html'"><span class="icon-search icon-white"></span></button>
+                </span>
+              </div>
+            <!--   <%= render :partial => 'spree/shared/search' %> -->
+              <a href="search-2.html" class="search-adv">Advanced search</a>
+            </div>
+          </div>
+          <!-- //HEAD SEARCH --> 
+          
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- //HEADER --> 
