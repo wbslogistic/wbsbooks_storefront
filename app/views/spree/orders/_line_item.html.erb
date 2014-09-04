@@ -1,0 +1,35 @@
+<% variant = line_item.variant -%>
+<%= order_form.fields_for :line_items, line_item do |item_form| -%>
+  <tr class="<%= cycle('', 'alt') %> line-item">
+    <td class="image td-w" data-hook="cart_item_image">
+      <% if variant.images.length == 0 %>
+        <%= link_to small_image(variant.product), variant.product %>
+      <% else %>
+        <%= link_to image_tag(variant.images.first.attachment.url(:small)), variant.product %>
+      <% end %>
+    </td>
+      <td class="name"><h4><%= link_to line_item.name, product_path(variant.product) %></h4>
+          <div> 
+              - <span><%= line_item_description_text(line_item.description) %></span><br> 
+          </div>
+         <% if line_item.insufficient_stock? %>
+            <span class="out-of-stock">
+              <%= Spree.t(:out_of_stock) %>&nbsp;&nbsp;<br />
+            </span>
+      <% end %>
+      </td>
+    </td>
+    <td class="price" data-hook="cart_item_price">
+      <%= line_item.single_money.to_html %>
+    </td>
+    <td class="quantity" data-hook="cart_item_quantity">
+      <%= item_form.number_field :quantity, :min => 0, :class => "line_item_quantity", :size => 5 %>
+    </td>
+    <td class="cart-item-total" data-hook="cart_item_total">
+      <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
+    </td>
+    <td class="cart-item-delete" data-hook="cart_item_delete">
+      <%= link_to " ", '#', :class => 'delete fa fa-times-circle', :style => 'cursor:pointer', :id => "delete_#{dom_id(line_item)}" %>
+    </td>
+  </tr>
+<% end -%>

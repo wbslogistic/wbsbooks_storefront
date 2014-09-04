@@ -11,10 +11,5 @@
 // about supported directives.
 //
 //= require_self
-//= require jquery_002
-//= require jquery_008
-//= require bootstrap
-//= require script
 //= require turbolinks
-
 //= require_tree .
