@@ -240,3 +240,7 @@ list-style: none;
 	height:32px;
 	display: inline-block !important;
 }
+
+.checkbox_login_block {
+	margin-bottom: 20px;
+}

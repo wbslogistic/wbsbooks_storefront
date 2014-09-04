@@ -1,0 +1,52 @@
+<%= form_for Spree::User.new, :as => :spree_user, :class => 'form-horizontal', :url => spree.create_new_session_path do |f| %>
+      <div class="t3-content col-xs-12" id="t3-content">
+        <div id="system-message-container" style="display: none;"> </div>
+        <div class="login-wrap">
+          <div class="login ">
+            <div class="page-header">
+              <h1><%= Spree.t(:login) %></h1>
+            </div>
+            <div class="login-description"><%= Spree.t(:login_as_existing) %></div>
+            <fieldset>
+                <div class="form-horizontal form-group">
+                  <div class="col-sm-4 control-label">
+                    <%= f.label :email, Spree.t(:email), :class => ' required', :id => 'email-lbl', :for => 'email' %><span class="star">&nbsp;*</span>
+                  </div>
+                  <div class="col-sm-8">
+                    <%= f.email_field :email, :type => 'text', :class => 'validate-username', :id => 'username', :tabindex => 1, autofocus: true %>
+                  </div>
+                </div>
+                <div class="form-horizontal form-group">
+                  <div class="col-sm-4 control-label">
+                    <%= f.label :password, Spree.t(:password), :class => " required", :for => "password", :id => "password-lbl" %><span class="star">&nbsp;*</span>
+                  </div>
+                  <div class="col-sm-8">
+                    <%= f.password_field :password, :type => 'text', :class => 'validate-password', :id => 'password', :tabindex => 2 %>
+                  </div>
+                </div>
+                <div class="form-horizontal form-group">
+                  <div class="col-sm-offset-4 col-sm-8">
+                    <div class="checkbox">
+                      <div class="checkbox_login_block">
+                        <%= f.check_box :remember_me, :tabindex => 3 %>
+                        <%= f.label :remember_me, Spree.t(:remember_me) %> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-horizontal form-group">
+                  <div class="col-sm-offset-4 col-sm-8">
+                    <%= f.submit Spree.t(:login), :class => 'btn btn-primary', :type => 'submit', :tabindex => 4 %>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="other-links">
+                <ul class="clearfix">
+                  <li class="pull-left"><%= link_to Spree.t(:forgot_password), spree.recover_password_path %></li>
+                  <li class="pull-right"><%= link_to Spree.t(:create_a_new_account), spree.signup_path %></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+
+<% end %>

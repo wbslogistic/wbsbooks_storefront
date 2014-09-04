@@ -1546,7 +1546,8 @@ input[type='text'],input[type='password'],textarea {
 	border:1px solid #CCCCCC;
 	padding:3px;
 	margin-left:0px;
-	margin-right:0px
+	margin-right:0px;
+	margin-bottom:20px;
 }
 select {
 	background:#F8F8F8;

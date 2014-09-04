@@ -1,3 +1,4 @@
+
 <%= form_for :order, :url => populate_orders_path do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
@@ -32,7 +33,6 @@
       <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
 
         <div id="product-price">
-          <h6 class="product-section-title"><%= Spree.t(:price) %></h6>
           <div>
             <span class="price selling" itemprop="price">
               <%= display_price(@product) %>
@@ -49,10 +49,21 @@
         </div>
 
         <div class="add-to-cart">
-          <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
-          <%= button_tag :class => 'large primary', :id => 'add-to-cart-button', :type => :submit do %>
+          <div class="cart">
+                      <div style="margin-bottom:10px;"><%= Spree.t(:quantity) %>:
+                        <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
+                      </div>
+                    </div>
+          <div class="lemmaBook">
+                        <div class="cartAdd">
+                            <!--<input type="button" class="btn btn-primary" value="Add to Cart">-->
+                            <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
             <%= Spree.t(:add_to_cart) %>
           <% end %>
+                        </div>
+                        <div class="wishlistAdd"><a title="Add to Wish List" onclick="#"><i class="fa fa-list"></i></a></div>             
+                    </div>
+
         </div>
       </div>
     <% else %>
@@ -63,3 +74,4 @@
     <% end %>
   </div>
 <% end %>
+

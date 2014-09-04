@@ -1,11 +1,12 @@
-<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+
+
+
 <%= form_tag spree.products_path, :method => :get do %>
-  <% cache(cache_key_for_taxons) do %>
-    <%= select_tag :taxon,
-          options_for_select([[Spree.t(:all_departments), '']] +
-                                @taxons.map {|t| [t.name, t.id]},
-                                @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon' %>
-  <% end %>
-  <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search) %>
-  <%= submit_tag Spree.t(:search), :name => nil %>
+<div class="input-group">
+	  <%= search_field_tag :keywords, params[:keywords], :class => 'form-control', :onfocus => "this.placeholder = ''", :onblur => "this.placeholder = '#{Spree.t(:search)}'",  :placeholder => Spree.t(:search) %>
+	  <span class="input-group-btn">
+	  <%= button_tag(type: "submit", :class => 'btn btn-default', :onClick => "javascript:window.location='search.html'", :name => nil) do %><span class="icon-search icon-white"></span><% end %>
+	  </span>
+</div>
 <% end %>
+
