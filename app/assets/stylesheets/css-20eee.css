@@ -3679,7 +3679,7 @@ selectinput.input-sm {
 	height:28px;
 	line-height:28px
 }
-textareainput.input-sm,select[multiple]input.input-sm {
+textareainput.input-sm,select[multiple].input-sm {
 	height:auto
 }
 input.input-lg {
@@ -3693,7 +3693,7 @@ selectinput.input-lg {
 	height:41px;
 	line-height:41px
 }
-textareainput.input-lg,select[multiple]input.input-lg {
+textareainput.input-lg,select[multiple].input-lg {
 	height:auto
 }
 @media (min-width:768px) {
