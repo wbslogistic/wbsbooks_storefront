@@ -11,7 +11,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:klishevich/#{application}.git"
+set :repository, "git@github.com:wbslogistic/#{application}.git"
 set :branch, "master"
 
 set :rvm_ruby_string, '2.1.2'
