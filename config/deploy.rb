@@ -14,7 +14,7 @@ set :scm, "git"
 set :repository, "git@github.com:wbslogistic/#{application}.git"
 set :branch, "master"
 
-set :rvm_ruby_string, '2.1.2'
+set :rvm_ruby_string, :local
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
