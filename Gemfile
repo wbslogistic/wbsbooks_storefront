@@ -44,3 +44,6 @@ gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git
 
 # Klishevich gems
 gem 'pg'
+gem 'capistrano'
+gem 'rvm-capistrano' 
+gem 'unicorn'
