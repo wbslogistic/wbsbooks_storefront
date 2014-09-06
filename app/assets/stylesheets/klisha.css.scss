@@ -4,5 +4,10 @@
 		list-style-type: none;
 		display: inline;
 		margin-top: 20px;
+		+ li:before {
+			content: "/\00a0";
+			padding: 0 5px;
+			color: #cccccc;
+		}
 	}
 }
