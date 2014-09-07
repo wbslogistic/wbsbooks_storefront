@@ -1,0 +1,18 @@
+
+
+<%= form_for Spree::User.new, :as => :spree_user, :class => 'form-horizontal', :url => spree.create_new_session_path do |f| %>
+
+              <h2><%= Spree.t(:login) %></h2>
+              <p><%= Spree.t(:login_as_existing) %></p>
+              <b><%= f.label :email, Spree.t(:email), :class => ' required', :id => 'email-lbl', :for => 'email' %><span class="star">&nbsp;*</span></b><br>
+              <%= f.email_field :email, :type => 'text', :style => "width: 120px !important;", :id => 'username', :tabindex => 1, autofocus: true %>
+              <br>
+              <b><%= f.label :password, Spree.t(:password), :class => " required", :for => "password", :id => "password-lbl" %><span class="star">&nbsp;*</span></b><br>
+              <%= f.password_field :password, :type => 'text', :class => 'validate-password', :id => 'password', :tabindex => 2 %>
+              <br>
+              <%= link_to Spree.t(:forgot_password), spree.recover_password_path %><br>
+              <br>
+              <%= f.submit Spree.t(:login), :class => 'btn btn-primary', :type => 'submit', :tabindex => 4 %>
+              <br>
+              <br>
+<% end %>

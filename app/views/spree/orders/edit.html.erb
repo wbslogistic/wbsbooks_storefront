@@ -1,12 +1,17 @@
 <% @body_id = 'cart' %>
-<div data-hook="cart_container">
-  <h1><%= Spree.t(:shopping_cart) %></h1>
+<div class="t3-content col-xs-12" id="t3-content">
+  <div id="container_oc">
+    <div id="content_oc">
+      <div class="box_oc">
+        <div class="box-heading">
+          <h1 class="mijoshop_heading_h1"><%= Spree.t(:shopping_cart) %></h1>
+        </div>
 
   <% if @order.line_items.empty? %>
 
     <div data-hook="empty_cart">
       <p><%= Spree.t(:your_cart_is_empty) %></p>
-      <p><%= link_to Spree.t(:continue_shopping), spree.root_path, :class => 'btn btn-primary' %></p>
+      <p><%= link_to Spree.t(:continue_shopping), root_path, :class => 'btn btn-primary' %></p>
     </div>
 
   <% else %>
@@ -19,22 +24,17 @@
             <%= render :partial => 'form', :locals => { :order_form => order_form } %>
           </div>
 
-          <div class="buttons">
+          <div class="links columns sixteen alpha omega" data-hook="cart_buttons" style="text-align: right">
+           <div><%= link_to Spree.t(:continue_shopping), root_path, :class => 'btn btn-primary' %>
 <!--             <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %> -->
-              <div class="left"><%= link_to Spree.t(:continue_shopping), spree.root_path, :class => 'btn btn-primary' %></div>
 
-            <div class="right"><%= button_tag :class => 'btn btn-primary', :id => 'checkout-link', :name => 'checkout' do %>
-              <%= Spree.t(:checkout) %></div>
-             <div class="right"><%= button_tag :class => 'btn btn-primary', :id => 'update-button' do %>
-              <%= Spree.t(:update) %>
-          <% end %></div>
-            <div class="right">
-                <%= form_tag empty_cart_path, :method => :put do %>
-                  <p id="clear_cart_link" data-hook>
-                  <%= submit_tag Spree.t(:empty_cart), :class => 'btn btn-primary' %>
-                  </p>
-                <% end %>
+                <%= button_tag :class => 'btn btn-primary', :id => 'update-button' do %>
+                <%= Spree.t(:update) %>
+              <% end %>
+              <%= button_tag :class => 'btn btn-primary', :id => 'checkout-link', :name => 'checkout' do %>
+                <%= Spree.t(:checkout) %>
             </div>
+
 
             <% end %>
           </div>
@@ -43,7 +43,10 @@
       <% end %>
     </div>
 
-    
 
   <% end %>
 </div>
+</div>
+</div>
+</div>
+

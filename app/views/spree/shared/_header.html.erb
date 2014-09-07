@@ -13,8 +13,8 @@
                   <div class="module-inner">
                     <div class="module-ct">
                       <ul class="nav">
-                        <li><%= image_tag "ru.png" , :class => "fa-add2" %></li>
-                        <li><%= image_tag "eng.png", :class => "fa-add2"  %></li>
+                        <li><%= image_tag "ru.png" , :class => "fa-add2" %><a href="#">Russian</a></li>
+                        <li><%= image_tag "eng.png", :class => "fa-add2"  %><a href="#">English</a></li>
                       </ul>
                     </div>
                   </div>
@@ -45,35 +45,6 @@
 
 
         <%= render :partial => 'spree/shared/login_bar' %> 
-        
-<!--         <div class="toolbar-ct toolbar-ct-right col-xs-12 col-md-6 pull-right">
-          <div class="toolbar-ct-3">
-            <div class="btn-group">
-              <%= link_to Spree.t(:registration), signup_path %>
-            </div>
-            <div class="btn-group" style="margin-left:40px;">
-              <button type="button" class="btn btn-default"><%= link_to Spree.t(:login), login_path %></button>
-            </div>
-          </div>
-          <div class="toolbar-ct-2 ">
-            <div class="t3-module module">
-              <div class="module-inner">
-                <div class="module-ct">
-                  <div id="header_oc">
-                    <div id="cart" style="left:0 !important;">
-                      <div class="heading">
-                        <i class="fa fa-shopping-cart"></i> <%= link_to_cart %></div>
-                          <div class="content_oc">
-                            <div class="empty">Your shopping cart is empty!</div>
-                          </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>          
-        </div> -->
-
 
       </div>
     </div>
@@ -85,7 +56,7 @@
       <div class="row"> 
         <!-- LOGO -->
         <div class="col-xs-12 col-md-3 logo col-sm-6">
-          <div class="logo-image"> <%= link_to image_tag("logo.png", :border=>0), spree.root_path %><!-- <img class="logo-img" src="images/logo.png" style="width:95%"> --></a></div>
+          <div class="logo-image"> <%= link_to image_tag("logo.png", :border=>0, :id => 'logo'), spree.root_path %><!-- <img class="logo-img" src="images/logo.png" style="width:95%"> --></a></div>
         </div>
         <!-- //LOGO --> 
 
@@ -98,9 +69,9 @@
               <ul class="nav navbar-nav level0">
                 <li class="current active"><a href="#">What's new?</a></li>
                 <li><a href="#">Specials</a></li>
-                <li><a href="bulk.html">Bulk order</a></li>
-                <li><a href="about.html">About Us</a> </li>
-                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="#">Bulk order</a></li>
+                <li><a href="#">About Us</a> </li>
+                <li><a href="#">Contact us</a></li>
               </ul>
             </div>
           </div>
@@ -113,7 +84,7 @@
             <div style="text-align:right">
 
               <%= render :partial => 'spree/shared/search' %> 
-              <a href="search-2.html" class="search-adv">Advanced search</a>
+              <a href="#" class="search-adv">Advanced search</a>
             </div>
           </div>
           <!-- //HEAD SEARCH --> 

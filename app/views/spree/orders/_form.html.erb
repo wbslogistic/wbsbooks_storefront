@@ -28,8 +28,9 @@
                     <tr>
                       <td class="right"><b><%= Spree.t(:cart_subtotal, :count => @order.line_items.sum(:quantity)) %></b></td>
                       <td class="right"><%= order_form.object.display_item_total %></td>
+<!--                       <td class="right"><%= render "spree/orders/adjustments" %></td> -->
                     </tr>
-<!--                     <%= render "spree/orders/adjustments" %> -->
+                   
                   <% end %>
 
 

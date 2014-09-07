@@ -1,16 +1,16 @@
 /* Steps */
 
-.wizard a {
-    padding: 10px 12px 10px;
-    margin-right: 5px;
+.wizard span {
+    padding: 10px 12px 10px 36px;
+    margin-right: 4px;
     background: #efefef;
     position: relative;
     display: inline-block;
 	color:#333;
-	width:24.36%;
+	width:19.3%;
 }
 @media (min-width: 768px) and (max-width: 979px) {
-.wizard a {
+.wizard span {
 	width:23.9%;
 }	
 .t3-mainbody {
@@ -27,8 +27,13 @@
 .logo-image {
 	text-align:center;
 }
+
+#logo {
+	width: 95%;
 }
-.wizard a:before {
+
+}
+.wizard span:before {
     width: 0;
     height: 0;
     border-top: 20px inset transparent;
@@ -39,7 +44,7 @@
     top: 0;
     left: 0;
 }
-.wizard a:after {
+.wizard span:after {
     width: 0;
     height: 0;
     border-top: 20px inset transparent;
@@ -51,16 +56,16 @@
     right: -20px;
     z-index: 2;
 }
-.wizard a:first-child:before,
-.wizard a:last-child:after {
+.wizard span:first-child:before,
+.wizard span:last-child:after {
     border: none;
 }
-.wizard a:first-child {
+.wizard span:first-child {
     -webkit-border-radius: 4px 0 0 4px;
        -moz-border-radius: 4px 0 0 4px;
             border-radius: 4px 0 0 4px;
 }
-.wizard a:last-child {
+.wizard span:last-child {
     -webkit-border-radius: 0 4px 4px 0;
        -moz-border-radius: 0 4px 4px 0;
             border-radius: 0 4px 4px 0;
@@ -70,7 +75,7 @@
     position: relative;
     /*top: -1px;*/
 }
-.wizard a:first-child .badge-w {
+.wizard span:first-child .badge-w {
     margin-left: 0;
 }
 .wizard .current {
@@ -247,4 +252,10 @@ list-style: none;
 
 .cart-item-delete {
 	min-width: 48px;
+}
+
+.form_title {
+    color: #f0141e;
+    font-size: 15px;
+    font-weight: 400;
 }

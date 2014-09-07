@@ -1525,7 +1525,7 @@ h2 {
 }
 p {
 	margin-top:0px;
-	margin-bottom:20px
+	margin-bottom:0px
 }
 a,a:visited,a b {
 	cursor:pointer
@@ -1541,19 +1541,36 @@ form {
 	margin:0;
 	 
 }
-input[type='text'],input[type='password'],textarea {
+/*input[type='text'],input[type='password'],textarea {
 	background:#F8F8F8;
 	border:1px solid #CCCCCC;
 	padding:3px;
 	margin-left:0px;
 	margin-right:0px;
 	margin-bottom:20px;
+}*/
+
+input[type='text'],input[type='password'],textarea {
+	border:1px solid #CCCCCC;
+	padding:3px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom:20px;
+	width: 100%
 }
-select {
+
+/*select {
 	background:#F8F8F8;
 	border:1px solid #CCCCCC;
 	padding:2px
+}*/
+
+select {
+	border:1px solid #CCCCCC;
+	padding:2px;
+	width: 100%;
 }
+
 label {
 	cursor:pointer
 }
@@ -2382,7 +2399,6 @@ ul.box-filter > li ul {
 	
 }
 .product-list .price {
-	float:right;
 	height:50px;
 	margin-left:8px;
 	text-align:right;

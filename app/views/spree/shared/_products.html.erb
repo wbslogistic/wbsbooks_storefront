@@ -22,88 +22,82 @@
   <% end %>
 </div>
 
+                <div class="product-filter">
+                  <div class="display">Display: <a onclick="display('list');"><i class="fa fa-th-list"></i></a><span><i class="fa fa-th-large"></i></span></div>
+                  <!-- <div class="limit"><b>Show:</b>
+                    <div class="select-box">
+                      <div class="sub-select-box">
+                        <select onchange="location = this.value;">
+                          <option value="#" selected="selected">15</option>
+                          <option value="#">25</option>
+                          <option value="#">50</option>
+                          <option value="#">75</option>
+                          <option value="#">100</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sort"><b>Sort By:</b>
+                    <div class="select-box">
+                      <div class="sub-select-box">
+                        <select onchange="location = this.value;">
+                          <option selected="selected" value="#">Default</option>
+                          <option value="#">Name (A - Z)</option>
+                          <option value="#">Name (Z - A)</option>
+                          <option value="#">Price (Low &gt; High)</option>
+                          <option value="#">Price (High &gt; Low)</option>
+                          <option value="#">Rating (Highest)</option>
+                          <option value="#">Rating (Lowest)</option>
+                          <option value="#">Model (A - Z)</option>
+                          <option value="#">Model (Z - A)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
 
-<!-- 
-<% if products.any? %>
-<ul id="products" class="inline product-listing" data-hook>
-  <% products.each do |product| %>
-    <% url = product_url(product, :taxon_id => @taxon.try(:id)) %>
-    <li id="product_<%= product.id %>" class="columns three <%= cycle("alpha", "secondary", "", "omega secondary", :name => "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
-      <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
-        <div class="product-image">
-          <%= link_to small_image(product, :itemprop => "image"), url, :itemprop => 'url' %>
-        </div>
-        <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
-        <span class="price selling" itemprop="price"><%= display_price(product) %></span>
-      <% end %>
-    </li>
-  <% end %>
-  <% reset_cycle("classes") %>
-</ul>
-<% end %> 
--->
 
-
-
-
-<!--     <% if products.any? %>
-      <% products.each do |product| %>
-        <% url = product_url(product, :taxon_id => @taxon.try(:id)) %>
-        <div class="product-item-0">
-          <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
-            <div class="actions">
-            <div class="image"><%= link_to small_image(product, :itemprop => "image"), url, :itemprop => 'url' %></div>
-            <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
-            <div class="cart">
-            <input type="button" value="Add to Cart" class="btn btn-primary">
-          </div>
-            <div class="wishlist"><a title="Add to Wish List"><i class="fa fa-list"></i></a></div>
-          </div>
-          <div class="name"><a href="book.html">Inferno</a></div>
-          <div class="author"><a href="book.html">Dan Brown</a></div>
-          <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-          <div class="price"><%= display_price(product) %></div>
-          <% end %>
-        </div>
-      <% end %>
-      <% reset_cycle("classes") %>
-    <% end %> -->
-
-    <div class="box-content">                
+    <div class="box-content">            
   <div class="product-grid row row-5">
+
 
     <% if products.any? %>
       <% products.each do |product| %>
+
         <% url = product_url(product, :taxon_id => @taxon.try(:id)) %>
-
-
-
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
             <div class="product-item-0">
               <div class="actions">
               <div class="image"><%= link_to product_image(product, :itemprop => "image"), url, :itemprop => 'url' %></div>
               <div class="cart">
+
               <input type="button" value="Add to Cart" class="btn btn-primary">
+              
+
             </div>
               <div class="wishlist"><a title="Add to Wish List"><i class="fa fa-list"></i></a></div>
             </div>
             <div class="name"><%= link_to truncate(product.name, :length => 50), url, :itemprop => "name", :title => product.name %></div>
             <div class="author"><a href="book.html">Dan Brown</a></div>
             <div class="price"><%= display_price(product) %></div>
-            <% end %>
         </div>
+        <% end %>
+
 
 
       <% end %>
       <% reset_cycle("classes") %>
     <% end %>
 
-
-
       </div>
     </div>
+
+
 
 
 <% if paginated_products.respond_to?(:num_pages) %>
   <%= paginate paginated_products %>
 <% end %>
+
+
+

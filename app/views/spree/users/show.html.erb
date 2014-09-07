@@ -1,43 +1,68 @@
-<h1><%= accurate_title %></h1>
+<!-- <h1><%= accurate_title %></h1>
 
 <div data-hook="account_summary" class="account-summary">
   <dl id="user-info">
     <dt><%= Spree.t(:email) %></dt>
     <dd><%= @user.email %> (<%= link_to Spree.t(:edit), spree.edit_account_path %>)</dd>
   </dl>
-</div>
+</div> -->
 
-<div data-hook="account_my_orders" class="account-my-orders">
-
-  <h3><%= Spree.t(:my_orders) %></h3>
-  <% if @orders.present? %>
-    <table class="order-summary">
-      <thead>
-      <tr>
-        <th class="order-number"><%= I18n.t(:number, :scope => 'activerecord.attributes.spree/order') %></th>
-        <th class="order-date"><%= Spree.t(:date) %></th>
-        <th class="order-status"><%= Spree.t(:status) %></th>
-        <th class="order-payment-state"><%= Spree.t(:payment_state) %></th>
-        <th class="order-shipment-state"><%= Spree.t(:shipment_state) %></th>
-        <th class="order-total"><%= Spree.t(:total) %></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @orders.each do |order| %>
-        <tr class="<%= cycle('even', 'odd') %>">
-          <td class="order-number"><%= link_to order.number, order_url(order) %></td>
-          <td class="order-date"><%= l order.completed_at.to_date %></td>
-          <td class="order-status"><%= Spree.t("order_state.#{order.state}").titleize %></td>
-          <td class="order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
+<div class="t3-content col-xs-12" id="t3-content">
+        <div id="container_oc">
+          <div id="content_oc">
+            <div class="box_oc">
+              <div class="box-heading">
+                <h1 class="mijoshop_heading_h1"><%= Spree.t(:my_orders) %></h1>
+              </div>
+              <div class="box-content">
+                <% if @orders.present? %>
+              <div class="product-filter">
+                  <div class="limit"><b>Show:</b>
+                    <div class="select-box" style="width:195px !important">
+                      <div class="sub-select-box">
+                        <select onchange="location = this.value;" style="width:185px !important">
+                          <option value="#" selected="selected">View open orders</option>
+                          <option value="#">Orders placed in last 3 months</option>
+                          <option value="#">Orders placed in last year</option>
+                          <option value="#">Complete order history</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="cart-info">
+                    <table class="table-line">
+                      <thead>
+                        <tr>
+                          <td class="id"><%= I18n.t(:number, :scope => 'activerecord.attributes.spree/order') %></td>
+                          <td class="date"><%= Spree.t(:date) %></td>
+                          <td class="status"><%= Spree.t(:status) %></td>
+                          <td class="payment_state"><%= Spree.t(:payment_state) %></td>
+                          <td class="shipment_state"><%= Spree.t(:shipment_state) %></td>
+                          <td class="total"><%= Spree.t(:total) %></td>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @orders.each do |order| %>
+                        <tr>
+                          <td class="id"><%= order.number %></td>
+                          <td class="date"><%= l order.completed_at.to_date %></td>
+                          <td class="payment_state"><%= Spree.t("order_state.#{order.state}").titleize %></td>
+                          <td class="quantity"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
           <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
-          <td class="order-total"><%= order.display_total %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <p><%= Spree.t(:you_have_no_orders_yet) %></p>
-  <% end %>
-  <br />
-
-</div>
+                          <td class="total"><%= order.display_total %></td>
+                          <td style="text-align:right;"><a href="order_done.html"><%= link_to Spree.t("details"), order_url(order) %></a></td>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                    <% else %>
+                      <p><%= Spree.t(:you_have_no_orders_yet) %></p>
+                    <% end %>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

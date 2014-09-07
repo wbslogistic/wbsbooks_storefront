@@ -1,3 +1,5 @@
+/*
+
 /*===============================
 /templates/ja_bookshop/css/template.css
 ================================================================================*/
@@ -2400,6 +2402,14 @@ article aside .btn-group > .dropdown-toggle,article aside .btn-group > .dropdown
 	padding-left:10px
 }
 .reset .form-validate p,.remind .form-validate p {
+	background:#eeeeee;
+	border:1px solid #eeeeee;
+	margin-bottom:20px;
+	padding:10px 20px;
+	border-radius:0
+}
+
+.reset .new_spree_user p,.remind .form-validate p {
 	background:#eeeeee;
 	border:1px solid #eeeeee;
 	margin-bottom:20px;
@@ -7124,6 +7134,7 @@ div.acymailing_module_success {
 	position:relative
 }
 #preload {
+	background:url(<%= asset_path 'ajax-loader.gif' %>) no-repeat;
 	width:128px;
 	height:15px;
 	position:absolute;
@@ -7237,6 +7248,7 @@ div.acymailing_module_success {
 	display:block;
 	width:22px;
 	height:22px;
+	background:url(<%= asset_path 'bullets.png' %>) no-repeat;
 	text-indent:-9999px;
 	border:0;
 	margin-right:3px;
@@ -7249,6 +7261,7 @@ div.acymailing_module_success {
 	display:block;
 	width:30px;
 	height:30px;
+	background:url(<%= asset_path 'arrows.png' %>) no-repeat;
 	text-indent:-9999px;
 	border:0
 }

@@ -25,7 +25,7 @@ Spree.ready ($) ->
         $(this).parent().siblings(".ccType").val($.payment.cardType(@value))
 
       ($ 'input[type="radio"][name="order[payments_attributes][][payment_method_id]"]').click(->
-        ($ '#payment-methods li').hide()
+        ($ '#payment-methods span').hide()
         ($ '#payment_method_' + @value).show() if @checked
       )
 

@@ -1,17 +1,110 @@
-<p>
-  <%= f.label :email, Spree.t(:email) %><br />
-  <%= f.email_field :email, :class => 'title' %>
-</p>
-<div id="password-credentials">
-  <p>
-    <%= f.label :password, Spree.t(:password) %><br />
-    <%= f.password_field :password, :class => 'title' %>
-  </p>
+<table class="form">
+      <tbody>
+<!--         <tr>
+          <td><span class="required">*</span> First Name:</td>
+          <td><input type="text" value="" name="firstname" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> Last Name:</td>
+          <td><input type="text" value="" name="lastname" style="width: 120px !important;"></td>
+        </tr> -->
+        <tr>
+          <td><span class="required">*</span><%= f.label :email, Spree.t(:email) %></td>
+          <td><%= f.email_field :email, :class => 'title' %></td>
+        </tr>
+<!--         <tr>
+          <td><span class="required">*</span> Telephone:</td>
+          <td><input type="text" value="" name="telephone" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td>Fax:</td>
+          <td><input type="text" value="" name="fax" style="width: 120px !important;"></td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+  <!-- <h2>Your Address</h2>
+  <div class="content_oc">
+    <table class="form">
+      <tbody>
+        <tr>
+          <td>Company:</td>
+          <td><input type="text" value="" name="company" style="width: 120px !important;"></td>
+        </tr>
+        <tr style="display: none;">
+          <td>Business Type:</td>
+          <td><input type="radio" checked="checked" id="customer_group_id1" value="1" name="customer_group_id">
+            <label for="customer_group_id1">Default</label>
+            <br></td>
+        </tr>
+        <tr id="company-id-display">
+          <td><span class="required" id="company-id-required" style="display: none;">*</span> Company ID:</td>
+          <td><input type="text" value="" name="company_id" style="width: 120px !important;"></td>
+        </tr>
+        <tr id="tax-id-display" style="display: none;">
+          <td><span class="required" id="tax-id-required">*</span> Tax ID:</td>
+          <td><input type="text" value="" name="tax_id" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> Address 1:</td>
+          <td><input type="text" value="" name="address_1" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td>Address 2:</td>
+          <td><input type="text" value="" name="address_2" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> City:</td>
+          <td><input type="text" value="" name="city" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td><span class="required" id="postcode-required">*</span> Post Code:</td>
+          <td><input type="text" value="" name="postcode" style="width: 120px !important;"></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> Country:</td>
+          <td><select name="country_id" style="width: 200px !important;">
+              <option value=""> --- Please Select --- </option>
+              <option value="1">Afghanistan</option>
+  
+            </select></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> Region / State:</td>
+          <td><select name="zone_id" style="width: 200px !important;">
+              <option value=""> --- Please Select --- </option>
+              <option value="3513">Aberdeen</option>
 
-  <p>
-    <%= f.label :password_confirmation, Spree.t(:confirm_password) %><br />
-    <%= f.password_field :password_confirmation, :class => 'title' %>
-  </p>
-</div>
-
-<div data-hook="signup_below_password_fields"></div>
+            </select></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <h2>Your Password</h2>
+  <div class="content_oc">
+    <table class="form">
+      <tbody>
+        <tr>
+          <td><span class="required">*</span><%= f.label :password, Spree.t(:password) %></td>
+          <td><%= f.password_field :password, :class => 'title' %></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>
+          <td><%= f.password_field :password_confirmation, :class => 'title' %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2>Newsletter</h2>
+  <div class="content_oc">
+    <table class="form">
+      <tbody>
+        <tr>
+          <td>Subscribe:</td>
+          <td><input type="radio" value="1" name="newsletter">
+            Yes
+            <input type="radio" checked="checked" value="0" name="newsletter" class="m-l-10">
+            No </td>
+        </tr>
+      </tbody>
+ </table>
