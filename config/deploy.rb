@@ -12,7 +12,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:wbslogistic/#{application}.git"
-set :branch, "master"
+set :branch, "cap-deploy"
 
 set :rvm_ruby_string, :local
 
