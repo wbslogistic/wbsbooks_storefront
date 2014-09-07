@@ -1,4 +1,5 @@
-<div id="checkout" data-hook>  
+
+      <div id="checkout" data-hook>  
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
   
   <div class="row" data-hook="checkout_header">
@@ -18,11 +19,11 @@
         <%= render @order.state, :form => form %>
       <% end %>
     </div>    
-    <% if @order.state != 'confirm' %>
+<!--     <% if @order.state != 'confirm' %>
       <div id="checkout-summary" data-hook="checkout_summary_box" class="columns omega four">
         <%= render :partial => 'summary', :locals => { :order => @order } %>
       </div>
-    <% end %>
+    <% end %> -->
   </div>
 </div>
 

@@ -25,35 +25,10 @@
       
 
       <!-- MAIN CONTENT -->
-      <div id="t3-content" class="t3-content col-xs-12 col-sm-12 col-md-9 col-md-push-3">
+      <div id="t3-content" class="t3-content col-xs-12 col-sm-12 col-md-12">
         <div style="display: none;" id="system-message-container"> </div>
         <div id="container_oc">
-          <div id="header_oc" style="display:none;">
-            <form>
-              <div id="currency">Currency<br>
-                <a title="Euro" onclick="">€</a> <a title="Pound Sterling" onclick="">£</a> <a title="US Dollar"><b>$</b></a>
-              </div>
-            </form>
-            <div id="cart">
-              <div class="heading">
-                <h4>Shopping Cart</h4>
-                <a><span id="cart-total">0 item(s) - $0.00</span></a></div>
-              <div class="content_oc">
-                <div class="empty">Your shopping cart is empty!</div>
-              </div>
-            </div>
-            
-            <div id="search_oc">
-              <div class="button_oc-search"></div>
-              <input style="width: 120px !important;" name="search_oc" value="Search" onclick="this.value = '';" onkeydown="this.style.color = '#000000';" type="text">
-            </div>
-            <div id="welcome"> Welcome visitor you can <a href="#">login</a> or <a href="#">create an account</a>. </div>
-            <div class="links"><a href="#">Home</a><a href="#" id="wishlist-total">Wish List (0)</a><a href="#">My Account</a><a href="#">Shopping Cart</a><a href="#">Checkout</a></div>
-             <%= render :partial => 'spree/shared/login_bar' if content_for? :sidebar %>
-          </div>
           
-          
-          <div id="notification"></div>
           <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
             <%= flash_messages %>
           <%= yield %>
@@ -64,7 +39,7 @@
       </div>
       <!-- //MAIN CONTENT --> 
       
- <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+
       
     </div>
   </div>

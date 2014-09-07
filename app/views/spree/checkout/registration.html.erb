@@ -1,0 +1,33 @@
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+<div class="t3-content col-xs-12" id="t3-content">
+  <div id="container_oc">
+    <div id="content_oc">
+      <div class="box_oc">
+        <div class="box-heading">
+          <h1 class="mijoshop_heading_h1"><%= Spree.t(:registration) %></h1>
+        </div>
+        <div class="box-content">
+
+
+          <div class="checkout-content" style="display: block;">
+            <div class="left">
+              <h2><%= Spree.t(:registration) %></h2>
+              <p><%= Spree.t(:register) %></p>
+              <p>By creating an account at WBS Books you will be able to shop faster, to get access to discounts and promotions, be up to date on an orders status, and keep track of the orders you have previously made. Moreover, placing an order you can use our Suggested titles.</p>
+              <%= link_to Spree.t(:registration), signup_path, :class => "btn btn-primary", :id => id="button-account"  %>
+              <br>
+              <br>
+            </div>
+
+            <div class="right" id="login">
+                <%= render :partial => 'spree/shared/login_checkout' %>
+            </div>
+          </div> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

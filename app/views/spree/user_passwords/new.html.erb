@@ -1,17 +1,61 @@
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
 
-<div id="forgot-password">
-  <h6><%= Spree.t(:forgot_password) %></h6>
+<div class="t3-content col-xs-12" id="t3-content">
+        <div id="container_oc">
+          <div id="content_oc">
+            <div class="box_oc">
+              <div class="box-heading">
+                <h1 class="mijoshop_heading_h1"><%= Spree.t(:forgot_password) %></h1>
+              </div>
+        <div class="reset ">
+           <%= form_for Spree::User.new, :as => :spree_user, :class => 'form-validate form-horizontal', :url => spree.reset_password_path do |f| %>
+            <p><%= Spree.t(:instructions_to_reset_password) %></p>
+            <fieldset>
+              <div class="form-group">
+                <div class="col-sm-3 control-label">
+                  <%= f.label :email, Spree.t(:email), :class => 'hasTooltip required' %><span class:"required">&nbsp;*</span><br />
+                </div>
+                <div class="col-sm-9">
+                  <%= f.email_field :email, :class => 'validate-username' %>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <%= f.submit Spree.t(:reset_password), :class => 'btn btn-primary validate' %>
 
-  <p><%= Spree.t(:instructions_to_reset_password) %></p>
-
-  <%= form_for Spree::User.new, :as => :spree_user, :url => spree.reset_password_path do |f| %>
-    <p>
-      <%= f.label :email, Spree.t(:email) %><br />
-      <%= f.email_field :email %>
-    </p>
-    <p>
-      <%= f.submit Spree.t(:reset_password), :class => 'button primary' %>
-    </p>
-  <% end %>
+                <input type="hidden" value="1" name="edf0745977bbbe02a93b460067582c3a">
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+  </div>
 </div>
+
+
+      <div class="t3-content col-xs-12" id="t3-content">
+        <div id="system-message-container" style="display: none;"> </div>
+        <div class="reset ">
+          <form class="form-validate form-horizontal" method="post" action="/index.php/en/using-joomla/extensions/components/users-component/password-reset?task=reset.request" id="user-registration">
+            <p>Please enter the email address for your account. A verification code will be sent to you. Once you have received the verification code, you will be able to choose a new password for your account.</p>
+            <fieldset>
+              <div class="form-group">
+                <div class="col-sm-3 control-label">
+                  <label title="" class="hasTooltip required" for="jform_email" id="jform_email-lbl" data-original-title="&lt;strong&gt;Email Address&lt;/strong&gt;&lt;br /&gt;Please enter the email address associated with your User account.&lt;br /&gt;A verification code will be sent to you. Once you have received the verification code, you will be able to choose a new password for your account.">Email Address:<span class="star">&nbsp;*</span></label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" aria-required="true" required="" size="30" class="validate-username" value="" id="jform_email" name="jform[email]">
+                </div>
+              </div>
+
+            </fieldset>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button class="btn btn-primary validate" type="submit">Submit</button>
+                <input type="hidden" value="1" name="edf0745977bbbe02a93b460067582c3a">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>

@@ -1,65 +1,74 @@
-
-
-
 <% if spree_current_user %>
-        <div class="toolbar-ct toolbar-ct-right col-xs-12 col-md-6 pull-right">
-        	
+              <div class="toolbar-ct toolbar-ct-right col-xs-12 col-md-6 pull-right">
           <div class="toolbar-ct-3">
             <div class="btn-group">
-              <%= link_to Spree.t(:my_account), spree.account_path %>
-            </div>
-            <div class="btn-group" style="margin-left:40px;">
-              <button type="button" class="btn btn-default"><%= link_to Spree.t(:logout), spree.logout_path %></button>
-            </div>
-          </div>
-
-          <div class="toolbar-ct-2 ">
-            <div class="t3-module module">
-              <div class="module-inner">
-                <div class="module-ct">
-                  <div id="header_oc">
-                    <div id="cart" style="left:0 !important;">
-                      <div class="heading">
-                        <i class="fa fa-shopping-cart"></i> <%= link_to_cart %></div>
-                          <div class="content_oc">
-                            <div class="empty">Your shopping cart is empty!</div>
-                          </div>
+              <i class="fa fa-user fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= link_to Spree.t(:account), spree.account_path %></button>
+              <div class="dropdown-menu" role="menu">
+                <div class="t3-module module">
+                  <div class="module-inner">
+                    <div class="module-ct">
+                      <ul class="nav">
+                        <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
+                        <li><%= link_to Spree.t(:my_orders), spree.account_path %></li>
+                        <li><a href="">My wishlist</a></li>
+                        <li><a href="">My notifications</a></li>
+                        <li><a href="">My settings</a></li>
+                        <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>      
-              
-        </div>
-<% else %>
-        <div class="toolbar-ct toolbar-ct-right col-xs-12 col-md-6 pull-right">
-    
-
-
-                    <div class="toolbar-ct-3">
-            <div class="btn-group" style="margin-left:40px;">
-              <button type="button" class="btn btn-default"><%= link_to Spree.t(:login), spree.login_path %></button>
-            </div>
           </div>
 
-          <div class="toolbar-ct-2 ">
-            <div class="t3-module module">
-              <div class="module-inner">
-                <div class="module-ct">
-                  <div id="header_oc">
-                    <div id="cart" style="left:0 !important;">
-                      <div class="heading">
-                        <i class="fa fa-shopping-cart"></i> <%= link_to_cart %></div>
-                          <div class="content_oc">
-                            <div class="empty">Your shopping cart is empty!</div>
-                          </div>
-                    </div>
-                  </div>
+  <div class="toolbar-ct-2 ">
+    <div class="t3-module module">
+      <div class="module-inner">
+        <div class="module-ct">
+          <div id="header_oc">
+            <div id="cart" style="left:0 !important;">
+              <div class="heading">
+                <i class="fa fa-shopping-cart"></i> <%= link_to_cart %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
+
+  </div>
+
+
+  <% else %>
+  <div class="toolbar-ct toolbar-ct-right col-xs-12 col-md-6 pull-right">
+
+    <div class="toolbar-ct-3">
+      <div class="btn-group" style="margin-left:40px;">
+        <button type="button" class="btn btn-default"><%= link_to Spree.t(:login), spree.login_path %></button>
+      </div>
+    </div>
+
+    <div class="toolbar-ct-3">
+      <div class="btn-group" style="margin-left:40px;">
+        <button type="button" class="btn btn-default"><%= link_to Spree.t(:registration), spree.signup_path %></button>
+      </div>
+    </div>
+
+    <div class="toolbar-ct-2 ">
+      <div class="t3-module module">
+        <div class="module-inner">
+          <div class="module-ct">
+            <div id="header_oc">
+              <div id="cart" style="left:0 !important;">
+                <div class="heading">
+                  <i class="fa fa-shopping-cart"></i> <%= link_to_cart %></div>
                 </div>
               </div>
             </div>
-          </div>      
-              
+          </div>
         </div>
-<% end %>
+      </div>      
+
+    </div>
+    <% end %>
