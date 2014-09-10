@@ -3679,9 +3679,9 @@ selectinput.input-sm {
 	height:28px;
 	line-height:28px
 }
-textareainput.input-sm,select[multiple]input.input-sm {
+/*textareainput.input-sm,select[multiple]input.input-sm {
 	height:auto
-}
+}*/
 input.input-lg {
 	height:41px;
 	padding:10px 16px;
@@ -3693,9 +3693,9 @@ selectinput.input-lg {
 	height:41px;
 	line-height:41px
 }
-textareainput.input-lg,select[multiple]input.input-lg {
+/*textareainput.input-lg,select[multiple]input.input-lg {
 	height:auto
-}
+}*/
 @media (min-width:768px) {
 	.form-inline .inputbox,.form-inline select,.form-inline textarea,.form-inline input {
 	display:inline-block
