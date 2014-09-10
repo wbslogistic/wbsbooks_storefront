@@ -6972,7 +6972,7 @@ div.acymailing_module_success {
 }
 
 .fa-ru {
-	background:url(<%= asset_path 'ru.png' %>) no-repeat;
+	background:url("/images/ru.png") no-repeat;
 	display: inline;
     float: left;
     padding: 14px 5px;
@@ -7134,7 +7134,7 @@ div.acymailing_module_success {
 	position:relative
 }
 #preload {
-	background:url(<%= asset_path 'ajax-loader.gif' %>) no-repeat;
+	background:url("/images/ajax-loader.gif") no-repeat;
 	width:128px;
 	height:15px;
 	position:absolute;
@@ -7222,7 +7222,7 @@ div.acymailing_module_success {
 }
  .slideshow .nivoSlider {
 	position:relative;
-	background:#fff url(<%= asset_path 'loading.gif' %>) no-repeat 50% 50%;
+	background:#fff url("/images/loading.gif") no-repeat 50% 50%;
 	margin-bottom:20px
 }
 .slideshow .nivoSlider img {
@@ -7248,7 +7248,7 @@ div.acymailing_module_success {
 	display:block;
 	width:22px;
 	height:22px;
-	background:url(<%= asset_path 'bullets.png' %>) no-repeat;
+	/*background:url("/images/bullets.png") no-repeat;*/
 	text-indent:-9999px;
 	border:0;
 	margin-right:3px;
@@ -7261,7 +7261,7 @@ div.acymailing_module_success {
 	display:block;
 	width:30px;
 	height:30px;
-	background:url(<%= asset_path 'arrows.png' %>) no-repeat;
+	/*background:url(<%= asset_path 'arrows.png' %>) no-repeat;*/
 	text-indent:-9999px;
 	border:0
 }
