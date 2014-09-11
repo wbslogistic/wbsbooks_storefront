@@ -10,7 +10,7 @@
                       <ul class="nav">
                         <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
                         <li><%= link_to Spree.t(:my_orders), spree.account_path %></li>
-                        <li><a href="">My wishlist</a></li>
+                        <li><%= link_to Spree.t(:my_wishlist), default_wishlist_path %></li>
                         <li><a href="">My notifications</a></li>
                         <li><a href="">My settings</a></li>
                         <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
