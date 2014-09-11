@@ -232,12 +232,12 @@ span.highlight {
 
 @font-face {
 	font-family:'FontAwesome3';
-	src:url(/assets/fontawesome-webfont.ttf);
+	src:font-url ('fontawesome-webfont.ttf');
 	font-weight:normal;
 	font-style:normal
 }
 [class^="icon-"],[class*=" icon-"] {
-	font-family:FontAwesome3;
+	font-family: 'FontAwesome3';
 	font-weight:normal;
 	font-style:normal;
 	text-decoration:inherit;
@@ -3908,8 +3908,11 @@ legend + .control-group {
 }
 @font-face {
 	font-family:'Glyphicons Halflings';
-	src:url('/templates/ja_bookshop/fonts/glyphicons-halflings-regular.eot');
-	src:url('/templates/ja_bookshop/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('/templates/ja_bookshop/fonts/glyphicons-halflings-regular.woff') format('woff'),url('/templates/ja_bookshop/fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('/templates/ja_bookshop/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
+	src:font-url('glyphicons-halflings-regular.eot');
+	src:font-url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+	src:font-url('glyphicons-halflings-regular.woff') format('woff'),
+	src:font-url('glyphicons-halflings-regular.ttf') format('truetype'),
+	src:font-url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
 }
 .glyphicon {
 	position:relative;
