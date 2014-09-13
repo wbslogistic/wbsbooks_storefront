@@ -78,22 +78,23 @@ module Spree
       nil
     end
 
-    def breadcrumbs(taxon, separator="&nbsp;&raquo;&nbsp;")
-      return "none" if current_page?("/") || taxon.nil?
+    def breadcrumbs(taxon, product, separator="&nbsp;")
+      return "" if current_page?("/") || taxon.nil?
       separator = raw(separator)
-      crumbs = [content_tag(:span, link_to(Spree.t(:home), spree.root_path) + separator)]
+      crumbs = [content_tag(:li, link_to(Spree.t(:home), spree.root_path) + separator)]
       if taxon
-        crumbs << content_tag(:span, link_to(Spree.t(:products), products_path) + separator)
-        crumbs << taxon.ancestors.collect { |ancestor| content_tag(:span, link_to(ancestor.name , seo_url(ancestor)) + separator) } unless taxon.ancestors.empty?
-        crumbs << content_tag(:span, content_tag(:span, link_to(taxon.name , seo_url(taxon))))
+        crumbs << taxon.ancestors.collect { |ancestor| content_tag(:li, link_to(ancestor.name , seo_url(ancestor)) + separator) } unless taxon.ancestors.empty?
+        crumbs << content_tag(:li, content_tag(:span, link_to(taxon.name , seo_url(taxon))))
+        crumbs << content_tag(:li, content_tag(:span, product.name)) unless product.nil?
       else
-        crumbs << content_tag(:span, content_tag(:span, Spree.t(:products)))
+        crumbs << content_tag(:li, content_tag(:span, Spree.t(:products)))
       end
-      crumb_list = content_tag(:span, raw(crumbs.flatten.map{|li| li.mb_chars}.join), class: 'inline')
+      crumb_list = content_tag(:ul, raw(crumbs.flatten.map{|li| li.mb_chars}.join), class: 'inline')
       content_tag(:nav, crumb_list, id: 'breadcrumbs', class: 'sixteen columns')
-    end
+    end    
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1, current_level = 1)
+      root_taxon = current_taxon unless current_taxon.nil?
       return '' if max_level < 1 || root_taxon.children.empty?
       if current_level == 1
         content_tag :ul, class: 'widget-shadow', id: 'left-nav' do
