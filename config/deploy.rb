@@ -12,7 +12,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:wbslogistic/#{application}.git"
-set :branch, "breadcrumb2"
+set :branch, "breadcrumbs2"
 
 set :rvm_ruby_string, '2.1.2@wbsbooks_storefront'
 
