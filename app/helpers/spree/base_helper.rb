@@ -78,13 +78,14 @@ module Spree
       nil
     end
 
-    def breadcrumbs(taxon, separator="&nbsp;")
+    def breadcrumbs(taxon, product, separator="&nbsp;")
       return "" if current_page?("/") || taxon.nil?
       separator = raw(separator)
       crumbs = [content_tag(:li, link_to(Spree.t(:home), spree.root_path) + separator)]
       if taxon
         crumbs << taxon.ancestors.collect { |ancestor| content_tag(:li, link_to(ancestor.name , seo_url(ancestor)) + separator) } unless taxon.ancestors.empty?
         crumbs << content_tag(:li, content_tag(:span, link_to(taxon.name , seo_url(taxon))))
+        crumbs << content_tag(:li, content_tag(:span, product.name)) unless product.nil?
       else
         crumbs << content_tag(:li, content_tag(:span, Spree.t(:products)))
       end

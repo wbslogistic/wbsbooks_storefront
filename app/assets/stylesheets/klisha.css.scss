@@ -4,6 +4,7 @@
 		list-style-type: none;
 		display: inline;
 		margin-top: 20px;
+		color: #999;
 		+ li:before {
 			content: "/\00a0";
 			padding: 0 5px;
