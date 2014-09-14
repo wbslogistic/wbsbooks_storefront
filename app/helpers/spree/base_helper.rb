@@ -95,6 +95,7 @@ module Spree
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1, current_level = 1)
       root_taxon = current_taxon unless current_taxon.nil?
+      root_taxon = current_taxon.parent if !current_taxon.nil? and current_taxon.children.blank? 
       return '' if max_level < 1 || root_taxon.children.empty?
       if current_level == 1
         content_tag :ul, class: 'widget-shadow', id: 'left-nav' do
