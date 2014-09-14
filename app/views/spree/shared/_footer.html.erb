@@ -62,11 +62,10 @@
                   <div style="margin-bottom: 0px !important;" class="box_oc">
                     <div>
                       <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><%= link_to "About us", '/about' %></li>
                         <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">Help and Support</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><%= link_to "Help and support", '/faq' %></li>
+                        <li><%= link_to "Contact us", '/contact' %></li>
                       </ul>
                     </div>
                   </div>
@@ -86,7 +85,7 @@
                         <li><%= link_to Spree.t(:forgot_password), spree.recover_password_path %></li>
                         <li><a href="#">My Account</a></li>
                         <li><a href="#">Wish List</a></li>
-                        <li><a href="#">Order History</a></li>
+                        <li><%= link_to Spree.t(:my_orders), spree.account_path %></li>
                       </ul>
                     </div>
                   </div>
