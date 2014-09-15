@@ -94,8 +94,15 @@ module Spree
     end    
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1, current_level = 1)
-      root_taxon = current_taxon unless current_taxon.nil?
-      root_taxon = current_taxon.parent if !current_taxon.nil? and current_taxon.children.blank? 
+      if current_taxon.nil? or !(current_taxon.permalink.include? "categories/")
+        root_taxon = root_taxon
+      else
+        if current_taxon.children.blank?
+          root_taxon = current_taxon.parent
+        else
+          root_taxon = current_taxon
+        end
+      end
       return '' if max_level < 1 || root_taxon.children.empty?
       if current_level == 1
         content_tag :ul, class: 'widget-shadow', id: 'left-nav' do
@@ -123,6 +130,31 @@ module Spree
         end
       end
     end
+
+    def taxon_authors(product)
+      links = ""
+      au_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "authors%"})
+      return '' if au_taxons.blank?
+      au_taxons.map do |taxon|
+        links << '<div class="author">'
+        links << link_to(taxon.name, seo_url(taxon))
+        links << "</div>"
+      end
+      raw(links)
+    end
+
+    def taxon_publishers(product)
+      links = ""
+      pu_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "publishers%"})
+      return '' if pu_taxons.blank?
+      cnt = 0
+      pu_taxons.map do |taxon|
+        cnt+=1
+        links << ", " if cnt > 1
+        links << link_to(taxon.name, seo_url(taxon))
+      end
+      raw(links)
+    end    
 
     def available_countries
       checkout_zone = Zone.find_by(name: Spree::Config[:checkout_zone])

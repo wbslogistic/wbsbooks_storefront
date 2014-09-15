@@ -14,7 +14,12 @@
             <%= render :partial => 'thumbnails' %>
           </div>
                   </div>
-                  <div class="col-xs-12 col-md-3 col-sm-3">                    
+                  <div class="col-xs-12 col-md-3 col-sm-3">  
+                  <%= taxon_authors(@product) %>
+                  <div class="description"> 
+                    <span>Publisher:</span>
+                    <%= taxon_publishers(@product) %>
+                  </div>                 
             <%= render :partial => 'cart_form' %>
                   </div>
                   <div class="col-xs-12 col-md-5 col-sm-5">
