@@ -31,7 +31,7 @@
               <div class="wishlist"><a title="Add to Wish List"><i class="fa fa-list"></i></a></div>
             </div>
             <div class="name"><%= link_to truncate(product.name, :length => 50), url, :itemprop => "name", :title => product.name %></div>
-            <div class="author"><a href="book.html">Dan Brown</a></div>
+            <%= taxon_authors(product) %>
             <div class="price"><%= display_price(product) %></div>
         </div>
         <% end %>
