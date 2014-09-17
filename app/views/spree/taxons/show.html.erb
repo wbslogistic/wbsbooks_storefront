@@ -1,5 +1,21 @@
-<h2 class="taxon-title"><%= @taxon.name %></h2>
-
+<div class="box_oc">
+<div class="title-block">
+  <h1 class="taxon-title"><%= @taxon.name %></h1>
+  <% if !@taxon.description.blank? %>
+    <p><%= @taxon.description %></p>
+  <% end %>
+</div>
+<% if @taxon.parent.name == 'Authors' %>
+<div class="box-heading">
+    <h1 class="mijoshop_heading_h1">Books of author</h1>
+</div>
+<% end %>
+<% if @taxon.parent.name == 'Publishers' %>
+<div class="box-heading">
+    <h1 class="mijoshop_heading_h1">Books of publisher</h1>
+</div>
+<% end %>
+</div>
 <% content_for :sidebar do %>
   <div data-hook="taxon_sidebar_navigation">
     <%= render partial: 'spree/shared/taxonomies' %>
