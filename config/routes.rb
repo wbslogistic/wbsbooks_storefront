@@ -11,7 +11,14 @@ Rails.application.routes.draw do
   get 'contact' => 'spree/home#contact', :as => :contact
   get 'faq' => 'spree/home#faq',         :as => :faq
 
-          # The priority is based upon order of creation: first created -> highest priority.
+
+  Spree::Core::Engine.routes.draw do
+    resources :specials, :only => [:index]
+  end
+
+
+
+  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

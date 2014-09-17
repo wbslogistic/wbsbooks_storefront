@@ -13,8 +13,8 @@
                   <div class="module-inner">
                     <div class="module-ct">
                       <ul class="nav">
-                        <li><%= image_tag "ru.png" , :class => "fa-add2" %><a href="#">Russian</a></li>
-                        <li><%= image_tag "eng.png", :class => "fa-add2"  %><a href="#">English</a></li>
+                        <li><%= image_tag "ru.png" , :class => "fa-add2" %><%= link_to_unless_current "English", set_locale_path( :locale => 'en' ) %></li>
+                        <li><%= image_tag "eng.png", :class => "fa-add2"  %><%= link_to_unless_current "Russian", set_locale_path( :locale => 'ru' ) %></li>
                       </ul>
                     </div>
                   </div>
@@ -68,10 +68,12 @@
             <div class="t3-megamenu animate slide" data-duration="400" data-responsive="true">
               <ul class="nav navbar-nav level0">
                 <li class="current active"><a href="#">What's new?</a></li>
-                <li><a href="#">Specials</a></li>
-                <li><a href="#">Bulk order</a></li>
-                <li><%= link_to "About us", '/about' %></li>
-                <li><%= link_to "Contact us", '/contact' %></li>
+                <li><%= link_to "Specials", specials_path %></li>
+                <% if spree_current_user %>
+                  <li><a href="#">Bulk order</a></li>
+                <% end %>
+                <li><%= link_to Spree.t(:about_us), '/about' %></li>
+                <li><%= link_to Spree.t(:contact_us), '/contact' %></li>
               </ul>
             </div>
           </div>
