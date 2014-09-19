@@ -40,7 +40,7 @@ ru:
         email: E-mail покупателя
         ip_address: IP-адрес
         item_total: Итого по товарам
-        number: Номер
+        number: Номер заказа
         payment_state: Состояние оплаты
         shipment_state: Состояние доставки
         special_instructions: Специальные инструкции
@@ -302,6 +302,33 @@ ru:
   spree:
     about_us: О нас
     contact_us: Контакты
+    publishers: Издательства
+    suggested_titles: Рекомендованные книги
+    english: Английский
+    russian: Русский
+    dollar: Доллар
+    ruble: Рубль
+    euro: Евро
+    whats_new: Новинки
+    specials: Акции
+    bulk_order: Оптовый заказ
+    advanced_search: Расширенный поиск
+    comming_soon: Скоро в продаже
+    signup_for_news_and_offers: Подписаться на новости и предложения
+    acymailing_introtext: Вы не пропустите ни одной новинки, подписавшись на нашу программу рассылки
+    subscribe: Подписаться
+    information: Информация
+    news: Новости
+    online_support: Связаться с нами   
+    help_and_support: Помощь
+    mail_to: Электронный адрес
+    fax: Факс
+    details: Подробнее
+    show: Показать
+    view_open_orders: Открытые заказы
+    three_months: Заказы за последние 3 месяца
+    last_year: Заказы за последний год
+    complete_history: Полная история заказов
     abbreviation: Аббревиатура
     account: Учетная запись
     account_updated: Учетная запись обновлена!
@@ -733,8 +760,11 @@ ru:
     month: Месяц
     more: Больше
     move_stock_between_locations: Перемещение товаров между складами
-    my_account: Моя учетная запись
-    my_orders: Мои заказы
+    my_account: Личные данные
+    my_orders: История заказов
+    my_notifications: Управление подписками
+    my_wishlist: Избранное
+    my_settings: Мои настройки
     name: Наименование
     name_or_sku: Наименование или артикул
     new: Новый
@@ -957,7 +987,7 @@ ru:
     prototypes: Прототипы
     provider: Провайдер
     provider_settings_warning: Если вы меняете провайдера, вы должны сохранить это изменение, прежде чем вы сможете изменить настройки провайдера.
-    qty: Кол-во
+    qty: Количество
     quantity: Количество
     quantity_returned: Количество возврата
     quantity_shipped: Отправленное количество
@@ -1136,7 +1166,8 @@ ru:
     thumbnail: Миниатюра
     time: Время
     to_add_variants_you_must_first_define: Перед добавлением вариантов, вы должны определить
-    total: Итого
+    total: Сумма
+    total_sum: Общая стоимость без учета стоимости доставки
     total_sales: Всего продано на
     track_inventory: Отслеживать наличие
     tracking: Отслеживание

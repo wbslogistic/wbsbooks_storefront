@@ -291,6 +291,33 @@ en:
   spree:
     about_us: About Us
     contact_us: Contact Us
+    publishers: Publishers
+    suggested_titles: Suggested titles
+    english: English
+    russian: Russian
+    dollar: Dollar
+    ruble: Ruble
+    euro: Euro
+    whats_new: Whats new?
+    specials: Specials
+    bulk_order: Bulk order
+    advanced_search: Advanced search
+    comming_soon: Comming Soon
+    online_support: Contact with us
+    signup_for_news_and_offers: Sign up for news and offers
+    acymailing_introtext: Make sure you dont miss interesting happenings by joining our newsletter program
+    subscribe: Subscribe
+    information: Information
+    news: News
+    help_and_support: Help and support
+    mail_to: Mail to
+    fax: Fax
+    total_sum: Summary total
+    details: Details
+    view_open_orders: View open orders
+    three_months: Orders placed in last 3 months
+    last_year: Orders placed in last year
+    complete_history: Complete order history
     abbreviation: Abbreviation
     account: Account
     account_updated: Account updated
@@ -704,8 +731,11 @@ en:
     month: Month
     more: More
     move_stock_between_locations: Move Stock Between Locations
-    my_account: My Account
-    my_orders: My Orders
+    my_account: My account
+    my_orders: My orders
+    my_wishlist: My wishlist
+    my_notifications: My notifications
+    my_settings: My settings
     name: Name
     name_on_card: Name on card
     name_or_sku: Name or SKU (enter at least first 4 characters of product name)

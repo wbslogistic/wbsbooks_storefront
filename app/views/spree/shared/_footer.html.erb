@@ -10,10 +10,10 @@
             <div class="module-ct">
               <div class="custom">
                 <ul class="list-shipping">
-                  <li class="shipping-item"><i class="fa fa-lightbulb-o "></i><span class="title">What's new?</span> <span class="desc">text</span></li>
-                  <li class="exchange-item"><i class="fa fa-calendar"></i><span class="title">Coming soon</span> <span class="desc">text</span></li>
-                  <li class="support-item"><i class="fa fa-flash"></i><span class="title">Special</span> <span class="desc">text</span></li>
-                  <li class="support-item"><i class="fa fa-skype"></i><span class="title">Online support</span> <span class="desc">skype: wbsbooks</span></li>
+                  <li class="shipping-item"><i class="fa fa-lightbulb-o "></i><span class="title"><%= Spree.t(:whats_new) %></span> <span class="desc">text</span></li>
+                  <li class="exchange-item"><i class="fa fa-calendar"></i><span class="title"><%= Spree.t(:comming_soon) %></span> <span class="desc">text</span></li>
+                  <li class="support-item"><i class="fa fa-flash"></i><span class="title"><%= Spree.t(:specials) %></span> <span class="desc">text</span></li>
+                  <li class="support-item"><i class="fa fa-skype"></i><span class="title"><%= Spree.t(:online_support) %></span> <span class="desc">skype: wbsbooks</span></li>
                 </ul>
               </div>
             </div>
@@ -23,13 +23,13 @@
       <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 footer-links">
         <div id="Mod97" class="t3-module module subcribe-frm ">
           <div class="module-inner">
-            <h3 class="module-title "><span>Sign Up for news and offers</span></h3>
+            <h3 class="module-title "><span><%= Spree.t(:signup_for_news_and_offers) %></span></h3>
             <div class="module-ct">
               <div id="acymailing_module_formAcymailing88911" class="acymailing_module subcribe-frm">
                 <div id="acymailing_fulldiv_formAcymailing88911" class="acymailing_fulldiv">
                   <form>
                     <div class="acymailing_module_form row">
-                      <div class="col-md-6"><span class="acymailing_introtext">Make sure you dont miss interesting happenings by joining our newsletter program.</span></div>
+                      <div class="col-md-6"><span class="acymailing_introtext"><%= Spree.t(:acymailing_introtext) %></span></div>
                       <div class="acymailing_form col-md-5">
                         <div class="row">
                           <div class="col-md-8 col-xs-8">
@@ -40,7 +40,7 @@
                               </span> </p>
                           </div>
                           <div class="col-md-4 col-xs-4 acysubbuttons">
-                            <input type="submit" value="Subscribe" class="button subbutton btn btn-red">
+                            <input type="submit" value="<%= Spree.t(:subscribe) %>" class="button subbutton btn btn-red">
                           </div>
                         </div>
                       </div>
@@ -57,15 +57,15 @@
           <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
             <div id="Mod100" class="t3-module module ">
               <div class="module-inner">
-                <h3 class="module-title "><span>Information</span></h3>
+                <h3 class="module-title "><span><%= Spree.t(:information) %></span></h3>
                 <div class="module-ct">
                   <div style="margin-bottom: 0px !important;" class="box_oc">
                     <div>
                       <ul>
-                        <li><%= link_to "About us", '/about' %></li>
-                        <li><a href="#">Newsletter</a></li>
-                        <li><%= link_to "Help and support", '/faq' %></li>
-                        <li><%= link_to "Contact us", '/contact' %></li>
+                        <li><%= link_to Spree.t(:about_us), '/about' %></li>
+                        <li><a href="#"><%= Spree.t(:news) %></a></li>
+                        <li><%= link_to Spree.t(:help_and_support), '/faq' %></li>
+                        <li><%= link_to Spree.t(:contact_us), '/contact' %></li>
                       </ul>
                     </div>
                   </div>
@@ -76,15 +76,15 @@
           <div class=" col-lg-6 col-md-6 col-sm-8 col-xs-12">
             <div id="Mod105" class="t3-module module menu-2col ">
               <div class="module-inner">
-                <h3 class="module-title "><span>My Account</span></h3>
+                <h3 class="module-title "><span><%= Spree.t(:account) %></span></h3>
                 <div class="module-ct">
                   <div style="margin-bottom: 0px !important;" class="box_oc">
                     <div>
                       <ul>
                         <li><%= link_to Spree.t(:login), login_path %> / <%= link_to Spree.t(:registration), signup_path %></li>
                         <li><%= link_to Spree.t(:forgot_password), spree.recover_password_path %></li>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Wish List</a></li>
+                        <li><a href="#"><%= Spree.t(:my_account) %></a></li>
+                        <li><a href="#"><%= Spree.t(:my_wishlist) %></a></li>
                         <li><%= link_to Spree.t(:my_orders), spree.account_path %></li>
                       </ul>
                     </div>
@@ -96,13 +96,13 @@
           <div class=" col-lg-3 col-md-3  col-sm-3 hidden-sm  col-xs-12">
             <div id="Mod99" class="t3-module module ">
               <div class="module-inner">
-                <h3 class="module-title "><span>Location</span></h3>
+                <h3 class="module-title "><span><%= Spree.t(:contact_us) %></span></h3>
                 <div class="module-ct">
                   <div class="custom">
-                    <p>Address: 2411 Any Street. Any Town. United Kingdom.</p>
-                    <p>Mail to: <a href="#">support@yourstore.com</a></p>
-                    <p>Phone: +123 456 7890</p>
-                      <p>Fax: +123 456 7890</p>
+                    <p><%= Spree.t(:address1) %>: 2411 Any Street. Any Town. United Kingdom.</p>
+                    <p><%= Spree.t(:mail_to) %>: <a href="#">support@yourstore.com</a></p>
+                    <p><%= Spree.t(:phone) %>: +123 456 7890</p>
+                      <p><%= Spree.t(:fax) %>: +123 456 7890</p>
                   </div>
                 </div>
               </div>

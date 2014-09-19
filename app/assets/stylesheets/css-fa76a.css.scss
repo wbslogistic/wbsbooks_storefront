@@ -21,7 +21,7 @@
 }
 .price-old {
     color: #999;
-	font-size:14px;
+    font-size:14px;
     text-decoration: line-through;
 }
 .box-content img {
@@ -290,11 +290,11 @@
 }
 
 .product-list .wishlist a {
-	display:block;
+    display:block;
 }
 
 .product-list .wishlist a:hover {
-	color:#333;
+    color:#333;
 }
 
 
@@ -345,7 +345,7 @@
     margin-bottom: 20px;
     overflow: hidden;
     padding: 0;
-	line-height: 38px;
+    line-height: 38px;
 }
 .product-filter .display, .product-filter .limit {
     margin: 0 20px;
@@ -387,7 +387,7 @@
     position: relative;
     vertical-align: middle;
     width: 120px;
-	margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 .select-box:before {
     background: url("/images/bg-drop-select.gif") no-repeat scroll right center rgba(0, 0, 0, 0);
@@ -417,7 +417,7 @@
     padding: 0 20px;
 }
 .product-filter .sort, .product-filter .limit{
-	line-height: 42px;
+    line-height: 42px;
 }
 @media screen and (max-width: 769px) {
 .product-filter .sort {
@@ -833,7 +833,7 @@
 }
 
 .cart-info tbody .price-total {
-	font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab';
     font-weight: 300;
 }
 .buttons .center {
@@ -855,7 +855,7 @@
 }
 
 .cart-info td.image {
-	width:90px;	
+    width:90px; 
 }
 table.radio {
     margin: 0;
@@ -871,7 +871,7 @@ table.radio td {
     vertical-align: middle;
 }
 .cart-total #total {
-    width: 300px;
+    width: 470px;
 }
 .cart-total tr td {
     border-color: #eee;
@@ -879,7 +879,7 @@ table.radio td {
     font-weight: 300;
     padding: 10px 0;
     text-align: left;
-	/*padding-right: 148px;*/
+    /*padding-right: 148px;*/
 }
 .cart-total tr td:last-child {
     color: #f0141e;
@@ -898,7 +898,7 @@ table.radio td {
 }
 
 .cart-order thead th, .cart-order tbody td {
-	
+    
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -7,14 +7,14 @@
       <div class="toolbar-ct col-xs-12 col-md-6  hidden-sm hidden-xs">
           <div class="toolbar-ct-5">
             <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= image_tag "eng.png" %><!-- <img alt="English" src="images/eng.png"> -->&nbsp;English</button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= image_tag "eng.png" %><!-- <img alt="English" src="images/eng.png"> -->&nbsp;<%= Spree.t (:english) %></button>
               <div class="dropdown-menu" role="menu">
                 <div class="t3-module module">
                   <div class="module-inner">
                     <div class="module-ct">
                       <ul class="nav">
-                        <li><%= image_tag "ru.png" , :class => "fa-add2" %><%= link_to_unless_current "English", set_locale_path( :locale => 'en' ) %></li>
-                        <li><%= image_tag "eng.png", :class => "fa-add2"  %><%= link_to_unless_current "Russian", set_locale_path( :locale => 'ru' ) %></li>
+                        <li><%= image_tag "eng.png" , :class => "fa-add2" %><%= link_to_unless_current Spree.t(:english), set_locale_path( :locale => 'en' ) %></li>
+                        <li><%= image_tag "ru.png", :class => "fa-add2"  %><%= link_to_unless_current Spree.t(:russian), set_locale_path( :locale => 'ru' ) %></li>
                       </ul>
                     </div>
                   </div>
@@ -25,15 +25,15 @@
 
           <div class="toolbar-ct-5">
             <div class="btn-group">
-              <i class="fa fa-dollar fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Dollar</button>
+              <i class="fa fa-dollar fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= Spree.t(:dollar) %></button>
               <div class="dropdown-menu" role="menu">
                 <div class="t3-module module">
                   <div class="module-inner">
                     <div class="module-ct">
                       <ul class="nav">
-                        <li><i class="fa fa-dollar fa-add"></i><a href="#">Dollar</a></li>
-                        <li><i class="fa fa-ruble fa-add"></i><a href="#">Ruble</a></li>
-                        <li><i class="fa fa-euro fa-add"></i><a href="#">Euro</a></li>
+                        <li><i class="fa fa-dollar fa-add"></i><a href="#"><%= Spree.t(:dollar) %></a></li>
+                        <li><i class="fa fa-ruble fa-add"></i><a href="#"><%= Spree.t(:ruble) %></a></li>
+                        <li><i class="fa fa-euro fa-add"></i><a href="#"><%= Spree.t(:euro) %></a></li>
                       </ul>
                     </div>
                   </div>
@@ -67,10 +67,10 @@
           <div class="t3-navbar navbar-collapse collapse">
             <div class="t3-megamenu animate slide" data-duration="400" data-responsive="true">
               <ul class="nav navbar-nav level0">
-                <li class="current active"><a href="#">What's new?</a></li>
-                <li><%= link_to "Specials", specials_path %></li>
+                <li class="current active"><a href="#"><%= Spree.t(:whats_new) %></a></li>
+                <li><%= link_to Spree.t(:specials), specials_path %></li>
                 <% if spree_current_user %>
-                  <li><a href="#">Bulk order</a></li>
+                  <li><a href="#"><%= Spree.t(:bulk_order) %></a></li>
                 <% end %>
                 <li><%= link_to Spree.t(:about_us), '/about' %></li>
                 <li><%= link_to Spree.t(:contact_us), '/contact' %></li>

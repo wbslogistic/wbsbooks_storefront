@@ -17,14 +17,14 @@
               <div class="box-content">
                 <% if @orders.present? %>
               <div class="product-filter">
-                  <div class="limit"><b>Show:</b>
+                  <div class="limit"><b><%= Spree.t(:show) %></b>
                     <div class="select-box" style="width:195px !important">
                       <div class="sub-select-box">
                         <select onchange="location = this.value;" style="width:185px !important">
-                          <option value="#" selected="selected">View open orders</option>
-                          <option value="#">Orders placed in last 3 months</option>
-                          <option value="#">Orders placed in last year</option>
-                          <option value="#">Complete order history</option>
+                          <option value="#" selected="selected"><%= Spree.t(:view_open_orders) %></option>
+                          <option value="#"><%= Spree.t(:three_months) %></option>
+                          <option value="#"><%= Spree.t(:last_year) %></option>
+                          <option value="#"><%= Spree.t(:complete_history) %></option>
                         </select>
                       </div>
                     </div>
@@ -52,7 +52,7 @@
                           <td class="quantity"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
           <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
                           <td class="total"><%= order.display_total %></td>
-                          <td style="text-align:right;"><a href="order_done.html"><%= link_to Spree.t("details"), order_url(order) %></a></td>
+                          <td style="text-align:right;"><a href="order_done.html"><%= link_to Spree.t(:details), order_url(order) %></a></td>
                         </tr>
                         <% end %>
                       </tbody>

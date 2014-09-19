@@ -8,6 +8,7 @@
                 <h1 class="mijoshop_heading_h1"><%= Spree.t(:about_us) %></h1>
               </div>
               <div class="box-content">
+              <% if I18n.locale == :en %>
                 <p class="p-about-title">INNOVATIVE COMPANY OFFERING RUSSIAN BOOKS, FROM THE ALL TIME CLASSICS UPTO THE LATEST RELEASES</p>
                 <p> WBS Books - a new kind of wholesaler that has been created due to a growing interest for Russian Language books and Culture outside of Russia. Being part of the WBS Group, a reliable service can be offered through the strength of our people and our extensive knowledge. Our vision is that business should be a partnership, As a B2B business we develop together with our customers to sell not just to buy. The future of paper bookselling requires new ways to satisfy consumer’s needs: fast, simple, interactive, comprehensive, and competitive....</p>
                 <p class="p-about-title">WRITTEN BY RUSSIAN AND INTERNATIONAL AUTHORS</p>
@@ -25,6 +26,49 @@ Fiction, Non-Fiction, Classics, Children’s, Art, Language learning, Academic, 
                 <p>Electronic data feeds from a large number of sources, allowing our customers to have instant information at their finger tips. New titles are arriving daily and we intend soon to offer pre-release information and ordering possibilities. Modern business requires instant information, fast reactions to enable quick decisions. The human power behind our activity is our team - one with creativity, knowledge and experience. We are committed and believe that business should be personal. </p>
                 <p class="p-about-title">DIRECTLY FROM RUSSIA TO ANY GLOBAL LOCATION</p>
                 <p>Logistics is a key skill and one that our company has grown from - we are innovators within this sector. Doing business with Russia is often seen as uncharted territory. WBS Books understand and have great experience and knowledge that you can rely upon, we guarantee to remove the barriers and handle all of the administration and challenges of doing business with Russian product and services. The fresh range of freight services available by Road/Sea/Air, that deliver ‘just-in-time’ solutions to any place in the world, the added benefits of such dynamic models helps our customers save time and money through a variety of stock and warehousing cost savings.</p>
+
+                <% else %>
+
+                <p class="p-about-title">Компания с современными взглядами в области поставок русских книг, начиная от классической литературы и заканчивая самыми свежими релизами</p>
+                <p> WBS Books - книготорговая компания новой формации, специльно созданная с целью удовлетворить растущий интерес к русским книгам, языку и культуре за пределами России. <br>
+                Компания входит в группу WBS, что является гарантией надежного сервисa, основанного на обширном опыте и знаниях наших специалистов. <br>
+                Мы уверены, что бизнес должен быть основан на партнерских отношениях, для чего мы постоянно развиваемся вместе с нашими клиентами и помогаем им продавать, а не только покупать. <br>
+                Будущее традиционной книготорговли требует нового подхода к удовлетворению потребностей покупателя: простых, быстрых, интерактивных и конкурентоспособных решений.</p>
+                <p class="p-about-title">Мы предлагаем книги на русском языке от лучших российских  и  популярнейших зарубежных авторов</p>
+                <p>Одна из наших основных целей - представить миру современных российских авторов, которые заслуживают быть известными за пределами России, а также сделать доступными самые популярные бестселлеры в мире, изданные на русском языке. <br>
+                Помощь в подборе ассортимента, обширные знания и поддержка команды WBS Books обеспечат легкость работы на этом относительно неизвестном рынке.</p>
+                <p class="p-about-title">Полный спектр художественной литературы и специализированных изданий</p>
+                <p>Имея за спиной поддержку хорошо известных крупнейших издательств, таких как Эксмо, АСТ, Азбука Аттикус и Олма, а так же развивая возможности вместе с независимыми издателями, мы стремимся обеспечить максимально полный ассортимент для постоянно растущей аудитории.</p>
+                <p class="p-about-title">Мы верим, что русские книги достойны быть прочитанными за пределами России</p>
+                <p>Глобализация повлияла на существенный рост  русскоговорящего населения, проживающего за рубежом.<br>
+                Интерес к современной России постоянно растет, как растет и желание изучать русский язык. <br>
+                Доступ к Русским книгам в настоящее время очень важен и традиционные методы книготорговли больше не приемлемы. <br>
+                Мы предлагаем современные решения и варианты для столь динамичного рынка.</p>
+                <p class="p-about-title">Круглосуточная возможность размещения заказов и различные способы доставки</p>
+                <p>Постоянно работающий уникальный сайт позволяет получить доступ к полной информации о всех представленных русских книгах: полную библио информацию, актуальные складские остатки, полностью переведенные аннотации к книгам.<br>
+                Мы обеспечиваем возможности мультиязыковой навигации, а так же интерактивного ценообразования. <br>
+                Заказ книг никогда ранее не был таким простым, понятным и удобным.</p>
+                <p class="p-about-title">Остатки книг на складе в реальном времени</p>
+                <p>Электронные базы данных из большого количества источников  позволяют нашим заказчикам мгновенно получать доступ ко всей необходимой информации. <br>
+                Ассортимент книг ежедневно пополняется, и вскоре мы предложим опцию предварительного заказa  наиболее интересных релизов. <br>
+                Современному бизнесу необходима актуальная информация для принятия быстрых и правильных решений.<br>
+                Наша команда, состоящая из творческих и опытных экспертов книжного рынка,  - основа нашей компании!   <br>
+                Мы полны решимости и считаем, что бизнес должен быть личным.</p>
+                <p class="p-about-title">Круглосуточная возможность размещения заказов и различные способы доставки</p>
+                <p>Постоянно работающий уникальный сайт позволяет получить доступ к полной информации о всех представленных русских книгах: полную библио информацию, актуальные складские остатки, полностью переведенные аннотации к книгам.<br>
+                Мы обеспечиваем возможности мультиязыковой навигации, а так же интерактивного ценообразования. <br>
+                Заказ книг никогда ранее не был таким простым, понятным и удобным.</p>
+                <p class="p-about-title">Остатки книг на складе в реальном времени</p>
+                <p>Электронные базы данных из большого количества источников  позволяют нашим заказчикам мгновенно получать доступ ко всей необходимой информации. <br>
+                Ассортимент книг ежедневно пополняется, и вскоре мы предложим опцию предварительного заказa  наиболее интересных релизов. <br>
+                Современному бизнесу необходима актуальная информация для принятия быстрых и правильных решений.<br>
+                Наша команда, состоящая из творческих и опытных экспертов книжного рынка,  - основа нашей компании!   <br>
+                Мы полны решимости и считаем, что бизнес должен быть личным. </p>
+                <p class="p-about-title">Доставка из России в любую точку мира</p>
+                <p>Логистика является нашим ключевым сервисом, мы по праву призаные  новаторы в книжном  секторе. <br>
+                Зачастую ведение бизнеса с Россией вызывает опасения. В WBS Books понимают это, имея большой опыт и знания, на которые Вы можете рассчитывать. Мы готовы сломать все барьеры и помочь разрешить все трудности ведения бизнеса с русскими продуктами и услугами.<br>
+                Широкий диапазон транспортных услуг: автодоставка / море / воздух - в любую точку мира, обеспечивают современные решения и дополнительные преимущества, что помогает нашим клиентам экономить время и деньги.</p>
+                <% end %>
               </div>
             </div>
           </div>
