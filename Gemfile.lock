@@ -10,6 +10,14 @@ GIT
       spree_core (~> 2.3.0)
 
 GIT
+  remote: git://github.com/wbslogistic/spree_wishlist.git
+  revision: 1b554fe0e61244c3480d0e6d6b324e5a6a87e394
+  branch: 2-3-stable
+  specs:
+    spree_wishlist (2.2)
+      spree_core (~> 2.3.0)
+
+GIT
   remote: https://github.com/spree/spree_auth_devise.git
   revision: 50374cecd977f0d8464e6e22c43ecaafd8b4b97d
   branch: 2-3-stable
@@ -330,6 +338,7 @@ DEPENDENCIES
   spree_auth_devise!
   spree_gateway!
   spree_i18n!
+  spree_wishlist!
   spring
   sqlite3
   turbolinks

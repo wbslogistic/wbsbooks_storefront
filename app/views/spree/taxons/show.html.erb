@@ -5,15 +5,17 @@
     <p><%= @taxon.description %></p>
   <% end %>
 </div>
-<% if @taxon.parent.name == 'Authors' %>
-<div class="box-heading">
-    <h1 class="mijoshop_heading_h1">Books of author</h1>
-</div>
-<% end %>
-<% if @taxon.parent.name == 'Publishers' %>
-<div class="box-heading">
-    <h1 class="mijoshop_heading_h1">Books of publisher</h1>
-</div>
+<% if !@taxon.parent.nil? %>
+  <% if @taxon.parent.name == 'Authors' %>
+  <div class="box-heading">
+      <h1 class="mijoshop_heading_h1">Books of author</h1>
+  </div>
+  <% end %>
+  <% if @taxon.parent.name == 'Publishers' %>
+  <div class="box-heading">
+      <h1 class="mijoshop_heading_h1">Books of publisher</h1>
+  </div>
+  <% end %>
 <% end %>
 </div>
 <% content_for :sidebar do %>
