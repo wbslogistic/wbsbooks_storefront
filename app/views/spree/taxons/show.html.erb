@@ -2,7 +2,7 @@
 <div class="title-block">
   <h1 class="taxon-title"><%= @taxon.name %></h1>
   <% if !@taxon.description.blank? %>
-    <p><%= @taxon.description %></p>
+    <div class="taxon-desc"><%= raw(@taxon.description) %></div>
   <% end %>
 </div>
 <% if !@taxon.parent.nil? %>
