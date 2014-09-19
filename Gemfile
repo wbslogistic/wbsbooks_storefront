@@ -44,6 +44,7 @@ gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :bran
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-3-stable'
 
 gem 'spree_i18n', github: 'spree/spree_i18n', branch: '2-3-stable'
+gem 'spree_wishlist', github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
 
 # klisha
 gem 'pg'

@@ -7060,9 +7060,8 @@ div.acymailing_module_success {
     color: #aaa;
     display: block;
 	line-height:normal;
-    padding: 5px; /*10px;*/
+    padding: 7px; /*10px;*/
     text-align: center;
-    width: 30px; /* 38px;*/
 }
 .wishlistAddA {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -7084,6 +7083,24 @@ div.acymailing_module_success {
 .lemmaBook .wishlistAdd a.active {
 	color:#333;
 }
+
+.lemmaBook .wishlistAdd form button {
+    background: none repeat scroll 0 0 whitesmoke ;
+	border:1px solid whitesmoke;
+    color: #aaa;
+    display: block;
+	line-height:normal;
+    padding: 7px; /*10px;*/
+    text-align: center;
+}
+
+.lemmaBook .wishlistAdd form button:hover {
+	color:#333;
+}
+.lemmaBook .wishlistAdd form button.active {
+	color:#333;
+}
+
 .liteAccordion .slide > div .wishlist,.liteAccordion .slide > div .compare {
 	float:left;
 	margin-top:8px
