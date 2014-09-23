@@ -1,0 +1,57 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<head>
+    <%= render :partial => 'spree/shared/head' %>
+</head>
+<body>
+
+<div class="t3-wrapper"> 
+  <!-- // Need these wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+  
+  <%= render :partial => 'spree/shared/header' %>
+
+<div id="t3-mainbody" class="container t3-mainbody has-sidebar-left has-col-md-3">
+    <div class="row"> 
+      
+
+      <!-- MAIN CONTENT -->
+      <div id="t3-content" class="t3-content col-xs-12 col-sm-12 col-md-12">
+        <div style="display: none;" id="system-message-container"> </div>
+        <div id="container_oc">
+          
+          <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
+            <%= flash_messages %>
+          <%= yield %>
+        </div>
+
+        </div>
+      </div>
+      <!-- //MAIN CONTENT --> 
+      
+    </div>
+  </div>
+  
+<div class="sticky-module sticky-module-left ">
+  <div class="custom"> 
+
+    <%= render :partial => 'spree/shared/social' %>
+
+  </div>
+</div>
+  
+  <div id="back-to-top" class="back-to-top hidden-xs hidden-sm deactive">
+    <button class="btn btn-primary"><i class="fa fa-caret-up"></i>Top</button>
+  </div>
+  
+</div>
+      <%= render :partial => 'spree/shared/footer' %>
+      <%= render :partial => 'spree/shared/google_analytics' %>
+</body>
+</html>
+
+
+
