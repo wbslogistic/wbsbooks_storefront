@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   get 'about' => 'spree/home#about', :as => :about
   get 'contact' => 'spree/home#contact', :as => :contact
   get 'faq' => 'spree/home#faq', :as => :faq
-  get 'search' => 'spree/products#advanced_search', :as => :search
 
 
   Spree::Core::Engine.routes.draw do
     resources :specials, :only => [:index]
+    get '/search' => 'products#advanced_search', :as => :search
   end
 
 

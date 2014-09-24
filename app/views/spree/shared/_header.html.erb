@@ -86,7 +86,7 @@
             <div style="text-align:right">
 
               <%= render :partial => 'spree/shared/search' %> 
-              <a href="#" class="search-adv">Advanced search</a>
+              <%= link_to "Advanced search", spree.search_path, class: "search-adv" %>
             </div>
           </div>
           <!-- //HEAD SEARCH --> 
