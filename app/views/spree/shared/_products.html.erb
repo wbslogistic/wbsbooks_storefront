@@ -5,7 +5,7 @@
 
 <% content_for :head do %>
   <% if paginated_products.respond_to?(:num_pages) %>
-    <%= rel_next_prev_link_tags paginated_products %>
+    <%# rel_next_prev_link_tags paginated_products %>
   <% end %>
 <% end %>
 
@@ -16,9 +16,18 @@
       <%= Spree.t(:no_products_found) %>
     </div>
   <% elsif params.key?(:keywords) %>
-    <div data-hook="products_search_results_heading_results_found">
-      <h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>
+    <!--<div data-hook="products_search_results_heading_results_found">-->
+      <!--<h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>-->
+    <!--</div>-->
+
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10" style="margin-bottom:15px;">
+      Найдено <%= pluralize(@products.count.is_a?(Hash) ? @products.count.count : @products.count, 'товар') %>
+      <% if params[:keywords].present? %>
+          по запросу "<%= params[:keywords] %>"
+      <% end %>
     </div>
+  </div>
   <% end %>
 </div>
 
@@ -127,7 +136,7 @@
 
 
 <% if paginated_products.respond_to?(:num_pages) %>
-  <%= paginate paginated_products %>
+  <%# paginate paginated_products %>
 <% end %>
 
 

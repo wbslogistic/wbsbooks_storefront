@@ -19,6 +19,10 @@ module WbsBasic
       Dir.glob(File.join(File.dirname(__FILE__), "../app/overrides/*.rb")) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
+
+      Dir.glob(File.join(File.dirname(__FILE__), "../lib/spree/**/*.rb")) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
     end
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -32,5 +36,6 @@ module WbsBasic
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
   end
 end
