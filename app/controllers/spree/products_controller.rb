@@ -5,12 +5,18 @@ module Spree
     before_filter :load_product, :only => :show
     before_filter :load_taxon, :only => :index
 
-    rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+    #rescue_from ActiveRecord::RecordNotFound, :with => :render_404
     helper 'spree/taxons'
 
     respond_to :html
 
     def index
+      @searcher = build_searcher(params)
+      @products = @searcher.retrieve_products
+      @taxonomies = Spree::Taxonomy.includes(root: :children)
+    end
+
+    def advanced_search
       @searcher = build_searcher(params)
       @products = @searcher.retrieve_products
       @taxonomies = Spree::Taxonomy.includes(root: :children)

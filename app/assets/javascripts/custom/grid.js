@@ -80,11 +80,11 @@ function display(view) {
     jQuery.totalStorage('display', 'grid');
   }
 }
-
-view = jQuery.totalStorage('display');
-
-if (view) {
-  display(view);
-} else {
-            display('grid');
-    }
+//
+//view = jQuery.totalStorage('display');
+//
+//if (view) {
+//  display(view);
+//} else {
+//            display('grid');
+//    }
