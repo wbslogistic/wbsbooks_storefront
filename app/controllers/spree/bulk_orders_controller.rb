@@ -2,8 +2,8 @@ module Spree
   class BulkOrdersController < Spree::ProductsController
   	layout "bulk_order_layout"
      def index
-     	if (params[:title] and !params[:title].blank?)
-     		@products = Product.all
+     	if (!params[:title].blank? or !params[:isbn].blank? or !params[:author].blank? or !params[:publisher].blank?)
+     		@products = Product.search(params[:title],params[:isbn],params[:author], params[:publisher])
      	end
 		# @taxon = Spree::Taxon.find_by_name('Specials') if 'Specials'.present?
 		# @searcher = build_searcher(params.merge(:taxon => @taxon.id))

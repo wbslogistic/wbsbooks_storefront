@@ -51,10 +51,10 @@
           	<% if @products %>
           	  <% @products.each do |product|%>
 	            <tr>
-	              <td>978-5-389-07073-8</td>
-	              <td><a href="#"><%= product.name %></a></td>
-	              <td><a href="#">Moyes J.</a></td>
-	              <td><a href="#">EKSMO</a></td>
+	              <td><%= product.isbn %></td>
+	              <td><%= link_to product.name, product %></td>
+	              <td><% if product.author %><%= link_to product.author.name, "/t/"+ product.author.permalink %><% end %></td>
+	              <td><% if product.publisher %><%= link_to product.publisher.name, "/t/"+ product.publisher.permalink %><% end %></td>
 	              <td><i class="fa fa-times red"></i></td>
 	              <td>$12</td>
 	              <td>$10</td>
