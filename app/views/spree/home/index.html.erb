@@ -1,15 +1,24 @@
-
 <% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <%= render :partial => 'spree/shared/taxonomies' %>
-  </div>
+    <div data-hook="homepage_sidebar_navigation">
+      <%= render :partial => 'spree/shared/taxonomies' %>
+    </div>
 <% end %>
 
 
 <div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render :partial => 'spree/shared/products_no_filters', :locals => { :products => @products } %>
+  <% %w[bestsellers new best_price].map { |p| Spree::Taxon.find_by_permalink(p) }.reject(&:nil?).each do |taxon| %>
+      <div class="box_oc">
+        <div class="box-heading">
+          <h1 class="mijoshop_heading_h1"><%= taxon.name %></h1>
+        </div>
+        <div class="box-content">
+          <% cache(cache_key_for_products, taxon.permalink) do %>
+              <%= render :partial => 'spree/shared/products_no_filters', :locals => {:products => Spree::Product.in_taxon(taxon)} %>
+          <% end %>
+        </div>
+      </div>
   <% end %>
+
 </div>
 
 
