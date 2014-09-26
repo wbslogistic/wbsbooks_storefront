@@ -5,7 +5,7 @@
 
 <% content_for :head do %>
     <% if paginated_products.respond_to?(:num_pages) %>
-        <%# rel_next_prev_link_tags paginated_products %>
+        <%= rel_next_prev_link_tags paginated_products %>
     <% end %>
 <% end %>
 
@@ -143,7 +143,7 @@
 
 
 <% if paginated_products.respond_to?(:num_pages) %>
-    <%# paginate paginated_products %>
+    <%= paginate paginated_products %>
 <% end %>
 
 
