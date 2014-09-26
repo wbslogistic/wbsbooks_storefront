@@ -48,6 +48,7 @@
             </tr>
           </thead>
           <tbody>
+            
           	<% if @products %>
           	  <% @products.each do |product|%>
 	            <tr>
@@ -55,11 +56,15 @@
 	              <td><%= link_to product.name, product %></td>
 	              <td><% if product.author %><%= link_to product.author.name, "/t/"+ product.author.permalink %><% end %></td>
 	              <td><% if product.publisher %><%= link_to product.publisher.name, "/t/"+ product.publisher.permalink %><% end %></td>
-	              <td><i class="fa fa-times red"></i></td>
-	              <td>$12</td>
-	              <td>$10</td>
+	              <td><% if product.qty > 0 %>
+                      <%= product.qty %> 
+                    <% else %> 
+                      <i class="fa fa-times red"></i></td>
+                    <% end %>
+	              <td>???</td>
+	              <td><% if product.price %> <%= product.price %> <% end %></td>
 	              <td><input value="10" style="width:50px !important" placeholder="10"></td>
-	              <td>$120</td>
+	              <td>???</td>
 	            </tr>
 	          <% end %>
 	        <% end %>
