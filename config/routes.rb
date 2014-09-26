@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   Spree::Core::Engine.routes.draw do
     resources :specials, :only => [:index]
-    get '/search' => 'products#advanced_search', :as => :search
+    get 'search' => 'products#advanced_search', :as => :search
   end
 
 

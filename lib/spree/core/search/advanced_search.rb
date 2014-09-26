@@ -40,11 +40,14 @@ module Spree
           taxons = []
           taxons << author if author
           taxons << publisher if publisher
-          id = Spree::Product.arel_table[:id]
-          base_scope = base_scope.where(spree_taxons: {id: taxons.map { |t| t.self_and_descendants.pluck(:id) }.flatten.uniq}).group(id).having(id.count.eq(taxons.size))
-          
-          if min_price.present? || max_price.present?
-            base_scope = base_scope.price_between(min_price || 0, max_price || 9999999)
+
+          if taxons.any?
+            id         = Spree::Product.arel_table[:id]
+            base_scope = base_scope.where(spree_taxons: {id: taxons.map { |t| t.self_and_descendants.pluck(:id) }.flatten.uniq}).group(id).having(id.count.eq(taxons.size))
+          end
+
+          if min_price || max_price
+            base_scope = base_scope.price_between((min_price || 0), (max_price || 999999))
           end
 
           base_scope = base_scope.in_taxon(taxon) unless taxon.blank?
@@ -87,6 +90,9 @@ module Spree
           @properties[:author]    = params[:author].blank? ? nil : Spree::Taxon.find(params[:author])
           @properties[:publisher] = params[:publisher].blank? ? nil : Spree::Taxon.find(params[:publisher])
           
+          @properties[:min_price] = params[:min_price].blank? ? nil : params[:min_price].to_f
+          @properties[:max_price] = params[:max_price].blank? ? nil : params[:max_price].to_f
+
           @properties[:min_price] = params[:min_price].blank? ? nil : params[:min_price].to_f
           @properties[:max_price] = params[:max_price].blank? ? nil : params[:max_price].to_f
 

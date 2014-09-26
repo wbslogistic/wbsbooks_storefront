@@ -22,14 +22,14 @@
 
             <div class="col-sm-5 box-selectize">
               <select id="select-publishers" class="demo-default" placeholder="Select a publisher..." name="publisher">
-                <%= options_for_select Spree::Taxonomy.find_by_name("Categories").taxons.map { |t| [t[:name], t[:id]] }, params[:publisher] %>
+                <%= options_from_taxonomy(:publisher) %>
               </select>
             </div>
             <label for="select-author" class="col-sm-1 control-label">Author</label>
 
             <div class="col-sm-5 box-selectize">
               <select id="select-author" class="demo-default" placeholder="Select a person..." name="author">
-                <%= options_for_select Spree::Taxonomy.find_by_name("Brand").taxons.map { |t| [t[:name], t[:id]] }, params[:author] %>
+                <%= options_from_taxonomy(:author) %>
               </select>
             </div>
           </div>
@@ -41,7 +41,7 @@
               <%= text_field_tag :min_price, params[:min_price], type: '', class: 'form-control', placeholder: 'Price from' %>
             </div>
             <div class="col-sm-2">
-              <%= text_field_tag :max_price, params[:max_price], type: '', class: 'form-control', placeholder: 'Price from' %>
+              <%= text_field_tag :max_price, params[:max_price], type: '', class: 'form-control', placeholder: 'Price to' %>
             </div>
             <label for="inputPassword3" class="col-sm-2 control-label">Date</label>
 

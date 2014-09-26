@@ -52,10 +52,16 @@ module Spree
       end
     end
 
-    def cache_key_for_products
+    def cache_key_for_products(section = 'all')
       count = @products.count
-      max_updated_at = (@products.maximum(:updated_at) || Date.today).to_s(:number)
-      "#{I18n.locale}/#{current_currency}/spree/products/all-#{params[:page]}-#{max_updated_at}-#{count}"
+      max_updated_at = (@products.maximum(:updated_at) || Time.now).to_s(:number)
+      "#{I18n.locale}/#{current_currency}/spree/products/#{section}-#{params[:page]}-#{max_updated_at}-#{count}"
+    end
+
+    def options_from_taxonomy(key)
+      taxonomy = Spree::Taxonomy.find_by_name(key.to_s.humanize.pluralize)
+      values = taxonomy.taxons.reject(&:root?).map { |t| [t[:name], t[:id]] }
+      options_for_select ([['Any', '']] + values), params[key]
     end
   end
 end
