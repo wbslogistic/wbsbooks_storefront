@@ -43,7 +43,7 @@ module Spree
 
           if taxons.any?
             id         = Spree::Product.arel_table[:id]
-            base_scope = base_scope.where(spree_taxons: {id: taxons.map { |t| t.self_and_descendants.pluck(:id) }.flatten.uniq}).group(id).having(id.count.eq(taxons.size))
+            base_scope = base_scope.where(spree_taxons: { id: taxons.map { |t| t.self_and_descendants.pluck(:id) }.flatten.uniq }).group(id).having(id.count.eq(taxons.size))
           end
 
           if min_price || max_price
@@ -59,7 +59,7 @@ module Spree
 
         def add_eagerload_scopes scope
           if include_images
-            scope.eager_load({master: [:prices, :images]})
+            scope.eager_load({ master: [:prices, :images] })
           else
             scope.includes(master: :prices)
           end
@@ -71,7 +71,7 @@ module Spree
             if base_scope.respond_to?(:search_scopes) && base_scope.search_scopes.include?(scope_name.to_sym)
               base_scope = base_scope.send(scope_name, *scope_attribute)
             else
-              base_scope = base_scope.merge(Spree::Product.ransack({scope_name => scope_attribute}).result)
+              base_scope = base_scope.merge(Spree::Product.ransack({ scope_name => scope_attribute }).result)
             end
           end if search
           base_scope
@@ -80,7 +80,16 @@ module Spree
         # method should return new scope based on base_scope
         def get_products_conditions_for(base_scope, query)
           unless query.blank?
-            base_scope = base_scope.like_any([:name, :description], query.split)
+            fields = [:name, :description]
+            values = query.split
+            base_scope = base_scope.joins(:translations)
+            base_scope = base_scope.where fields.map { |field|
+              values.map { |value|
+                base_scope.arel_table[field].matches("%#{value}%").or(
+                  Spree::Product::Translation.arel_table[field].matches("%#{value}%")
+                )
+              }.inject(:or)
+            }.inject(:or)
           end
           base_scope
         end
@@ -89,7 +98,7 @@ module Spree
           @properties[:taxon]     = params[:taxon].blank? ? nil : Spree::Taxon.find(params[:taxon])
           @properties[:author]    = params[:author].blank? ? nil : Spree::Taxon.find(params[:author])
           @properties[:publisher] = params[:publisher].blank? ? nil : Spree::Taxon.find(params[:publisher])
-          
+
           @properties[:min_price] = params[:min_price].blank? ? nil : params[:min_price].to_f
           @properties[:max_price] = params[:max_price].blank? ? nil : params[:max_price].to_f
 
