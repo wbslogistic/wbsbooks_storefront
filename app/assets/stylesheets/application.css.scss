@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+
+.product-list {
+  margin: 0;
+
+  .image {
+    width: 90px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+
+    img {
+      height: 70px;
+      vertical-align: middle;
+    }
+  }
+
+  .price {
+    float: right;
+    width: 75px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+  }
+
+  & > * {
+//    padding: 15px 20px;
+  }
+
+  .product-item-0 {
+
+  }
+}
+
+.product-item-0 {
+  .price {
+    color: #444;
+    font-family: 'Roboto Slab';
+    font-size: 14px;
+  }
+
+  .name {
+    a  {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+}

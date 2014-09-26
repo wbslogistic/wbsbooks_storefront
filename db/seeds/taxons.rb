@@ -1,4 +1,4 @@
-#encoding: utf-8
+# encoding: UTF-8
 categories = Spree::Taxonomy.find_by_name!("Categories")
 specials = Spree::Taxonomy.find_by_name!("Specials")
 publishers = Spree::Taxonomy.find_by_name!("Publishers")
