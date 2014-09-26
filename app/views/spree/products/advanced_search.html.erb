@@ -1,0 +1,132 @@
+<!-- MAIN CONTENT -->
+<div class="t3-content col-xs-12" id="t3-content">
+  <div id="system-message-container" style="display: none;"></div>
+  <div class="box_oc">
+    <div class="box-heading">
+      <h1 class="mijoshop_heading_h1">Advanced Search</h1>
+    </div>
+
+    <div class="finder">
+
+      <%= form_tag('/search', {method: :get, role: 'form', class: 'form-horizontal'}) do %>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-1 control-label">Search</label>
+
+            <div class="col-sm-11">
+              <%= text_field_tag :keywords, params[:keywords], type: '', class: 'form-control', id: 'inputEmail3', placeholder: 'Search' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="select-publishers" class="col-sm-1 control-label">Publishers</label>
+
+            <div class="col-sm-5 box-selectize">
+              <select id="select-publishers" class="demo-default" placeholder="Select a publisher..." name="publisher">
+                <%= options_from_taxonomy(:publisher) %>
+              </select>
+            </div>
+            <label for="select-author" class="col-sm-1 control-label">Author</label>
+
+            <div class="col-sm-5 box-selectize">
+              <select id="select-author" class="demo-default" placeholder="Select a person..." name="author">
+                <%= options_from_taxonomy(:author) %>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-1 control-label">Price </label>
+
+            <div class="col-sm-2">
+              <%= text_field_tag :min_price, params[:min_price], type: '', class: 'form-control', placeholder: 'Price from' %>
+            </div>
+            <div class="col-sm-2">
+              <%= text_field_tag :max_price, params[:max_price], type: '', class: 'form-control', placeholder: 'Price to' %>
+            </div>
+            <label for="inputPassword3" class="col-sm-2 control-label">Date</label>
+
+            <div class="col-sm-2">
+              <input class="form-control" id="1122" placeholder="Date from">
+            </div>
+            <div class="col-sm-2">
+              <input class="form-control" placeholder="Date to">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+              <%= button_tag class: %w[btn btn-primary], name: 'Search', type: :submit do %>
+                  <span class="icon-search icon-white"></span>
+                  Search
+              <% end %>
+
+            </div>
+          </div>
+
+      <% end %>
+
+
+      <script>
+          $('#select-author').selectize({create: true});
+          $('#select-publishers').selectize({create: true});
+
+          //          $(document).ready(function () {
+          //              $('#1122').datepicker({
+          //                  todayBtn: "linked"
+          //              });
+          //          });
+      </script>
+
+
+
+
+      <div data-hook="search_results">
+        <% if @products.empty? %>
+            <p class="search-results-title"><%= Spree.t(:no_products_found) %></p>
+        <% else %>
+            <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+        <% end %>
+      </div>
+
+      <!---->
+      <!--<div id="search-results">-->
+        <!--<div class="box-content">-->
+          <!--<form>-->
+            <!--<div class="cart-info">-->
+              <!--<table class="table-line">-->
+                <!--&lt;!&ndash;<thead>-->
+                  <!--<tr>-->
+                    <!--<td class="image">&nbsp;</td>-->
+                    <!--<td class="name">Product Details</td>-->
+                    <!--<td class="price">Price</td>-->
+                  <!--</tr>-->
+                <!--</thead>&ndash;&gt;-->
+                <!--<tbody>-->
+                <!--<% for product in @products %>-->
+                    <!--<tr>-->
+                      <!--<td class="image td-w">-->
+                        <!--<a href="book.html"><img title="Retro Design" alt="Retro Design " src="assets/img/01.png" style="height:70px;"></a>-->
+                      <!--</td>-->
+                      <!--<td class="name"><a href="book.html">Inferno</a>-->
+
+                        <!--<div> --->
+                          <!--<small>Dan Brown</small>-->
+                          <!--<br> --->
+                          <!--<small>Collectors edition</small>-->
+                          <!--<br>-->
+                        <!--</div>-->
+                      <!--</td>-->
+                      <!--<td class="price td-w">€8.94</td>-->
+                    <!--</tr>-->
+                <!--<% end %>-->
+                <!--</tbody>-->
+              <!--</table>-->
+            <!--</div>-->
+          <!--</form>-->
+
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+<!-- //MAIN CONTENT -->

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 default_shipping_category = Spree::ShippingCategory.find_by_name!("Default")
 
 default_attrs = {   

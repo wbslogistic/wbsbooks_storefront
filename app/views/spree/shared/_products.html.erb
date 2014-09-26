@@ -1,133 +1,149 @@
 <%
-  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
-  paginated_products ||= products
+   paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+   paginated_products ||= products
 %>
 
 <% content_for :head do %>
-  <% if paginated_products.respond_to?(:num_pages) %>
-    <%= rel_next_prev_link_tags paginated_products %>
-  <% end %>
+    <% if paginated_products.respond_to?(:num_pages) %>
+        <%= rel_next_prev_link_tags paginated_products %>
+    <% end %>
 <% end %>
 
 
 <div data-hook="products_search_results_heading">
   <% if products.empty? %>
-    <div data-hook="products_search_results_heading_no_results_found">
-      <%= Spree.t(:no_products_found) %>
-    </div>
+      <div data-hook="products_search_results_heading_no_results_found">
+        <%= Spree.t(:no_products_found) %>
+      </div>
   <% elsif params.key?(:keywords) %>
-    <div data-hook="products_search_results_heading_results_found">
-      <h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>
-    </div>
+      <!--<div data-hook="products_search_results_heading_results_found">-->
+      <!--<h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>-->
+      <!--</div>-->
+
+      <div class="row">
+        <div class="col-sm-offset-1 col-sm-10" style="margin-bottom:15px;">
+          Найдено <%= pluralize(@products.count.is_a?(Hash) ? @products.count.count : @products.count, 'товар') %>
+          <% if params[:keywords].present? %>
+              по запросу "<%= params[:keywords] %>"
+          <% end %>
+        </div>
+      </div>
   <% end %>
 </div>
 
-                <div class="product-filter">
-                  <div class="display">Display: <a onclick="display('list');"><i class="fa fa-th-list"></i></a><span><i class="fa fa-th-large"></i></span></div>
-                  <!-- <div class="limit"><b>Show:</b>
-                    <div class="select-box">
-                      <div class="sub-select-box">
-                        <select onchange="location = this.value;">
-                          <option value="#" selected="selected">15</option>
-                          <option value="#">25</option>
-                          <option value="#">50</option>
-                          <option value="#">75</option>
-                          <option value="#">100</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="sort"><b>Sort By:</b>
-                    <div class="select-box">
-                      <div class="sub-select-box">
-                        <select onchange="location = this.value;">
-                          <option selected="selected" value="#">Default</option>
-                          <option value="#">Name (A - Z)</option>
-                          <option value="#">Name (Z - A)</option>
-                          <option value="#">Price (Low &gt; High)</option>
-                          <option value="#">Price (High &gt; Low)</option>
-                          <option value="#">Rating (Highest)</option>
-                          <option value="#">Rating (Lowest)</option>
-                          <option value="#">Model (A - Z)</option>
-                          <option value="#">Model (Z - A)</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div> -->
-                </div>
+<div class="product-filter">
+  <div class="display">Display:
+    <a onclick="display('list');"><i class="fa fa-th-list"></i></a><span><i class="fa fa-th-large"></i></span></div>
+  <!-- <div class="limit"><b>Show:</b>
+    <div class="select-box">
+      <div class="sub-select-box">
+        <select onchange="location = this.value;">
+          <option value="#" selected="selected">15</option>
+          <option value="#">25</option>
+          <option value="#">50</option>
+          <option value="#">75</option>
+          <option value="#">100</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="sort"><b>Sort By:</b>
+    <div class="select-box">
+      <div class="sub-select-box">
+        <select onchange="location = this.value;">
+          <option selected="selected" value="#">Default</option>
+          <option value="#">Name (A - Z)</option>
+          <option value="#">Name (Z - A)</option>
+          <option value="#">Price (Low &gt; High)</option>
+          <option value="#">Price (High &gt; Low)</option>
+          <option value="#">Rating (Highest)</option>
+          <option value="#">Rating (Lowest)</option>
+          <option value="#">Model (A - Z)</option>
+          <option value="#">Model (Z - A)</option>
+        </select>
+      </div>
+    </div>
+  </div> -->
+</div>
 
 
-    <div class="box-content">            
+<div class="box-content">
   <div class="product-grid row row-5">
 
 
     <% if products.any? %>
-      <% products.each do |product| %>
+        <% products.each do |product| %>
 
-        <% url = product_url(product, :taxon_id => @taxon.try(:id)) %>
+            <% url = product_url(product, :taxon_id => @taxon.try(:id)) %>
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
-            <div class="product-item-0">
-              <div class="actions">
-              <div class="image"><%= link_to product_image(product, :itemprop => "image"), url, :itemprop => 'url' %></div>
-              <div class="cart">
+                <div class="product-item-0">
+                  <div class="image"><%= link_to product_image(product, :itemprop => "image"), url, :itemprop => 'url' %></div>
+                  <div class="actions" style="display: none">
+                    <div class="cart">
 
-              <!--input type="button" value="Add to Cart" class="btn btn-primary"-->
-<!--Start Add to cart-->
-<%= form_for :order, :url => populate_orders_path do |f| %>
-  <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                      <!--input type="button" value="Add to Cart" class="btn btn-primary"-->
+                      <!--Start Add to cart-->
+                      <%= form_for :order, :url => populate_orders_path do |f| %>
+                          <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-    <%= hidden_field_tag "variant_id", product.master.id %>
+                            <%= hidden_field_tag "variant_id", product.master.id %>
 
-    <% if product.price_in(current_currency) and !product.price.nil? %>
-      <div data-hook="product_price" class="columns five <% if !product.has_variants? %> alpha <% else %> omega <% end %>">
+                            <% if product.price_in(current_currency) and !product.price.nil? %>
+                                <div data-hook="product_price" class="columns five
+                                  <% if !product.has_variants? %> alpha
+                                  <% else %> omega
+                                  <% end %>">
 
-        <div class="add-to-cart">
-          <div class="cart" style="display:none">
-            <div style="margin-bottom:10px;"><%= Spree.t(:quantity) %>:
-              <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
-            </div>
-          </div>
-          <div class="lemmaBook">
-            <div class="cartAdd">
-              <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
-              <% end %>
-            </div>          
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div id="product-price">
-        <br>
-      <div><span class="price selling" itemprop="price"><%= Spree.t('product_not_available_in_this_currency') %></span></div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-<!--End add to cart-->              
+                                  <div class="add-to-cart">
+                                    <div class="cart" style="display:none">
+                                      <div style="margin-bottom:10px;"><%= Spree.t(:quantity) %>:
+                                        <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
+                                      </div>
+                                    </div>
+                                    <div class="lemmaBook">
+                                      <div class="cartAdd">
+                                        <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
+                                        <% end %>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <% else %>
+                                <div id="product-price">
+                                  <br>
 
-            </div>
-              <div class="wishlist"><a title="Add to Wish List"><i class="fa fa-list"></i></a></div>
-            </div>
-            <div class="name"><%= link_to truncate(product.name, :length => 50), url, :itemprop => "name", :title => product.name %></div>
-            <%= taxon_authors(product) %>
-            <div class="price"><%= display_price(product) %></div>
-        </div>
+                                  <div>
+                                    <span class="price selling" itemprop="price"><%= Spree.t('product_not_available_in_this_currency') %></span>
+                                  </div>
+                                </div>
+                            <% end %>
+                          </div>
+                      <% end %>
+                      <!--End add to cart-->
+
+                    </div>
+                    <div class="wishlist"><a title="Add to Wish List"><i class="fa fa-list"></i></a></div>
+                  </div>
+                  <div class="name"><%= link_to truncate(product.name, :length => 50), url, :itemprop => "name", :title => product.name %></div>
+                  <%= taxon_authors(product) %>
+                  <p class="description">&nbsp;</p>
+                  <div class="price"><%= display_price(product) %></div>
+                </div>
+            <% end %>
+
+
         <% end %>
-
-
-
-      <% end %>
-      <% reset_cycle("classes") %>
+        <% reset_cycle("classes") %>
     <% end %>
 
-      </div>
-    </div>
+  </div>
+</div>
 
 
 
 
 <% if paginated_products.respond_to?(:num_pages) %>
-  <%= paginate paginated_products %>
+    <%= paginate paginated_products %>
 <% end %>
 
 

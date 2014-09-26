@@ -1,3 +1,4 @@
+# encoding: UTF-8
 products =
   { 
     "All about nothing. How to get the most by investing at least" =>
