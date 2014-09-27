@@ -48,6 +48,7 @@ gem 'spree_wishlist', github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
 
 # klisha
 gem 'pg'
+gem 'will_paginate', '~> 3.0'
 
 # Deployment with Capistrano
 gem 'capistrano'

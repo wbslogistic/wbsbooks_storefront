@@ -70,7 +70,7 @@
                 <li class="current active"><a href="#"><%= Spree.t(:whats_new) %></a></li>
                 <li><%= link_to Spree.t(:specials), specials_path %></li>
                 <% if spree_current_user %>
-                  <li><a href="#"><%= Spree.t(:bulk_order) %></a></li>
+                  <li><%= link_to Spree.t(:bulk_order), bulk_orders_path %></li>
                 <% end %>
                 <li><%= link_to Spree.t(:about_us), '/about' %></li>
                 <li><%= link_to Spree.t(:contact_us), '/contact' %></li>
