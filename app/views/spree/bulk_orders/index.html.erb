@@ -1,41 +1,92 @@
-
-<%= form_for :order, :url => populate_multiple_orders_path do |f| %>
-<% @products.each_with_index do |product, index|%>
-  <div>
-    <p><%= index %></p>
-    <%= product.name %>
-
-    <%= hidden_field_tag "var_#{index}", product.master.id %>
-
-    <% if product.price_in(current_currency) and !product.price.nil? %>
-      <div>
-
-        <div>
-          <div>
-            <%= display_price(product) %>
-            <%= product.currency %>
-          </div>
-
-          <% if product.master.can_supply? %>
-            <div>In Stock</div>
-          <% elsif product.variants.empty? %>
-            <div>Not in Stock</div>
-          <% end %>
+<div class="box_oc">
+  <div class="box-heading">
+    <h1 class="mijoshop_heading_h1">Bulk order</h1>
+  </div>
+  <div class="d-search">
+    <%= form_tag(bulk_orders_path, :method => "get", class: "form-inline") do %>
+        <div class="form-group">
+          <label class="sr-only1">ISBN</label>
+        <%= text_field_tag :isbn, params[:isbn], placeholder: "ISBN", class: "form-control" %>
+      </div>
+        <div class="form-group">
+          <label class="sr-only1">Title</label>
+          <%= text_field_tag :title, params[:title], placeholder: "Title", class: "form-control" %>
         </div>
-
-        <div>
-          <div>
-            <%= number_field_tag "qty_#{index}", 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
-          </div>          
+        <div class="form-group">
+          <label class="sr-only1">Author</label>
+          <%= text_field_tag :author, params[:author], placeholder: "Author", class: "form-control" %>
         </div>
+        <div class="form-group">
+          <label class="sr-only1">Publisher</label>
+          <%= text_field_tag :publisher, params[:publisher], placeholder: "Publisher", class: "form-control" %>
+        </div>    
+      <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+    <% end %>             
+  </div>  
+  <div class="box-content">
+    <%= form_for :order, :url => populate_multiple_orders_path do |f| %>
+      <div class="text-right">
+        <div class="div-total">
+          <label><%= link_to_cart %></label>
+          <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
+            <%= Spree.t(:order) %>
+          <% end %>       
+        </div>
+      </div>  
+      <div class="cart-info">
+        <table class="table-line">
+          <thead>
+            <tr>
+              <td>ISBN</td>
+              <td>Title</td>
+              <td>Author</td>
+              <td>Publisher</td>
+              <td>In stock</td>
+              <td>RRP</td>
+              <td>Unit price</td>
+              <td class="td-w">Quantity</td>
+              <td>Total</td>
+            </tr>
+          </thead>     
+          <body>
+            <% if @products %>
+              <% @products.each_with_index do |product, index|%>
+                <tr>
+                  <td><%= product.isbn %><%= hidden_field_tag "var_#{index}", product.master.id %></td>
+                  <td><%= link_to product.name, product %></td>
+                  <td><%= product.authors %></td>
+                  <td><%= product.publishers %></td>
+                  <td><% if product.qty > 0 %>
+                        <%= product.qty %> 
+                      <% else %> 
+                        <i class="fa fa-times red"></i></td>
+                      <% end %>
+                  <td>???</td>
+                  <td><% if product.price_in(current_currency) and !product.price.nil? %>
+                      <%= display_price(product) %>
+                    <% end %>
+                  </td>
+                  <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0 %></td>
+                  <td>???</td>
+                </tr>          
+              <% end %>
+            <% end %>
+          </body>
+        </table>
+      </div>
+      <div class="text-right">
+        <div class="div-total">
+          <label><%= link_to_cart %></label>
+          <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
+            <%= Spree.t(:order) %>
+          <% end %>       
+        </div>
+      </div>      
+    <% end %>
+    <% if @products %>
+      <div class="text-center">
+        <%= will_paginate @products %>
       </div>
     <% end %>
   </div>
-  <hr>
-<% end %>
-          <div>
-            <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
-              <%= Spree.t(:add_to_cart) %>
-            <% end %>
-          </div>
-<% end %>
+</div>

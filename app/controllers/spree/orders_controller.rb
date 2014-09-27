@@ -62,8 +62,8 @@ module Spree
     # Adds multiple items to the order
     def populate_multiple
       populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
-      variants = [params[:var_0], params[:var_1]]
-      quantities = [params[:qty_0], params[:qty_1]]
+      variants = [params[:var_0], params[:var_1], params[:var_2], params[:var_3], params[:var_4], params[:var_5], params[:var_6], params[:var_7], params[:var_8], params[:var_9]]
+      quantities = [params[:qty_0], params[:qty_1], params[:qty_2], params[:qty_3], params[:qty_4], params[:qty_5], params[:qty_6], params[:qty_7], params[:qty_8], params[:qty_9]]
       i = 0
       while i < 10  do
         if !variants[i].blank? and !quantities[i].blank?
@@ -75,7 +75,7 @@ module Spree
       end
 
       respond_with(@order) do |format|
-        format.html { redirect_to cart_path }  
+        format.html { redirect_to bulk_orders_path }  
       end    
     end   
 

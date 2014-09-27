@@ -10,15 +10,21 @@ Spree::Product.class_eval do
     # 	and t.permalink like ?
     # 	and lower(t.name) like ?
     # 	","%#{name.downcase}%","ISBN","%#{isbn}%", "authors/%", "%#{author.downcase}%")
-
-   joins("JOIN spree_products_taxons pt on pt.product_id = spree_products.id 
-      JOIN spree_taxons t on t.id = pt.taxon_id").
-    where("lower(spree_products.name) like ? 
-      and t.permalink like ?
-      and lower(t.name) like ?
-      ","%#{name.downcase}%", "authors/%", "%#{author.downcase}%")
-
-
+    if (!author.blank? or publisher.blank?)
+      joins("LEFT JOIN spree_products_taxons pt on pt.product_id = spree_products.id 
+        LEFT JOIN spree_taxons t on t.id = pt.taxon_id").
+      where("lower(spree_products.name) like ? 
+        and t.permalink like ?
+        and lower(t.name) like ?
+        ","%#{name.downcase}%", "authors/%", "%#{author.downcase}%")              
+    else
+      joins("LEFT JOIN spree_products_taxons pt on pt.product_id = spree_products.id 
+        LEFT JOIN spree_taxons t on t.id = pt.taxon_id").
+      where("lower(spree_products.name) like ? 
+        and t.permalink like ?
+        and lower(t.name) like ?
+        ","%#{name.downcase}%", "publishers/%", "%#{publisher.downcase}%") 
+    end
   end
 
   def isbn
@@ -26,12 +32,14 @@ Spree::Product.class_eval do
     master.sku
   end
 
-  def author
-  	taxons.where("permalink like ?", "authors/%").first
+  def authors
+  	a = taxons.where("permalink like ?", "authors/%").map {|e| e.name}
+    a.join(", ")
   end
 
-  def publisher
-  	taxons.where("permalink like ?", "publishers/%").first
+  def publishers
+  	p = taxons.where("permalink like ?", "publishers/%").map {|e| e.name}
+    p.join(", ")
   end
 
   def price
