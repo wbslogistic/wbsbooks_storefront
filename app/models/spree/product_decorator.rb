@@ -22,7 +22,8 @@ Spree::Product.class_eval do
   end
 
   def isbn
-  	product_properties.first.value
+  	# product_properties.first.value
+    master.sku
   end
 
   def author
@@ -34,10 +35,10 @@ Spree::Product.class_eval do
   end
 
   def price
-    variants_including_master.first.cost_price
+    master.cost_price
   end
 
   def qty
-    variants_including_master.first.stock_items.first.count_on_hand
+    master.stock_items.first.count_on_hand
   end
 end

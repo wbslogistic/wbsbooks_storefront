@@ -59,6 +59,26 @@ module Spree
       end
     end
 
+    # Adds multiple items to the order
+    def populate_multiple
+      populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
+      variants = [params[:var_0], params[:var_1]]
+      quantities = [params[:qty_0], params[:qty_1]]
+      i = 0
+      while i < 10  do
+        if !variants[i].blank? and !quantities[i].blank?
+          if populator.populate(variants[i], quantities[i])
+            current_order.ensure_updated_shipments
+          end
+        end
+        i+=1
+      end
+
+      respond_with(@order) do |format|
+        format.html { redirect_to cart_path }  
+      end    
+    end   
+
     def empty
       if @order = current_order
         @order.empty!

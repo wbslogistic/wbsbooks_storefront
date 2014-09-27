@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   Spree::Core::Engine.routes.draw do
     resources :specials, :only => [:index]
     resources :bulk_orders, :only => [:index]
+    resources :orders, :except => [:new, :create, :destroy] do
+      post :populate_multiple, :on => :collection
+    end
   end
 
 
