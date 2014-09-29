@@ -9,16 +9,16 @@
         <%= text_field_tag :isbn, params[:isbn], placeholder: "ISBN", class: "form-control" %>
       </div>
         <div class="form-group">
-          <label class="sr-only1">Title</label>
-          <%= text_field_tag :title, params[:title], placeholder: "Title", class: "form-control" %>
+          <label class="sr-only1"><%= t(:title2) %></label>
+          <%= text_field_tag :title, params[:title], placeholder: t(:title), class: "form-control" %>
         </div>
         <div class="form-group">
-          <label class="sr-only1">Author</label>
-          <%= text_field_tag :author, params[:author], placeholder: "Author", class: "form-control" %>
+          <label class="sr-only1"><%= t(:author) %></label>
+          <%= text_field_tag :author, params[:author], placeholder: t(:author), class: "form-control" %>
         </div>
         <div class="form-group">
-          <label class="sr-only1">Publisher</label>
-          <%= text_field_tag :publisher, params[:publisher], placeholder: "Publisher", class: "form-control" %>
+          <label class="sr-only1"><%= t(:publisher) %></label>
+          <%= text_field_tag :publisher, params[:publisher], placeholder: t(:publisher), class: "form-control" %>
         </div>    
       <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
     <% end %>             
@@ -38,14 +38,14 @@
           <thead>
             <tr>
               <td>ISBN</td>
-              <td>Title</td>
-              <td>Author</td>
-              <td>Publisher</td>
-              <td>In stock</td>
+              <td><%= t(:title) %></td>
+              <td><%= t(:author) %></td>
+              <td><%= t(:publisher) %></td>
+              <td><%= t(:in_stock) %></td>
               <td>RRP</td>
-              <td>Unit price</td>
-              <td class="td-w">Quantity</td>
-              <td>Total</td>
+              <td><%= t(:unit_price) %></td>
+              <td class="td-w"><%= t(:quantity) %></td>
+              <td><%= t(:total) %></td>
             </tr>
           </thead>     
           <body>
@@ -61,13 +61,13 @@
                       <% else %> 
                         <i class="fa fa-times red"></i></td>
                       <% end %>
-                  <td>???</td>
+                  <td></td>
                   <td><% if product.price_in(current_currency) and !product.price.nil? %>
                       <%= display_price(product) %>
                     <% end %>
                   </td>
                   <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0 %></td>
-                  <td>???</td>
+                  <td></td>
                 </tr>          
               <% end %>
             <% end %>
@@ -82,11 +82,6 @@
           <% end %>       
         </div>
       </div>      
-    <% end %>
-    <% if @products %>
-      <div class="text-center">
-        <%= will_paginate @products %>
-      </div>
     <% end %>
   </div>
 </div>

@@ -1222,3 +1222,11 @@ ru:
     zone: Торговая зона
     zones: Торговые зоны
   expiration: Окончание действия
+  title: Название
+  title2: Книга
+  author: Автор
+  publisher: Издатель
+  in_stock: На складе
+  unit_price: Цена за штуку
+  quantity: Кол-во
+  total: Итого
