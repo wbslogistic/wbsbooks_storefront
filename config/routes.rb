@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :bulk_orders, :only => [:index]
     resources :orders, :except => [:new, :create, :destroy] do
       post :populate_multiple, :on => :collection
+      post :empty_bulk_order, :on => :collection
     end
   end
 

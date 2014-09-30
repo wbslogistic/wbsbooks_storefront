@@ -87,6 +87,14 @@ module Spree
       redirect_to spree.cart_path
     end
 
+    def empty_bulk_order
+      if @order = current_order
+        @order.empty!
+      end
+
+      redirect_to bulk_orders_path
+    end    
+
     def accurate_title
       if @order && @order.completed?
         Spree.t(:order_number, :number => @order.number)

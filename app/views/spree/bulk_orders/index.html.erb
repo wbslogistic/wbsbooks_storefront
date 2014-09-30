@@ -28,6 +28,7 @@
       <div class="text-right">
         <div class="div-total">
           <label><%= link_to_cart %></label>
+          <%= link_to t(:clear), empty_bulk_order_orders_path,  :class => 'btn btn-primary', method: :post %>
           <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
             <%= Spree.t(:order) %>
           <% end %>       
@@ -77,6 +78,7 @@
       <div class="text-right">
         <div class="div-total">
           <label><%= link_to_cart %></label>
+          <%= link_to t(:clear), empty_bulk_order_orders_path,  :class => 'btn btn-primary', method: :post %>
           <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
             <%= Spree.t(:order) %>
           <% end %>       
