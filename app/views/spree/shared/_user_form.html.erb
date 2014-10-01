@@ -39,12 +39,18 @@
       <td><span class="required">*</span><%= f.label :email, Spree.t(:email) %></td>
       <td><%= f.email_field :email %></td>
     </tr>
+    <% unless resource.new_record? %>
     <tr>
-      <td><span class="required">*</span><%= f.label :password, Spree.t(:password) %></td>
+      <td><span class="required">*</span><%= f.label :current_password, Spree.t(:current_password) %></td>
+      <td><%= f.password_field :current_password %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><% if resource.new_record? %><span class="required">*</span><%end%><%= f.label :password, Spree.t(:password) %></td>
       <td><%= f.password_field :password %></td>
     </tr>
     <tr>
-      <td><span class="required">*</span><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>
+      <td><% if resource.new_record? %><span class="required">*</span><%end%><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>
       <td><%= f.password_field :password_confirmation %></td>
     </tr>
     <tr>

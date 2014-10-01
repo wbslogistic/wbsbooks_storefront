@@ -50,6 +50,10 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
+    if params[:accounttype] == 'individual' and params[:user]
+      params[:user].delete :bill_address_attributes
+    end
+    
     super
   end
 
@@ -81,5 +85,16 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
         bill_address_attributes: Spree::PermittedAttributes.address_attributes
       }
       params.require(:spree_user).permit(*attrs)
+    end
+    
+    def account_update_params
+      attrs = Spree::PermittedAttributes.user_attributes
+      attrs << :newsletter
+      attrs << :current_password
+      attrs << {
+        ship_address_attributes: Spree::PermittedAttributes.address_attributes,
+        bill_address_attributes: Spree::PermittedAttributes.address_attributes
+      }
+      params.require(:user).permit(*attrs)
     end
 end
