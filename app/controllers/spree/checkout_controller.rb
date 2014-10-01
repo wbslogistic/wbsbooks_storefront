@@ -26,6 +26,16 @@ module Spree
 
     rescue_from Spree::Core::GatewayError, :with => :rescue_from_spree_gateway_error
 
+    def edit
+      if @order.address?
+        @order.create_bill_address! (spree_current_user.bill_address || spree_current_user.ship_address).attributes.except('id', 'updated_at', 'created_at')
+        @order.create_ship_address! spree_current_user.ship_address.attributes.except('id', 'updated_at', 'created_at')
+        if @order.next
+          redirect_to checkout_state_path(@order.state)
+        end
+      end
+    end
+
     # Updates the order and advances to the next state (when possible.)
     def update
       if @order.update_from_params(params, permitted_checkout_attributes, request.headers.env)

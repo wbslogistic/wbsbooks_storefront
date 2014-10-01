@@ -1,110 +1,202 @@
-<table class="form">
-      <tbody>
-<!--         <tr>
-          <td><span class="required">*</span> First Name:</td>
-          <td><input type="text" value="" name="firstname" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> Last Name:</td>
-          <td><input type="text" value="" name="lastname" style="width: 120px !important;"></td>
-        </tr> -->
-        <tr>
-          <td><span class="required">*</span><%= f.label :email, Spree.t(:email) %></td>
-          <td><%= f.email_field :email, :class => 'title' %></td>
-        </tr>
-<!--         <tr>
-          <td><span class="required">*</span> Telephone:</td>
-          <td><input type="text" value="" name="telephone" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td>Fax:</td>
-          <td><input type="text" value="" name="fax" style="width: 120px !important;"></td>
-        </tr> -->
-      </tbody>
-    </table>
-  </div>
-  <!-- <h2>Your Address</h2>
-  <div class="content_oc">
-    <table class="form">
-      <tbody>
-        <tr>
-          <td>Company:</td>
-          <td><input type="text" value="" name="company" style="width: 120px !important;"></td>
-        </tr>
-        <tr style="display: none;">
-          <td>Business Type:</td>
-          <td><input type="radio" checked="checked" id="customer_group_id1" value="1" name="customer_group_id">
-            <label for="customer_group_id1">Default</label>
-            <br></td>
-        </tr>
-        <tr id="company-id-display">
-          <td><span class="required" id="company-id-required" style="display: none;">*</span> Company ID:</td>
-          <td><input type="text" value="" name="company_id" style="width: 120px !important;"></td>
-        </tr>
-        <tr id="tax-id-display" style="display: none;">
-          <td><span class="required" id="tax-id-required">*</span> Tax ID:</td>
-          <td><input type="text" value="" name="tax_id" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> Address 1:</td>
-          <td><input type="text" value="" name="address_1" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td>Address 2:</td>
-          <td><input type="text" value="" name="address_2" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> City:</td>
-          <td><input type="text" value="" name="city" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td><span class="required" id="postcode-required">*</span> Post Code:</td>
-          <td><input type="text" value="" name="postcode" style="width: 120px !important;"></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> Country:</td>
-          <td><select name="country_id" style="width: 200px !important;">
-              <option value=""> --- Please Select --- </option>
-              <option value="1">Afghanistan</option>
-  
-            </select></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> Region / State:</td>
-          <td><select name="zone_id" style="width: 200px !important;">
-              <option value=""> --- Please Select --- </option>
-              <option value="3513">Aberdeen</option>
+<!--<table class="form">-->
+<!--<tbody>-->
+<!--&lt;!&ndash;         <tr>-->
+<!--<td><span class="required">*</span> First Name:</td>-->
+<!--<td><input type="text" value="" name="firstname" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span> Last Name:</td>-->
+<!--<td><input type="text" value="" name="lastname" style="width: 120px !important;"></td>-->
+<!--</tr> &ndash;&gt;-->
+<!--<tr>-->
+<!--<td><span class="required">*</span><%= f.label :email, Spree.t(:email) %></td>-->
+<!--<td><%= f.email_field :email, :class => 'title' %></td>-->
+<!--</tr>-->
+<!--&lt;!&ndash;         <tr>-->
+<!--<td><span class="required">*</span> Telephone:</td>-->
+<!--<td><input type="text" value="" name="telephone" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>Fax:</td>-->
+<!--<td><input type="text" value="" name="fax" style="width: 120px !important;"></td>-->
+<!--</tr> &ndash;&gt;-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--&lt;!&ndash; <h2>Your Address</h2>-->
+<!--<div class="content_oc">-->
+<!--<table class="form">-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td>Company:</td>-->
+<!--<td><input type="text" value="" name="company" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr style="display: none;">-->
+<!--<td>Business Type:</td>-->
+<!--<td><input type="radio" checked="checked" id="customer_group_id1" value="1" name="customer_group_id">-->
+<!--<label for="customer_group_id1">Default</label>-->
+<!--<br></td>-->
+<!--</tr>-->
+<!--<tr id="company-id-display">-->
+<!--<td><span class="required" id="company-id-required" style="display: none;">*</span> Company ID:</td>-->
+<!--<td><input type="text" value="" name="company_id" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr id="tax-id-display" style="display: none;">-->
+<!--<td><span class="required" id="tax-id-required">*</span> Tax ID:</td>-->
+<!--<td><input type="text" value="" name="tax_id" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span> Address 1:</td>-->
+<!--<td><input type="text" value="" name="address_1" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>Address 2:</td>-->
+<!--<td><input type="text" value="" name="address_2" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span> City:</td>-->
+<!--<td><input type="text" value="" name="city" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required" id="postcode-required">*</span> Post Code:</td>-->
+<!--<td><input type="text" value="" name="postcode" style="width: 120px !important;"></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span> Country:</td>-->
+<!--<td><select name="country_id" style="width: 200px !important;">-->
+<!--<option value=""> --- Please Select --- </option>-->
+<!--<option value="1">Afghanistan</option>-->
+<!---->
+<!--</select></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span> Region / State:</td>-->
+<!--<td><select name="zone_id" style="width: 200px !important;">-->
+<!--<option value=""> --- Please Select --- </option>-->
+<!--<option value="3513">Aberdeen</option>-->
 
-            </select></td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
-  <h2>Your Password</h2>
-  <div class="content_oc">
-    <table class="form">
-      <tbody>
+<!--</select></td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div> &ndash;&gt;-->
+<!--<h2>Your Password</h2>-->
+<!--<div class="content_oc">-->
+<!--<table class="form">-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span><%= f.label :password, Spree.t(:password) %></td>-->
+<!--<td><%= f.password_field :password, :class => 'title' %></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td><span class="required">*</span><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>-->
+<!--<td><%= f.password_field :password_confirmation, :class => 'title' %></td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--<h2>Newsletter</h2>-->
+<!--<div class="content_oc">-->
+<!--<table class="form">-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td>Subscribe:</td>-->
+<!--<td><input type="radio" value="1" name="newsletter">-->
+<!--Yes-->
+<!--<input type="radio" checked="checked" value="0" name="newsletter" class="m-l-10">-->
+<!--No </td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        $('input[type=radio][name=accounttype]').change(function() {
+            if (this.value == 'individual') {
+                $('.officeaddress').hide();
+                $('#youraddress').removeClass('col-md-6').addClass('col-md-12')
+            }
+            else {
+                $('.officeaddress').show();
+                $('#youraddress').removeClass('col-md-12').addClass('col-md-6')
+            }
+        });
+    });
+</script>
+<h2>My Personal Details</h2>
+<div class="content_oc">
+  <table class="form">
+    <tbody>
+    <%= f.fields_for :ship_address, Spree::Address.default(resource, 'ship') do |ff| %>
         <tr>
-          <td><span class="required">*</span><%= f.label :password, Spree.t(:password) %></td>
-          <td><%= f.password_field :password, :class => 'title' %></td>
+          <td><span class="required">*</span><%= ff.label :firstname, Spree.t(:firstname) %></td>
+          <td><%= ff.email_field :firstname %></td>
         </tr>
         <tr>
-          <td><span class="required">*</span><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>
-          <td><%= f.password_field :password_confirmation, :class => 'title' %></td>
+          <td><span class="required">*</span><%= ff.label :lastname, Spree.t(:lastname) %></td>
+          <td><%= ff.email_field :lastname %></td>
         </tr>
-      </tbody>
-    </table>
+    <% end %>
+    <tr>
+      <td><span class="required">*</span><%= f.label :email, Spree.t(:email) %></td>
+      <td><%= f.email_field :email %></td>
+    </tr>
+    <tr>
+      <td><span class="required">*</span><%= f.label :password, Spree.t(:password) %></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <td><span class="required">*</span><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>
+      <td><%= f.password_field :password_confirmation %></td>
+    </tr>
+    <tr>
+      <td><span class="required">*</span> Account type:</td>
+      <td><input type="radio" value="individual" name="accounttype" <%= params[:accounttype].to_s != 'company' ? "checked='checked'" : "" %>>
+        Individual
+        <input type="radio" value="company" name="accounttype" class="m-l-10" <%= params[:accounttype].to_s == 'company' ? "checked='checked'" : "" %>>
+        Company
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <div id="youraddress" class="col-md-12" style="padding-left:0;">
+    <h2>Your Address</h2>
+
+    <div class="content_oc">
+      <%= f.fields_for :ship_address, Spree::Address.default(resource, 'ship') do |ff| %>
+          <%= render 'spree/address/form', form: ff, address_type: "shipping", include_name: false  %>
+      <% end %>
+    </div>
   </div>
-  <h2>Newsletter</h2>
-  <div class="content_oc">
-    <table class="form">
-      <tbody>
-        <tr>
-          <td>Subscribe:</td>
-          <td><input type="radio" value="1" name="newsletter">
-            Yes
-            <input type="radio" checked="checked" value="0" name="newsletter" class="m-l-10">
-            No </td>
-        </tr>
-      </tbody>
- </table>
+
+  <div class="col-md-6 officeaddress" style="padding-right:0; display: <%= params[:accounttype] != 'company' ? 'none' : 'block' %>">
+    <h2>Office Address</h2>
+
+    <div class="content_oc">
+      <%= f.fields_for :bill_address, Spree::Address.default(resource, 'bill') do |ff| %>
+          <%= render 'spree/address/form', form: ff, address_type: "billing", include_name: true  %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12" style="padding-left:0;">
+
+<h2>Newsletter</h2>
+<div class="content_oc">
+  <table class="form">
+    <tbody>
+    <tr>
+      <td>Subscribe:</td>
+      <td><%= f.radio_button :newsletter, true, checked: true %>
+        Yes
+        <%= f.radio_button :newsletter, false %>
+        No
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>

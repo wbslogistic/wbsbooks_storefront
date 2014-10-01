@@ -14,3 +14,10 @@ Spree.config do |config|
 end
 
 Spree.user_class = "Spree::User"
+
+Spree::Address.class_eval do 
+  protected 
+  def require_phone? 
+    false 
+  end 
+end 

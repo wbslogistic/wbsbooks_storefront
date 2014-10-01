@@ -1,0 +1,35 @@
+<table class="form">
+  <tbody>
+  <tr>
+    <td><span class="required">*</span><%= f.label :address1, Spree.t(:street_address) %></td>
+    <td><%= f.text_field :address1, :class => 'required' %></td>
+  </tr>
+  <tr id="company-id-display">
+    <td><%= f.label :address2, Spree.t(:street_address_2) %></td>
+    <td><%= f.text_field :address2 %></td>
+  </tr>
+  <tr>
+    <td><span class="required">*</span><%= f.label :zipcode, Spree.t(:zip) %></td>
+    <td><%= f.text_field :zipcode, :class => "required" %></td>
+  </tr>
+  <tr>
+    <td><span class="required">*</span> <%= f.label :city, Spree.t(:city) %></td>
+    <td><%= f.text_field :city, :class => 'required' %></td>
+  </tr>
+  <tr>
+    <td><span class="required">*</span><%= f.label :state, Spree.t(:state) %></td>
+    <td><select name="zone_id">
+      <option value=""> --- Please Select ---</option>
+      <option value="3513">Aberdeen</option>
+      <option value="3514">Aberdeenshire</option>
+      <option value="3515">Anglesey</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td><span class="required">*</span><%= f.label :country_id, Spree.t(:country) %></td>
+    <td>
+      <%= f.collection_select :country_id, available_countries, :id, :name, {}, { :class => 'required' } %>
+    </td>
+  </tr>
+  </tbody>
+</table>
