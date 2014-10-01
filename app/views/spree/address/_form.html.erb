@@ -4,11 +4,11 @@
   <% if include_name %>
       <tr>
         <td><span class="required">*</span><%= form.label :firstname, Spree.t(:firstname) %></td>
-        <td><%= form.email_field :firstname %></td>
+        <td><%= form.text_field :firstname %></td>
       </tr>
       <tr>
         <td><span class="required">*</span><%= form.label :lastname, Spree.t(:lastname) %></td>
-        <td><%= form.email_field :lastname %></td>
+        <td><%= form.text_field :lastname %></td>
       </tr>
   <% end %>
   <tr>
@@ -27,7 +27,7 @@
     <td><span class="required">*</span> <%= form.label :city, Spree.t(:city) %></td>
     <td><%= form.text_field :city, :class => 'required' %></td>
   </tr>
-  <tr>
+  <tr class='state'>
     <td><span class="required">*</span><%= form.label :state, Spree.t(:state) %></td>
     <td>
       <% if Spree::Config[:address_requires_state] %>
@@ -57,7 +57,7 @@
   <tr>
     <td><span class="required">*</span><%= form.label :country_id, Spree.t(:country) %></td>
     <td>
-      <%= form.collection_select :country_id, available_countries, :id, :name, {}, { :class => 'required' } %>
+      <%= form.collection_select :country_id, available_countries, :id, :name, {}, class: 'required country' %>
     </td>
   </tr>
   <tr>
