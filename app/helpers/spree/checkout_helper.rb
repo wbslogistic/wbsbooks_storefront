@@ -6,7 +6,7 @@ module Spree
 
     def checkout_progress
       states = checkout_states
-      items = states.map do |state|
+      items = states.reject {|s| s == 'address'}.map do |state|
         text = Spree.t("order_state.#{state}").titleize
 
         css_classes = []

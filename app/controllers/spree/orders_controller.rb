@@ -39,6 +39,7 @@ module Spree
     def edit
       @order = current_order || Order.new
       associate_user
+
       if stale?(current_order)
         respond_with(current_order)
       end

@@ -26,6 +26,10 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # POST /resource/sign_up
   def create
+    if params[:accounttype] == 'individual' and params[:spree_user]
+      params[:spree_user].delete :bill_address_attributes
+    end
+    
     @user = build_resource(spree_user_params)
     if resource.save
       set_flash_message(:notice, :signed_up)
@@ -69,7 +73,13 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     end
 
   private
-    def spree_user_params
-      params.require(:spree_user).permit(Spree::PermittedAttributes.user_attributes)
+    def spree_user_params      
+      attrs = Spree::PermittedAttributes.user_attributes
+      attrs << :newsletter
+      attrs << {
+        ship_address_attributes: Spree::PermittedAttributes.address_attributes,
+        bill_address_attributes: Spree::PermittedAttributes.address_attributes
+      }
+      params.require(:spree_user).permit(*attrs)
     end
 end

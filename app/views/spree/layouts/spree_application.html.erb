@@ -48,7 +48,7 @@
               <input style="width: 120px !important;" name="search_oc" value="Search" onclick="this.value = '';" onkeydown="this.style.color = '#000000';" type="text">
             </div>
             <div id="welcome"> Welcome visitor you can <a href="#">login</a> or <a href="#">create an account</a>. </div>
-            <div class="links"><a href="#">Home</a><a href="#" id="wishlist-total">Wish List (0)</a><a href="#">My Account</a><a href="#">Shopping Cart</a><a href="#">Checkout</a></div>
+            <div class="links"><a href="#">Home</a><a href="#" id="wishlist-total">Wish List (0)</a><%= link_to 'My account', :edit_spree_user_registration %><a href="#">Shopping Cart</a><a href="#">Checkout</a></div>
              <%= render :partial => 'spree/shared/login_bar' if content_for? :sidebar %>
           </div>
           
