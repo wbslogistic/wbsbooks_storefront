@@ -67,7 +67,7 @@
                       <%= display_price(product) %>
                     <% end %>
                   </td>
-                  <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0, onchange: 'bulk_order_sum(this);', price: product.price_in(current_currency).amount.to_s %></td>
+                  <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0, onchange: 'bulk_order_sum(this);', onclick: '$(this).select()', price: product.price_in(current_currency).amount.to_s %></td>
                   <%= content_tag :td, id: "tqty_#{index}" do %>
                   <% end %>
                 </tr>          
