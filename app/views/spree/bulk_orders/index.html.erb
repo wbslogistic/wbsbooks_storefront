@@ -46,6 +46,7 @@
               <td>RRP</td>
               <td><%= t(:unit_price) %></td>
               <td class="td-w"><%= t(:quantity) %></td>
+              <td><%= t(:total) %></td>
             </tr>
           </thead>     
           <body>
@@ -66,7 +67,9 @@
                       <%= display_price(product) %>
                     <% end %>
                   </td>
-                  <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0 %></td>
+                  <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0, onchange: 'bulk_order_sum(this);', price: product.price_in(current_currency).amount.to_s %></td>
+                  <%= content_tag :td, id: "tqty_#{index}" do %>
+                  <% end %>
                 </tr>          
               <% end %>
             <% end %>
