@@ -28,11 +28,11 @@
     <%= f.fields_for :ship_address, Spree::Address.default(resource, 'ship') do |ff| %>
         <tr>
           <td><span class="required">*</span><%= ff.label :firstname, Spree.t(:firstname) %></td>
-          <td><%= ff.email_field :firstname %></td>
+          <td><%= ff.text_field :firstname %></td>
         </tr>
         <tr>
           <td><span class="required">*</span><%= ff.label :lastname, Spree.t(:lastname) %></td>
-          <td><%= ff.email_field :lastname %></td>
+          <td><%= ff.text_field :lastname %></td>
         </tr>
     <% end %>
     <tr>
