@@ -38,10 +38,10 @@
         <table class="table-line">
           <thead>
             <tr>
-              <td>ISBN</td>
-              <td><%= t(:title) %></td>
-              <td><%= t(:author) %></td>
-              <td><%= t(:publisher) %></td>
+              <td><%= sortable "isbn", "ISBN" %></td>
+              <td><%= sortable "title", t(:title) %></td>
+              <td><%= sortable "author", t(:author) %></td>
+              <td><%= sortable "publisher", t(:publisher) %></td>
               <td><%= t(:in_stock) %></td>
               <td>RRP</td>
               <td><%= t(:unit_price) %></td>
