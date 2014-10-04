@@ -21,3 +21,25 @@
 .pag {
 	text-align: center;
 }
+
+a.tsort{
+	// text-decoration: underline;
+}
+
+input[type="submit"].bulk_search {
+	margin-bottom: 0px;
+}
+
+.table-line td .tsort {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.table-line td .asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+.table-line td .desc {
+  background-image: url(/images/down_arrow.gif);
+}

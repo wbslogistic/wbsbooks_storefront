@@ -20,7 +20,7 @@
           <label class="sr-only1"><%= t(:publisher) %></label>
           <%= text_field_tag :publisher, params[:publisher], placeholder: t(:publisher), class: "form-control" %>
         </div>    
-      <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+      <%= submit_tag "Search", :name => nil, class: "bulk_search btn btn-default" %>
     <% end %>             
   </div>  
   <div class="box-content">
@@ -40,8 +40,10 @@
             <tr>
               <td><%= sortable "isbn", "ISBN" %></td>
               <td><%= sortable "title", t(:title) %></td>
-              <td><%= sortable "author", t(:author) %></td>
-              <td><%= sortable "publisher", t(:publisher) %></td>
+              <td><%= !params[:author].blank? or params[:publisher].blank? ? sortable("author", t(:author)) : t(:author)%>
+              </td>
+              <td><%= params[:author].blank? and !params[:publisher].blank? ? sortable("publisher", t(:publisher)) : t(:publisher)%>
+              </td>
               <td><%= t(:in_stock) %></td>
               <td>RRP</td>
               <td><%= t(:unit_price) %></td>
