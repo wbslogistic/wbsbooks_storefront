@@ -28,10 +28,12 @@ module Spree
 
     def edit
       if @order.address?
-        @order.create_bill_address! (spree_current_user.bill_address || spree_current_user.ship_address).attributes.except('id', 'updated_at', 'created_at')
-        @order.create_ship_address! spree_current_user.ship_address.attributes.except('id', 'updated_at', 'created_at')
+        @order.create_bill_address (spree_current_user.bill_address || spree_current_user.ship_address).attributes.except('id', 'updated_at', 'created_at')
+        @order.create_ship_address spree_current_user.ship_address.attributes.except('id', 'updated_at', 'created_at')
         if @order.next
           redirect_to checkout_state_path(@order.state)
+        else
+          flash[:error] = @order.errors.full_messages.join("\n")
         end
       end
     end

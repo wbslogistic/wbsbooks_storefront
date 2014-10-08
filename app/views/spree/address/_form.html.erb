@@ -1,7 +1,7 @@
 <% address_id = address_type.chars.first %>
 <table class="form">
   <tbody>
-  <% if include_name %>
+  <% if !local_variables.include?(:include_name) or include_name %>
       <tr>
         <td><span class="required">*</span><%= form.label :firstname, Spree.t(:firstname) %></td>
         <td><%= form.text_field :firstname %></td>
