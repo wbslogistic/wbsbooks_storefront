@@ -40,13 +40,21 @@
             <tr>
               <td><%= sortable "isbn", "ISBN" %></td>
               <td><%= sortable "title", t(:title) %></td>
-              <td><%= !params[:author].blank? or params[:publisher].blank? ? sortable("author", t(:author)) : t(:author)%>
+              <td><% if !params[:author].blank? or params[:publisher].blank? %> 
+                <%= sortable "author", t(:author)%>
+                <% else %>
+                <%= t(:author) %>
+                <% end %> 
               </td>
-              <td><%= params[:author].blank? and !params[:publisher].blank? ? sortable("publisher", t(:publisher)) : t(:publisher)%>
+              <td><% if params[:author].blank? and !params[:publisher].blank? %> 
+                <%= sortable "publisher", t(:publisher)%>
+                <% else %>
+                <%= t(:publisher) %>
+                <% end %>
               </td>
               <td><%= t(:in_stock) %></td>
-              <td>RRP</td>
-              <td><%= t(:unit_price) %></td>
+              <td><%= sortable "price", "RRP" %></td>
+              <td><%= sortable "price", t(:unit_price) %></td>
               <td class="td-w"><%= t(:quantity) %></td>
               <td><%= t(:total) %></td>
             </tr>
@@ -64,7 +72,7 @@
                       <% else %> 
                         <i class="fa fa-times red"></i></td>
                       <% end %>
-                  <td></td>
+                  <td><%= (product.price * 1.25).round(2) %></td>
                   <td><% if product.price_in(current_currency) and !product.price.nil? %>
                       <%= display_price(product) %>
                     <% end %>

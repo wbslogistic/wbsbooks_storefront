@@ -76,6 +76,8 @@ module Spree
           I18n.locale.to_s == "ru" ? "t_tr.name" : "t.name"
         elsif params[:sort] == "publisher"
           I18n.locale.to_s == "ru" ? "t_tr.name" : "t.name"
+        elsif params[:sort] == "price"
+          "v.cost_price"         
         end  
       else
         # sort by title

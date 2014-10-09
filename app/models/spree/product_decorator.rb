@@ -56,10 +56,6 @@ Spree::Product.class_eval do
     p.join(", ")
   end
 
-  def price
-    master.cost_price
-  end
-
   def qty
     master.stock_items.first.count_on_hand
   end
