@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   Spree::Core::Engine.routes.draw do
     resources :specials, :only => [:index]
+    resources :partners, :only => [:index, :show]    
     get 'search' => 'products#advanced_search', :as => :search
     resources :bulk_orders, :only => [:index]
     resources :orders, :except => [:new, :create, :destroy] do

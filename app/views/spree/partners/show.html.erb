@@ -1,0 +1,20 @@
+<% content_for :sidebar do %>
+  <div data-hook="homepage_sidebar_navigation">
+    <% if "spree/products" == params[:controller] && @taxon %>
+      <%= render :partial => 'spree/shared/filters' %>
+    <% else %>
+      <%= render :partial => 'spree/shared/taxonomies' %>
+    <% end %>
+  </div>
+<% end %>
+<div id="content_oc">          
+    <div class="box_oc">              
+        <div class="box-heading">
+            <h1 class="mijoshop_heading_h1"><%= t(:our_partners) %></h1>
+        </div>
+        <div class="box-content">
+			<%= image_tag(@partner.icon.url(:normal), class: "img-logo-partner") %>
+			<p><%= raw(@partner.description) %></p>
+        </div>               
+    </div>
+</div>    

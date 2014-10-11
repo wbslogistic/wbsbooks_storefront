@@ -43,3 +43,18 @@ input[type="submit"].bulk_search {
 .table-line td .desc {
   background-image: url(/images/down_arrow.gif);
 }
+
+.div-logo {
+  border-bottom: 1px solid #DDDDDD;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  img {
+	margin: 20px auto;
+	max-height: 70px;
+	max-width: 110px;  	
+  }
+}
+
+.img-logo-partner {
+margin-bottom: 20px;
+}
