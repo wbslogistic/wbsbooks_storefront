@@ -25,13 +25,18 @@
                 <div>
                   <div class="box-product">
                     <div>
-                        <select class="form-control">
-                            <option>All</option>
-                            <option>Eksmo</option>
-                            <option>Spring</option>
-                            <option>Amazon</option>
-                            <option>Ozon</option>
+                        <select class="form-control" id="publishers-filter">
+                          <% values = Spree::Taxonomy.find_by_name('Publishers').taxons.reject(&:root?).map { |t| [t[:name], seo_url(t)] } %>
+                          <%= options_for_select ([['--', '']] + values) %>
                         </select>
+                        <script>
+                          $(function() {
+                              $('#publishers-filter').change(function() {
+                                  var u = $('#publishers-filter').val();
+                                  if (u != "") window.location = u;
+                              });
+                          });
+                        </script>
                     </div>
                   </div>
                 </div>
@@ -61,4 +66,4 @@
           </div>
         <% end %>
       </div>
-      <!-- //SIDEBAR LEFT --> 
+      <!-- //SIDEBAR LEFT -->
