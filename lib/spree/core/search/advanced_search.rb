@@ -19,7 +19,7 @@ module Spree
           unless Spree::Config.show_products_without_price
             @products = @products.where("spree_prices.amount IS NOT NULL").where("spree_prices.currency" => current_currency)
           end
-         @products = @products.page(curr_page).per(per_page)
+          @products = @products.page(curr_page).per(per_page)
         end
 
         def method_missing(name)
@@ -32,6 +32,14 @@ module Spree
 
         protected
         def get_base_scope
+
+          order_rules = {
+              price_asc:  Spree::Product.ascend_by_master_price.values[:order],
+              price_desc: Spree::Product.descend_by_master_price.values[:order],
+              name_asc:   Spree::Product.ascend_by_name.values[:order],
+              name_desc:  Spree::Product.descend_by_name.values[:order]
+          }
+
           base_scope = Spree::Product.active
           if taxon.present? || author.present? || publisher.present?
             base_scope = base_scope.joins(:taxons)
@@ -54,6 +62,10 @@ module Spree
           base_scope = get_products_conditions_for(base_scope, keywords)
           base_scope = add_search_scopes(base_scope)
           base_scope = add_eagerload_scopes(base_scope)
+
+          if order_rules[sort]
+            base_scope = base_scope.reorder(order_rules[sort])
+          end
           base_scope
         end
 
@@ -80,16 +92,16 @@ module Spree
         # method should return new scope based on base_scope
         def get_products_conditions_for(base_scope, query)
           unless query.blank?
-            fields = [:name, :description]
-            values = query.split
+            fields     = [:name, :description]
+            values     = query.split
             base_scope = base_scope.joins(:translations)
             base_scope = base_scope.where fields.map { |field|
-              values.map { |value|
-                base_scope.arel_table[field].matches("%#{value}%").or(
-                  Spree::Product::Translation.arel_table[field].matches("%#{value}%")
-                )
-              }.inject(:or)
-            }.inject(:or)
+                                            values.map { |value|
+                                              base_scope.arel_table[field].matches("%#{value}%").or(
+                                                  Spree::Product::Translation.arel_table[field].matches("%#{value}%")
+                                              )
+                                            }.inject(:or)
+                                          }.inject(:or)
           end
           base_scope
         end
@@ -112,6 +124,8 @@ module Spree
           per_page               = params[:per_page].to_i
           @properties[:per_page] = per_page > 0 ? per_page : Spree::Config[:products_per_page]
           @properties[:page]     = (params[:page].to_i <= 0) ? 1 : params[:page].to_i
+
+          @properties[:sort] = (params[:sort] || "name_asc").to_sym
         end
       end
     end
