@@ -94,7 +94,7 @@ module Spree
     end    
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1, current_level = 1)
-      if current_taxon.nil? or !(current_taxon.permalink.include? "categories/")
+      if current_taxon.nil? or !(current_taxon.permalink.include?("categories/") || current_taxon.permalink.include?("suggested-titles/"))
         root_taxon = root_taxon
       else
         if current_taxon.children.blank?

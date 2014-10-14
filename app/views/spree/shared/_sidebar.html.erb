@@ -10,7 +10,7 @@
               <div class="box_oc" style="margin-bottom: 0px !important;">
                 <div>
                   <div class="box-category">
-                    <%= taxons_tree(@root_taxon,@taxon,1,1) %>
+                    <%= taxons_tree(@root_taxon,(@taxon.nil? or @taxon.permalink.include? 'categories') ? @taxon : nil,1,1) %>
                   </div>
                 </div>
               </div>
@@ -44,26 +44,23 @@
             </div>
           </div>
         </div>
-        <% if spree_current_user %>
-          <div class="t3-module module " id="Mod107">
+        <%# if spree_current_user %>
+          <div class="t3-module module">
             <div class="module-inner">
               <h3 class="module-title "><span><%= Spree.t(:suggested_titles) %></span></h3>
               <div class="module-ct">
                 <div class="box_oc" style="margin-bottom: 0px !important;">
                   <div>
                     <div class="box-category">
-                      <ul>
-                        <li> <a href="#">Audiobooks</a> </li>
-                        <li> <a href="#">Business books</a> </li>
-                        <li> <a href="#">Children and Parents</a> </li>
-                        <li> <a href="#">Fiction</a> </li>
-                      </ul>
+                      <div class="box-category">
+                        <%= taxons_tree(@root_suggested_taxon,(@taxon.nil? or @taxon.permalink.include? 'suggested-titles') ? @taxon : nil,1,1) %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
+        <%# end %>
       </div>
       <!-- //SIDEBAR LEFT -->

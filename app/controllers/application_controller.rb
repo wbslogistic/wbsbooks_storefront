@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_root_taxon
 
   def set_root_taxon
-    @root_taxon = Spree::Taxon.first
+    @root_taxon = Spree::Taxonomy.find_by_name("Categories").root
+    @root_suggested_taxon = Spree::Taxonomy.find_by_name("Suggested Titles").root
   end
 end
