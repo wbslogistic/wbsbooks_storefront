@@ -52,8 +52,8 @@
                 <%= t(:publisher) %>
                 <% end %>
               </td>
-              <td><%= t(:in_stock) %></td>
-              <td><%= sortable "price", "RRP" %></td>
+              <td><%= sortable "stock", t(:in_stock) %></td>
+              <td><%= sortable "rrp", "RRP" %></td>
               <td><%= sortable "price", t(:unit_price) %></td>
               <td class="td-w"><%= t(:quantity) %></td>
               <td><%= t(:total) %></td>
