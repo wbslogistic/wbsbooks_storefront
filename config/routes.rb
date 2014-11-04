@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search_products/search'
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -10,9 +12,13 @@ Rails.application.routes.draw do
   get 'about' => 'spree/home#about', :as => :about
   get 'contact' => 'spree/home#contact', :as => :contact
   get 'faq' => 'spree/home#faq', :as => :faq
+  get 'ajax_books' => 'ajax#books', :as => :ajax_books
+  get 'test' => 'test#index', :as => :test  
 
 
   Spree::Core::Engine.routes.draw do
+  get 'search_products/search'
+
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    
     get 'search' => 'products#advanced_search', :as => :search

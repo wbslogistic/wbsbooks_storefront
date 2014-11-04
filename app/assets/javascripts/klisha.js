@@ -4,4 +4,4 @@ function bulk_order_sum(element){
 	var price = element.getAttribute("price");
 	var total = element.value * price;
 	document.getElementById(res).innerHTML = total.toFixed(2);
-}
+};
