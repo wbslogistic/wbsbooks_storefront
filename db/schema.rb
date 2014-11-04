@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141104055518) do
     t.datetime "updated_at"
   end
 
+  add_index "search_products", ["concat_name"], name: "index_search_products_on_concat_name", using: :btree
   add_index "search_products", ["product_id"], name: "index_search_products_on_product_id", using: :btree
 
   create_table "spree_addresses", force: true do |t|

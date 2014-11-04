@@ -11,5 +11,6 @@ class CreateSearchProducts < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :search_products, :concat_name
   end
 end
