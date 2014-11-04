@@ -1,3 +1,15 @@
 // Place all the styles related to the SearchProducts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul.ui-autocomplete
+{
+    // position: absolute;
+    // left: 100px!important;
+    // top: 0!important;
+    color: black;
+    z-index:100;
+}
+
+.ui-autocomplete .ui-menu-item {
+	width: 200px;
+}
