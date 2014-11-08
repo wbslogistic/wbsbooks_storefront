@@ -1198,3 +1198,7 @@ en:
   publisher: Publisher
   clear: Clear
   our_partners: Our partners
+  views:
+    pagination:
+      previous: "&laquo;"
+      next: "&raquo;"
