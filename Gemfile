@@ -64,3 +64,4 @@ group :development do
 end
 
 gem 'selectize-rails'
+gem 'bootstrap-datepicker-rails'

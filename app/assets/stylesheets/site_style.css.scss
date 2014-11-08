@@ -288,3 +288,11 @@ list-style: none;
   text-decoration: none;
   background-color: transparent;
 }
+
+.datepicker-dropdown {
+  z-index: 99 !important;
+}
+
+input.date-picker {
+  display: inline-block;
+}
