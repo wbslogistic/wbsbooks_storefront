@@ -103,7 +103,7 @@ module Spree
           root_taxon = current_taxon
         end
       end
-      return '' if max_level < 1 || root_taxon.children.empty?
+      return '' if max_level < 1 || root_taxon.blank? || root_taxon.children.empty?
       if current_level == 1
         content_tag :ul, class: 'widget-shadow', id: 'left-nav' do
           root_taxon.children.map do |taxon|

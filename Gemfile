@@ -53,3 +53,10 @@ gem 'pg'
 gem 'capistrano'
 gem 'rvm-capistrano' 
 gem 'unicorn'
+
+# Better debug
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+end
