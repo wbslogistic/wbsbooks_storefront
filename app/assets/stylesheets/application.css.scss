@@ -12,8 +12,24 @@
  *
  *= require_tree .
  *= require_self
+ *= require owl.carousel
+ *= require owl.theme
  */
-
+ #next {
+  float: right;
+  margin-top: -360px;
+  margin-right: -20px;
+ }
+ #prev
+ { 
+    margin-top: -360px;
+	margin-right: 840px;
+	float: right;
+ }
+.owl-theme .owl-controls
+{
+ display:none;
+}
 .product-list {
   margin: 0;
 

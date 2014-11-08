@@ -56,8 +56,50 @@
                       <%= render :partial => 'properties' %>
                     </div>
                   </div>
-
                   
+                  
+                <%@taxonid = taxon_author_products(@product) %>
+                <%if @taxonid.present?%>
+                  <h3 class="module-title">Other books of this author</h3>
+                     <div class="col-xs-12 col-md-12 col-sm-12" style="margin-left:50px;">
+                        <div class="owl-carousel">
+	                       
+			                   <% Spree::Taxon.find(@taxonid).products.each_with_index do |authorproduct,i| %>
+				                  <%if @product.id != authorproduct.id %>
+					                  <div class="product-item-<%=i%>">
+						                    <div class="actions">
+							                    <div class="image"><a href="<%=product_url(authorproduct, :taxon_id => @taxonid)%>"> <%= product_image(authorproduct, :itemprop => "image", :style => 'display: inline-block') %></a></div>
+							                    <div class="cart">
+								                     <%= form_for :order, :url => populate_orders_path do |f| %>
+										               <%= hidden_field_tag "variant_id", authorproduct.master.id %>
+										               <%= hidden_field_tag "quantity", 1 %>
+										               <input type="button" value="Add to Cart" class="btn btn-primary" onclick="$(this).parent().submit();">
+										             <%end%>
+							                    </div>
+							                    <div class="wishlist">
+									                  <%= form_for Spree::WishedProduct.new, :html => {:method => :post} do |f| %>
+														<%= f.hidden_field :variant_id, :value => authorproduct.master.id %>
+														<a title="Add to Wish List" onclick="$(this).parent().submit();"><i class="fa fa-list"></i></a>
+													  <%end%>
+												</div>
+						                    </div>
+						                    <div class="name"><a href="<%=authorproduct.slug%>"><%=authorproduct.name%></a></div>
+						                    <div class="author"><%= taxon_authors(@product) %></div>
+						                    <div class="price"> <%= display_price(authorproduct) %></div>
+					                  </div>
+				                  <%end%>
+		                      <%end%>
+		                 </div>
+		                 <div  id="prev">
+			                    <i class="fa fa-chevron-circle-left"></i>
+			             </div>
+		                 <div  id="next">
+			                    <i class="fa fa-chevron-circle-right"></i>
+			             </div> 
+	               </div>
+              <%end%>
+              
+              
                 <h3 class="module-title"><%= Spree.t(:look_for_similar_items) %></h3>
                 <div class="col-xs-12 col-md-12 col-sm-12">
                     <%= render :partial => 'taxons' %>

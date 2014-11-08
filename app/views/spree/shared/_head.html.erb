@@ -14,3 +14,15 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
 <![endif]-->
 <%= yield :head %>
+<script type="text/javascript">
+     $(document).ready(function(){
+          var owl = $(".owl-carousel");
+		  owl.owlCarousel({items : 4,itemsCustom : false});
+		  $("#next").click(function(){
+		    owl.trigger('owl.next');
+		  });
+		  $("#prev").click(function(){
+		    owl.trigger('owl.prev');
+		  });
+	});
+</script>
