@@ -1,5 +1,6 @@
 module Spree
   module BaseHelper
+    AVAILABLE_CURRENCIES = [ 'usd', 'rub', 'eur' ]
 
     # Defined because Rails' current_page? helper is not working when Spree is mounted at root.
     def current_spree_page?(url)
@@ -243,5 +244,20 @@ module Spree
         end
       end
     end
+
+    def currency_menu
+      menu_html = ''
+      AVAILABLE_CURRENCIES.each { |c|
+        menu_html += "<li>#{currency_icon(c)}#{link_to(Spree.t(c), currency_path(c))}</li>"
+      }
+      content_tag :ul, class: 'nav', id: 'currency_menu' do
+        menu_html.html_safe
+      end
+    end
+
+    def currency_icon(currency)
+      "<i class='fa fa-#{currency} fa-add'></i>".html_safe
+    end
+
   end
 end

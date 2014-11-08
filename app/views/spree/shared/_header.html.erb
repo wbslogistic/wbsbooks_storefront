@@ -25,16 +25,15 @@
 
           <div class="toolbar-ct-5">
             <div class="btn-group">
-              <i class="fa fa-dollar fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= Spree.t(:dollar) %></button>
+              <%= currency_icon(current_currency.downcase) %>
+              <button type="button" id="current_currency" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <%= Spree.t(current_currency.downcase) %>
+              </button>
               <div class="dropdown-menu" role="menu">
                 <div class="t3-module module">
                   <div class="module-inner">
                     <div class="module-ct">
-                      <ul class="nav">
-                        <li><i class="fa fa-dollar fa-add"></i><a href="#"><%= Spree.t(:dollar) %></a></li>
-                        <li><i class="fa fa-ruble fa-add"></i><a href="#"><%= Spree.t(:ruble) %></a></li>
-                        <li><i class="fa fa-euro fa-add"></i><a href="#"><%= Spree.t(:euro) %></a></li>
-                      </ul>
+                      <%= currency_menu %>
                     </div>
                   </div>
                 </div>

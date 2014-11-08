@@ -309,6 +309,9 @@ ru:
     dollar: Доллар
     ruble: Рубль
     euro: Евро
+    usd: Доллар
+    rub: Рубль
+    eur: Евро
     whats_new: Новинки
     specials: Акции
     bulk_order: Оптовый заказ
