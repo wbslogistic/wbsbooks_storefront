@@ -284,6 +284,10 @@ list-style: none;
     width: 200px;
   }
 }
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
 
 .datepicker-dropdown {
   z-index: 99 !important;
