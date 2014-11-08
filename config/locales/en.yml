@@ -303,14 +303,14 @@ en:
     bulk_order: Bulk order
     advanced_search: Advanced search
     comming_soon: Comming Soon
-    online_support: Contact with us
+    online_support: Contact us
     signup_for_news_and_offers: Sign up for news and offers
     acymailing_introtext: Make sure you dont miss interesting happenings by joining our newsletter program
     subscribe: Subscribe
     information: Information
     news: News
     help_and_support: Help and support
-    mail_to: Mail to
+    mail_to: E-mail
     fax: Fax
     total_sum: Summary total
     details: Details
@@ -895,7 +895,7 @@ en:
     percent: Percent
     percent_per_item: Percent Per Item
     permalink: Permalink
-    phone: Phone
+    phone: Tel
     place_order: Place Order
     please_define_payment_methods: Please define some payment methods first.
     populate_get_error: Something went wrong. Please try adding the item again.
@@ -1197,8 +1197,3 @@ en:
   author: Author
   publisher: Publisher
   clear: Clear
-  our_partners: Our partners
-  views:
-    pagination:
-      previous: "&laquo;"
-      next: "&raquo;"
