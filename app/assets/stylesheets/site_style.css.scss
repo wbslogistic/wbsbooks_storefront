@@ -272,3 +272,15 @@ list-style: none;
 .taxon-desc {
 	margin-bottom: 50px;
 }
+
+.new_spree_user {
+  input[type~="text"], input[type="password"] {
+    width: 120px !important;
+  }
+  input[type="radio"] {
+    margin-left: 10px !important;
+  }
+  select {
+    width: 200px;
+  }
+}
