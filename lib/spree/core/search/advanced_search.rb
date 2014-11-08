@@ -58,6 +58,14 @@ module Spree
             base_scope = base_scope.price_between((min_price || 0), (max_price || 999999))
           end
 
+          if date_from || date_to
+            base_scope = base_scope.where(
+              "created_at >= :date_from AND created_at <= :date_to",
+              date_from: (date_from || DateTime.new(1)),
+              date_to: (date_to || DateTime.new(9999))
+            )
+          end
+
           base_scope = base_scope.in_taxon(taxon) unless taxon.blank?
           base_scope = get_products_conditions_for(base_scope, keywords)
           base_scope = add_search_scopes(base_scope)
@@ -114,9 +122,17 @@ module Spree
           @properties[:min_price] = params[:min_price].blank? ? nil : params[:min_price].to_f
           @properties[:max_price] = params[:max_price].blank? ? nil : params[:max_price].to_f
 
-          @properties[:min_price] = params[:min_price].blank? ? nil : params[:min_price].to_f
-          @properties[:max_price] = params[:max_price].blank? ? nil : params[:max_price].to_f
+          @properties[:date_from] = begin
+            Date.parse(params[:date_from])
+          rescue
+            nil
+          end
 
+          @properties[:date_to] = begin
+            Date.parse(params[:date_to])
+          rescue
+            nil
+          end
           @properties[:keywords]       = params[:keywords]
           @properties[:search]         = params[:search]
           @properties[:include_images] = params[:include_images]

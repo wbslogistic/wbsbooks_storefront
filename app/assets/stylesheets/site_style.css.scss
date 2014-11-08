@@ -272,3 +272,11 @@ list-style: none;
 .taxon-desc {
 	margin-bottom: 50px;
 }
+
+.datepicker-dropdown {
+  z-index: 99 !important;
+}
+
+input.date-picker {
+  display: inline-block;
+}
