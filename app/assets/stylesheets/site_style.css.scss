@@ -276,3 +276,7 @@ list-style: none;
 .datepicker-dropdown {
   z-index: 99 !important;
 }
+
+input.date-picker {
+  display: inline-block;
+}

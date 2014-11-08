@@ -45,11 +45,15 @@
             </div>
             <label for="inputPassword3" class="col-sm-2 control-label">Date</label>
 
-            <div class="col-sm-2">
+            <div class="col-sm-2 input-prepend">
+              <span class="add-on"><i class="icon-calendar"></i></span>
               <%= text_field_tag :date_from, params[:date_from], type: '', class: 'form-control date-picker', placeholder: 'Date from', data: {provide: 'datepicker-inline'}%>
             </div>
-            <div class="col-sm-2">
-              <%= text_field_tag :date_to, params[:date_to], type: '', class: 'form-control date-picker', placeholder: 'Date to' %>
+            <div class="col-sm-2 input-prepend">
+              <span class="add-on"><i class="icon-calendar"></i></span>
+              <%= text_field_tag :date_to, params[:date_to], type: '', class: 'form-control date-picker', placeholder: 'Date to' do %>
+                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+              <%- end %>
             </div>
           </div>
 
