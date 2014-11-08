@@ -40,14 +40,17 @@
               <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
             </div>
           </div>
+
           <div class="lemmaBook">
             <div class="cartAdd">
               <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
+
               <% end %>
             </div>          
           </div>
         </div>
       </div>
+
     <% else %>
       <div id="product-price">
         <br>
@@ -59,7 +62,24 @@
 <!--End add to cart-->
 
               </div>
+              <% if spree_current_user %> 
               <div class="wishlist"><a title="Add to Wish List"><i class="fa fa-list"></i></a></div>
+              <div class="wishlist">    
+                <div class="lemmaBook">
+                  <div class="wishlistAdd">
+                    <%= form_for Spree::WishedProduct.new do |f| %>
+                    <%= f.hidden_field :variant_id, :value => product.master.id %>
+                    <button  id="mainpage" type="submit" value="">
+                    </button>
+                    <% end %>
+                  </div>
+                </div>
+                <% else %>
+              <div class="wishlist"></div>
+              <div class="wishlist">    
+                <% end %>
+              </div>
+
             </div>
             <div class="name"><%= link_to truncate(product.name, :length => 50), url, :itemprop => "name", :title => product.name %></div>
             <%= taxon_authors(product) %>

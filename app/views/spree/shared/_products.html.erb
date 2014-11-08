@@ -134,12 +134,8 @@
   </div>
 </div>
 
-
-
-
-<% if paginated_products.respond_to?(:num_pages) %>
-    <%= paginate paginated_products %>
-<% end %>
-
-
-
+<div class="text-center">
+  <% if paginated_products.respond_to?(:num_pages) %>
+      <%= paginate paginated_products %>
+  <% end %>
+</div>

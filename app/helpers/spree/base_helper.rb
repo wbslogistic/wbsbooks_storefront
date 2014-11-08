@@ -133,7 +133,7 @@ module Spree
 
     def taxon_authors(product)
       links = ""
-      au_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "authors%"})
+      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
       return '' if au_taxons.blank?
       au_taxons.map do |taxon|
         links << '<div class="author">'
