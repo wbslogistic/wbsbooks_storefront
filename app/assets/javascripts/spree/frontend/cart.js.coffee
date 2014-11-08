@@ -1,4 +1,4 @@
-Spree.ready ($) ->
+ready = ->
   if ($ 'form#update-cart').is('*')
     ($ 'form#update-cart a.delete').show().one 'click', ->
       ($ this).parents('.line-item').first().find('input.line_item_quantity').val 0
@@ -13,3 +13,6 @@ Spree.fetch_cart = ->
     url: Spree.pathFor("/cart_link"),
     success: (data) ->
       $('#link-to-cart').html data
+
+Spree.ready ready
+$(document).on 'page:load', => Spree.ready(ready)
