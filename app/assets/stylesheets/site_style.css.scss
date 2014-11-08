@@ -273,6 +273,18 @@ list-style: none;
 	margin-bottom: 50px;
 }
 
+.new_spree_user {
+  input[type~="text"], input[type="password"] {
+    width: 120px !important;
+  }
+  input[type="radio"] {
+    margin-left: 10px !important;
+  }
+  select {
+    width: 200px;
+  }
+}
+
 .datepicker-dropdown {
   z-index: 99 !important;
 }
