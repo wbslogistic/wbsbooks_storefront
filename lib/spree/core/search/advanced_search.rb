@@ -81,7 +81,7 @@ module Spree
           if include_images
             scope.eager_load({ master: [:prices, :images] })
           else
-            scope.includes(master: :prices)
+            scope.includes(:prices)
           end
         end
 
