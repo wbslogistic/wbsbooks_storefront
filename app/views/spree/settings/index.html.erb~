@@ -5,9 +5,9 @@
               </div>
               <div class="box-content">
               
-		<form  method="post" action="/updatesettings">
+				<form  method="post" action="/updatesettings">
                   <div class="content_oc">
-			<table class="form">
+						<table class="form">
                           <tbody>
                             <tr>
                               <td>Language:</td>
@@ -38,6 +38,7 @@
                 </div>
                 
             </div>         
-         </div>
+                
+              </div>
            
       
