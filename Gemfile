@@ -7,6 +7,7 @@ gem 'rails', '4.1.2'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'bootstrap-sass', '~> 3.3.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -45,7 +46,6 @@ gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git
 
 gem 'spree_i18n', github: 'spree/spree_i18n', branch: '2-3-stable'
 gem 'spree_wishlist', github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
-gem 'spree_multi_currency', github: 'pronix/spree-multi-currency'
 
 # klisha
 gem 'pg'
@@ -54,3 +54,14 @@ gem 'pg'
 gem 'capistrano'
 gem 'rvm-capistrano' 
 gem 'unicorn'
+
+# Better debug
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+  gem 'deadweight', require: false
+end
+
+gem 'selectize-rails'
+gem 'bootstrap-datepicker-rails'
