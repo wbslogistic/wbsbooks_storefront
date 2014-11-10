@@ -50,10 +50,7 @@ gem 'spree_wishlist', github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
 # klisha
 gem 'pg'
 
-# Deployment with Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano' 
-gem 'unicorn'
+gem "net-ssh", "~> 2.7.0"
 
 # Better debug
 group :development do
@@ -61,6 +58,20 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'deadweight', require: false
+end
+
+group :tools do
+  gem 'capistrano', '~> 2.0'
+  gem 'capistrano_colors'
+  gem 'sushi'
+  gem 'recap', '~> 1.2'
+  gem 'capistrano-unicorn', require: false
+  gem 'bundler-audit'
+  gem 'capistrano-colorized-stream'
+end
+
+group :production do
+  gem 'unicorn'
 end
 
 gem 'selectize-rails'
