@@ -15,34 +15,6 @@ products[:victor_suvorov] = Spree::Product.find_by_name!("Viktor Suvorov without
 products[:complete_encyclopedia] = Spree::Product.find_by_name!("Complete encyclopedia of medicinal plants")
 products[:words] = Spree::Product.find_by_name!("Words. Developing book with stickers")
 products[:abc] = Spree::Product.find_by_name!("My ABC Sticker Activity Book")
-#bestsellers
-products[:the_fault] = Spree::Product.find_by_name!("The Fault in Our Stars")
-products[:abode] = Spree::Product.find_by_name!("Abode")
-products[:the_one] = Spree::Product.find_by_name!("The One Plus One")
-products[:have_a_mercy] = Spree::Product.find_by_name!("Have a mercy on bastards")
-products[:russian_canary] = Spree::Product.find_by_name!("The Russian Canary. Zheltukhin")
-products[:husbands] = Spree::Product.find_by_name!("The Husband's Secret")
-products[:billi] = Spree::Product.find_by_name!("Billi")
-products[:the_most] = Spree::Product.find_by_name!("The most mysterious secret and other stories")
-products[:bellman] = Spree::Product.find_by_name!("Bellman & Black")
-#new
-products[:the_sequel] = Spree::Product.find_by_name!("The sequel to 'Angels do not Survive on Ice'")
-products[:light_worlds] = Spree::Product.find_by_name!("Light Worlds")
-products[:the_green_gambit] = Spree::Product.find_by_name!("The Green Gambit")
-products[:death] = Spree::Product.find_by_name!("Death of the gods 2. Book 3 Ashes of Asgard")
-products[:the_stranger] = Spree::Product.find_by_name!("The Stranger (The Labyrinths of Echo, Book 1)")
-products[:the_wanderer] = Spree::Product.find_by_name!("The Wanderer and his country")
-products[:adultery] = Spree::Product.find_by_name!("Adultery: A novel")
-products[:bridget] = Spree::Product.find_by_name!("Bridget Jones. Mad About the Boy")
-products[:grand] = Spree::Product.find_by_name!("Grand")
-products[:dark_places] = Spree::Product.find_by_name!("Dark Places")
-#comming soon
-products[:russian_brutal] = Spree::Product.find_by_name!("Russian Brutal Short Story")
-products[:the_phantom] = Spree::Product.find_by_name!("The Phantom of the Heavenly Jerusalem")
-products[:mr] = Spree::Product.find_by_name!("Mr. Mercedes")
-products[:and_life] = Spree::Product.find_by_name!("And life was very good")
-products[:dance] = Spree::Product.find_by_name!("Dance of the Happy Shades")
-
 
 def image(name, type="jpg")
   images_path = Pathname.new(File.dirname(__FILE__)) + "images"
@@ -94,160 +66,37 @@ images = {
   ],
   products[:learn_to_draw].master => [
     {
-      :attachment => image("008")
+      :attachment => image("009")
     }
   ],
   products[:paris_finds].master => [
     {
-      :attachment => image("009")
+      :attachment => image("010")
     }
   ],
   products[:star_dance].master => [
     {
-      :attachment => image("010")
+      :attachment => image("011")
     }
   ],
   products[:victor_suvorov].master => [
     {
-      :attachment => image("011")
+      :attachment => image("012")
     }
   ],
   products[:complete_encyclopedia].master => [
     {
-      :attachment => image("012")
+      :attachment => image("013")
     }
   ],
   products[:words].master => [
     {
-      :attachment => image("013")
+      :attachment => image("014")
     }
   ],
   products[:abc].master => [
     {
       :attachment => image("014")
-    }
-  ],
-  #bestsellers
-products[:the_fault].master => [
-    {
-      :attachment => image("best001")
-    }
-  ],
-products[:abode].master => [
-    {
-      :attachment => image("best002")
-    }
-  ],
-products[:the_one].master => [
-    {
-      :attachment => image("best003")
-    }
-  ],
-products[:have_a_mercy].master => [
-    {
-      :attachment => image("best004")
-    }
-  ],
-products[:russian_canary].master => [
-    {
-      :attachment => image("best005")
-    }
-  ],
-products[:husbands].master => [
-    {
-      :attachment => image("best006")
-    }
-  ],
-products[:billi].master => [
-    {
-      :attachment => image("best007")
-    }
-  ],
-products[:the_most].master => [
-    {
-      :attachment => image("best008")
-    }
-  ],
-products[:bellman].master => [
-    {
-      :attachment => image("best009")
-    }
-  ],
-#new
-products[:the_sequel].master => [
-    {
-      :attachment => image("new001")
-    }
-  ],
-products[:light_worlds].master => [
-    {
-      :attachment => image("new002")
-    }
-  ],
-products[:the_green_gambit].master => [
-    {
-      :attachment => image("new003")
-    }
-  ],
-products[:death].master => [
-    {
-      :attachment => image("new004")
-    }
-  ],
-products[:the_stranger].master => [
-    {
-      :attachment => image("new005")
-    }
-  ],
-products[:the_wanderer].master => [
-    {
-      :attachment => image("new006")
-    }
-  ],
-products[:adultery].master => [
-    {
-      :attachment => image("new007")
-    }
-  ],
-products[:bridget].master => [
-    {
-      :attachment => image("new008")
-    }
-  ],
-products[:grand].master => [
-    {
-      :attachment => image("new009")
-    }
-  ],
-products[:dark_places].master => [
-    {
-      :attachment => image("new010")
-    }
-  ],
-#comming soon
-products[:russian_brutal].master => [
-    {
-      :attachment => image("com001")
-    }
-  ],
-products[:the_phantom].master => [
-    {
-      :attachment => image("com002")
-    }
-  ],
-products[:mr].master => [
-    {
-      :attachment => image("com003")
-    }
-  ],
-products[:and_life].master => [
-    {
-      :attachment => image("com004")
-    }
-  ],
-products[:dance].master => [
-    {
-      :attachment => image("com005")
     }
   ]
 }

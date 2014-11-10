@@ -1,5 +1,6 @@
 module Spree
   module BaseHelper
+    AVAILABLE_CURRENCIES = [ 'usd', 'rub', 'eur' ]
 
     # Defined because Rails' current_page? helper is not working when Spree is mounted at root.
     def current_spree_page?(url)
@@ -103,7 +104,7 @@ module Spree
           root_taxon = current_taxon
         end
       end
-      return '' if max_level < 1 || root_taxon.blank? || root_taxon.children.empty?
+      return '' if max_level < 1 || root_taxon.children.empty?
       if current_level == 1
         content_tag :ul, class: 'widget-shadow', id: 'left-nav' do
           root_taxon.children.map do |taxon|
@@ -133,7 +134,7 @@ module Spree
 
     def taxon_authors(product)
       links = ""
-      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
+      au_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "authors%"})
       return '' if au_taxons.blank?
       au_taxons.map do |taxon|
         links << '<div class="author">'
@@ -243,5 +244,20 @@ module Spree
         end
       end
     end
+
+    def currency_menu
+      menu_html = ''
+      AVAILABLE_CURRENCIES.each { |c|
+        menu_html += "<li>#{currency_icon(c)}#{link_to(Spree.t(c), currency_path(c))}</li>"
+      }
+      content_tag :ul, class: 'nav', id: 'currency_menu' do
+        menu_html.html_safe
+      end
+    end
+
+    def currency_icon(currency)
+      "<i class='fa fa-#{currency} fa-add'></i>".html_safe
+    end
+
   end
 end

@@ -11,7 +11,8 @@
  *------------------------------------------------------------------------------
  */
  
-var ready = function() {
+ (function($) {
+ 
  	// browser detector
 	(function () {
 		var browser = '';
@@ -60,7 +61,4 @@ var ready = function() {
 		}
 	});
 	
-};
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
+})(jQuery);

@@ -307,11 +307,11 @@ ru:
     english: Английский
     russian: Русский
     dollar: Доллар
-    firstname: Имя
-    lastname: Фамилия
-    account_type: Тип учетной записи
     ruble: Рубль
     euro: Евро
+    usd: Доллар
+    rub: Рубль
+    eur: Евро
     whats_new: Новинки
     specials: Акции
     bulk_order: Оптовый заказ
@@ -324,7 +324,7 @@ ru:
     news: Новости
     online_support: Связаться с нами   
     help_and_support: Помощь
-    mail_to: E-mail
+    mail_to: Электронный адрес
     fax: Факс
     details: Подробнее
     show: Показать
@@ -1234,3 +1234,4 @@ ru:
   quantity: Кол-во
   total: Итого
   clear: Очистить
+  our_partners: Наши партнеры  

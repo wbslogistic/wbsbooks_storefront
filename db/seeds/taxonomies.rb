@@ -17,26 +17,14 @@ taxonomies = [
   	:runame => "Авторы"
   },
   { 
-  	:name => "Suggested Titles",
+  	:name => "Suggested titles",
   	:runame => "Рекомендованные товары"
 
   },
   { 
   	:name => "Whats new",
   	:runame => "Новинки"
- 	},
-  { 
-    :name => "Bestsellers",
-    :runame => "Лучшая цена"
-  },
-  { 
-    :name => "New",
-    :runame => "Новинки"
-  },
-  { 
-    :name => "Comming",
-    :runame => "Скоро поступление"
-  }
+ 	}
 ]
 
 taxonomies.each do |attrs|
