@@ -13,7 +13,7 @@
                     <%= f.label :email, Spree.t(:email), :class => ' required', :id => 'email-lbl', :for => 'email' %><span class="star">&nbsp;*</span>
                   </div>
                   <div class="col-sm-8">
-                    <%= f.email_field :email, :type => 'text', :class => 'validate-username', :id => 'username', :tabindex => 1, autofocus: true, size: 25 %>
+                    <%= f.email_field :email, :type => 'text', :class => 'validate-username', :id => 'username', :tabindex => 1, autofocus: true %>
                   </div>
                 </div>
                 <div class="form-horizontal form-group">
@@ -21,7 +21,7 @@
                     <%= f.label :password, Spree.t(:password), :class => " required", :for => "password", :id => "password-lbl" %><span class="star">&nbsp;*</span>
                   </div>
                   <div class="col-sm-8">
-                    <%= f.password_field :password, :type => 'text', :class => 'validate-password', :id => 'password', :tabindex => 2, size: 25 %>
+                    <%= f.password_field :password, :type => 'text', :class => 'validate-password', :id => 'password', :tabindex => 2 %>
                   </div>
                 </div>
                 <div class="form-horizontal form-group">

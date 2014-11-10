@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'contact' => 'spree/home#contact', :as => :contact
   get 'faq' => 'spree/home#faq', :as => :faq
   get 'ajax_books' => 'ajax#books', :as => :ajax_books
-  get 'test' => 'test#index', :as => :test 
+  get 'test' => 'test#index', :as => :test  
 
 
   Spree::Core::Engine.routes.draw do
@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     resources :partners, :only => [:index, :show]    
     get 'search' => 'products#advanced_search', :as => :search
     resources :bulk_orders, :only => [:index]
-    resources :new_items, :only => [:index]
     resources :orders, :except => [:new, :create, :destroy] do
       post :populate_multiple, :on => :collection
       post :empty_bulk_order, :on => :collection

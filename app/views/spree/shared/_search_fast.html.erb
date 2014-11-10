@@ -1,12 +1,5 @@
-<%= form_tag spree.products_path, :method => :get do %>
 <div class="input-group">
-	  <%= search_field_tag :keywords, params[:keywords], :class => 'form-control', :onfocus => "this.placeholder = ''", :onblur => "this.placeholder = '#{Spree.t(:search)}'", :onkeydown => "fast_search();" ,:placeholder => Spree.t(:search) %>
+	<input id="fast_search" class="form-control" onkeydown="fast_search();" placeholder="<%= Spree.t(:search) %>"/>
 	  <span class="input-group-btn">
-<<<<<<< HEAD
-	  <button class="btn btn-default"><i class="fa fa-search"></i></button>
-=======
-	  <%= button_tag(type: "submit", :class => 'btn btn-default', :onClick => "javascript:window.location='search.html'", :name => nil) do %><span class="icon-search icon-white"></span><% end %>
->>>>>>> master
 	  </span>
 </div>
-<% end %>

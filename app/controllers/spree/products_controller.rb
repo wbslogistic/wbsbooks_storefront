@@ -7,7 +7,6 @@ module Spree
 
     #rescue_from ActiveRecord::RecordNotFound, :with => :render_404
     helper 'spree/taxons'
-    layout 'no_catalog', :only => [:advanced_search]
 
     respond_to :html
 
@@ -18,7 +17,6 @@ module Spree
     end
 
     def advanced_search
-
       @searcher = build_searcher(params)
       @products = @searcher.retrieve_products
       @taxonomies = Spree::Taxonomy.includes(root: :children)

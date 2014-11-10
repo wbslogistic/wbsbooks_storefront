@@ -1,10 +1,10 @@
 function fast_search(){
     $(function() {   
-        $('#keywords').autocomplete({
+        $('#fast_search').autocomplete({
             minLength: 2,
             source: '/search_products/search',
             focus: function(event, ui) {
-                $('#keywords').val(ui.item.name);
+                $('#fast_search').val(ui.item.name);
                 return false;
             },
             select: function(event, ui) {

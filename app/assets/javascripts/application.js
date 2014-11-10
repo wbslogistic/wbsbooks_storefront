@@ -16,6 +16,3 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery-ui.min
-//= require selectize
-//= require bootstrap-datepicker/core
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.uk.js
