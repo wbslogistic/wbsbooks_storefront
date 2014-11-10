@@ -50,7 +50,29 @@ gem 'spree_multi_currency', github: 'pronix/spree-multi-currency'
 # klisha
 gem 'pg'
 
-# Deployment with Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano' 
-gem 'unicorn'
+gem "net-ssh", "~> 2.7.0"
+
+# Better debug
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+  gem 'deadweight', require: false
+end
+
+group :tools do
+  gem 'capistrano', '~> 2.0'
+  gem 'capistrano_colors'
+  gem 'sushi'
+  gem 'recap', '~> 1.2'
+  gem 'capistrano-unicorn', require: false
+  gem 'bundler-audit'
+  gem 'capistrano-colorized-stream'
+end
+
+group :production do
+  gem 'unicorn'
+end
+
+gem 'selectize-rails'
+gem 'bootstrap-datepicker-rails'
