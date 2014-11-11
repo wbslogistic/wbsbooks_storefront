@@ -15,8 +15,8 @@ set :user,            'wbsbooks_storefront'
 set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
 
 #== Multistage
-set :stages, %w(production staging)
-set :default_stage, 'production'
+set :stages, %w(production staging development)
+set :default_stage, 'development'
 require 'capistrano/ext/multistage'
 
 
