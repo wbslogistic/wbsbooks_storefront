@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   get 'search_products/search'
 
   # This line mounts Spree's routes at the root of your application.
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
 
 
   Spree::Core::Engine.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get 'search_products/search'
 
     resources :specials, :only => [:index]

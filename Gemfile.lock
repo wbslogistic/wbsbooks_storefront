@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/jaemo/spree_editor.git
+  revision: 453bc9cf7725b5f01853a0f4bbdba45b5950bb84
+  branch: 2-3-stable
+  specs:
+    spree_editor (2.2.1)
+      ckeditor (~> 4.1.0)
+      spree_backend (~> 2.3.0)
+      tinymce-rails (~> 4.0.16)
+
+GIT
   remote: git://github.com/pronix/spree-multi-currency.git
   revision: 7dc093fc5bbc704e2c0b8c2b56dc7fcb6f2cdbca
   specs:
@@ -7,6 +17,14 @@ GIT
       money (>= 5.0.0)
       nokogiri (>= 1.4.4)
       spree_core (>= 2.0.3)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_static_content.git
+  revision: b308a6148d3098eee17e3a2acf79d442d269d5dc
+  branch: 2-3-stable
+  specs:
+    spree_static_content (2.3.0)
+      spree_core (~> 2.3.0)
 
 GIT
   remote: git://github.com/spree/spree_i18n.git
@@ -127,6 +145,9 @@ GEM
     capistrano-unicorn (0.2.0)
       capistrano (< 3.0)
     capistrano_colors (0.5.5)
+    ckeditor (4.1.0)
+      mime-types
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -331,6 +352,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    tinymce-rails (4.0.28.2)
+      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -379,9 +402,11 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spree (= 2.3.1)
   spree_auth_devise!
+  spree_editor!
   spree_gateway!
   spree_i18n!
   spree_multi_currency!
+  spree_static_content!
   spree_wishlist!
   spring
   sqlite3
