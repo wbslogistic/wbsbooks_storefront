@@ -8,6 +8,7 @@ server '191.235.162.175', :web, :app, :db, primary: true
 
 set :domain_name,     'wbsbooks.cloudapp.net'
 set :ruby_version,    '2.1.2'
+set :rbenv_ruby_version '2.1.2'
 set :application,     'wbsbooks_storefront'
 set :repository,      'git@github.com:wbslogistic/wbsbooks_storefront.git'
 set :user,            'wbsbooks_storefront'
