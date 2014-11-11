@@ -7,3 +7,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
+
+Rails.application.config.assets.precompile += ['tinymce-jquery.js']
+Rails.application.config.assets.precompile += ['ckeditor/*']
