@@ -86,3 +86,6 @@ pickle-email-*.html
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore ckeditor public assets
+public/ckeditor_assets/*
