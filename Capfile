@@ -2,7 +2,10 @@ require 'recap/recipes/rails'
 require 'sushi/ssh'
 require 'capistrano_colors'
 require 'capistrano-unicorn'
+<<<<<<< HEAD
 require 'capistrano-rbenv'
+=======
+>>>>>>> 64d751cb904d537e60a3d5457f159ada38645a40
 
 server '191.235.162.175', :web, :app, :db, primary: true
 
