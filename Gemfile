@@ -71,6 +71,7 @@ group :tools do
   gem 'capistrano-unicorn', require: false
   gem 'bundler-audit'
   gem 'capistrano-colorized-stream'
+  gem 'capistrano-rbenv'
 end
 
 group :production do
