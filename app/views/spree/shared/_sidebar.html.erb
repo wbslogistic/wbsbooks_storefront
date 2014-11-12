@@ -53,7 +53,9 @@
                   <div>
                     <div class="box-category">
                       <div class="box-category">
-                        <%= taxons_tree(@root_suggested_taxon,(@taxon.nil? or @taxon.permalink.include? 'suggested-titles') ? @taxon : nil,1,1) %>
+                        <%- if @root_suggested_taxon.present? %>
+                          <%= taxons_tree(@root_suggested_taxon,(@taxon.nil? or @taxon.permalink.include? 'suggested-titles') ? @taxon : nil,1,1) %>
+                        <%- end %>
                       </div>
                     </div>
                   </div>
