@@ -104,7 +104,7 @@ module Spree
           root_taxon = current_taxon
         end
       end
-      return '' if max_level < 1 || root_taxon.children.empty?
+      return '' if max_level < 1 || root_taxon.blank? || root_taxon.children.empty?
       if current_level == 1
         content_tag :ul, class: 'widget-shadow', id: 'left-nav' do
           root_taxon.children.map do |taxon|
@@ -134,7 +134,7 @@ module Spree
 
     def taxon_authors(product)
       links = ""
-      au_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "authors%"})
+      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
       return '' if au_taxons.blank?
       au_taxons.map do |taxon|
         links << '<div class="author">'
