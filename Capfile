@@ -16,7 +16,7 @@ set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
 
 #== Multistage
 set :stages, %w(production staging development)
-set :default_stage, 'development'
+set :default_stage, 'production'
 require 'capistrano/ext/multistage'
 
 
