@@ -10,3 +10,4 @@ Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
 
 Rails.application.config.assets.precompile += ['tinymce-jquery.js']
 Rails.application.config.assets.precompile += ['ckeditor/*']
+Rails.application.config.assets.precompile += [ 'jquery-ui/*']
