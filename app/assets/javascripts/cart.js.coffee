@@ -18,12 +18,13 @@ changeCartValues = ($input, operation) ->
 ready = ->
   $('.d-search input[type="text"]').click ->
     @select()
-  $('.edit_order .plus').click ->
+  $('.edit_order .plus, .bulk_orders .plus').click ->
+    console.log 'sdf'
     $input = $(@).parent().find('.line_item_quantity')
     $input.val(parseInt($input.val()) + 1)
     changeCartValues($input,'plus')
 
-  $('.edit_order .minus').click ->
+  $('.edit_order .minus, .bulk_orders .minus').click ->
     $input = $(@).parent().find('.line_item_quantity')
     value = parseInt($input.val())
     if value > 0

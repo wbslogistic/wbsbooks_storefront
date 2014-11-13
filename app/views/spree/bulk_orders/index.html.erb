@@ -62,7 +62,7 @@
           <body>
             <% if @products %>
               <% @products.each_with_index do |product, index|%>
-                <tr>
+                <tr class='bulk_orders line-item'>
                   <td><%= product.isbn %><%= hidden_field_tag "var_#{index}", product.master.id %></td>
                   <td><%= link_to product.name, product %></td>
                   <td><%= product.authors %></td>
@@ -77,8 +77,12 @@
                       <%= display_price(product) %>
                     <% end %>
                   </td>
-                  <td><%= number_field_tag "qty_#{index}", 0, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 0, onchange: 'bulk_order_sum(this);', onclick: '$(this).select()', price: product.price_in(current_currency).amount.to_s %></td>
-                  <%= content_tag :td, id: "tqty_#{index}" do %>
+                  <td class="quantity td-w">
+                    <span class="minus">-</span>
+                    <%= text_field_tag "qty_#{index}", 0, onchange: 'bulk_order_sum(this);', onclick: '$(this).select()', price: product.price_in(current_currency).amount.to_s, :size => 1, data: { price: product.price_in(current_currency).amount.to_s }, class: 'line_item_quantity' %>
+                    <span class="plus">+</span>
+                  </td>
+                  <%= content_tag :td, id: "tqty_#{index}", class: 'cart-item-total' do %>
                   <% end %>
                 </tr>          
               <% end %>

@@ -1,7 +1,8 @@
-.edit_order {
+.edit_order, .cart-info {
   .line_item_quantity {
-    display: inline-block;
-    width: initial;
-    width: 30px;
+    display: inline-block !important;
+    width: initial !important;
+    width: 30px !important;
+    min-width: 0 !important;
   }
 }
