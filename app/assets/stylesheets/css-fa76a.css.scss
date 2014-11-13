@@ -7,7 +7,7 @@
     text-transform: uppercase !important;
 }
 
-.box-product .price, .box-product .price-new, .product-grid .price, .product-grid .price-new, .product-info .price, .product-info .price-new,.owl-item .price, .owl-item .price-new , .ja-product-grid .price, .ja-product-grid .price-new {
+.box-product .price, .box-product .price-new, .product-grid .price, .product-grid .price-new,.owl-item .price, .owl-item .price-new ,.product-info .price, .product-info .price-new, .ja-product-grid .price, .ja-product-grid .price-new {
     color: #f0141e;
     font-family:'Roboto Slab',Georgia,Times,serif;
     font-size: 16px;
@@ -65,7 +65,7 @@
     clear: none;
 }
 @media (min-width: 768px) {
-.owl-item > div,.product-grid.row-5 > div, .ja-product-grid > div {
+.product-grid.row-5 > div, .ja-product-grid > div {
     width: 19%;
 }
 .product-grid.row-1 > div {
@@ -104,6 +104,9 @@
     float: left;
     width: 10%;
 }
+.owl-item > div{
+    clear: both;
+}
 }
 @media screen and (max-width: 480px) {
 .product-grid.row > div, .ja-product-grid > div {
@@ -141,7 +144,7 @@
     position: relative;
     transition: border-color 0.25s ease-in-out 0s;
 }
-.product-grid > div:hover .image > a,.owl-item .name a , .ja-product-grid > div:hover .image > a {
+.product-grid > div:hover .image > a, .ja-product-grid > div:hover .image > a {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: 0 0 3px #e0e0e0;
@@ -164,7 +167,7 @@ height:204px;
     border: 0 none;
     max-width: 100%;
 }
-.product-grid .name a, .ja-product-grid .name a {
+.product-grid .name a,.owl-item .name a ,.ja-product-grid .name a {
     color: #000;
     display: block;
     /*font-family:'Roboto Slab',Georgia,Times,serif;*/
@@ -182,7 +185,6 @@ height:204px;
 .author a:hover {
     color: #f0141e;
 }
-
 .owl-item .cart, .owl-item .wishlist, .owl-item .compare{
     bottom: 6px;
     display: none;
@@ -207,6 +209,20 @@ height:204px;
     width: 40px;
 }
 
+.owl-item .cart
+{
+right:70px;
+}
+.owl-item .cart .btn {
+    background:url("/images/icon-cart.png") no-repeat scroll center center #f0141e;
+    height: 40px;
+    text-indent: -999em;
+    width: 40px;
+}
+
+.owl-item > div:hover .cart, .owl-item > div:hover .wishlist{
+    display: inline-block;
+}
 
 .sub-select-box select {
     background: none repeat scroll 0 0 transparent;
