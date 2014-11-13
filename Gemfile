@@ -59,9 +59,7 @@ gem 'pg'
 
 gem "net-ssh", "~> 2.7.0"
 
-group :assets do
-  gem "font-awesome-rails", "~> 4.2.0"
-end
+gem "font-awesome-rails", "~> 4.2.0"
 
 # Better debug
 group :development do
