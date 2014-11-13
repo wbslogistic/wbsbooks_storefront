@@ -31,13 +31,14 @@ Rails.application.routes.draw do
     end
     
  namespace :admin do
-      resources :reports,:only => [:create,:update] do
+      resources :reports do
         collection do
           [
             :revenue, :count, :units, :profit, :top_customers, :top_products,
             :geo_revenue, :geo_units, :geo_profit
           ].each do |method_name|
             get method_name
+            post method_name
           end
         end
       end
