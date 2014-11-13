@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   Spree::Core::Engine.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   get 'search_products/search'
-
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    
     get 'search' => 'products#advanced_search', :as => :search

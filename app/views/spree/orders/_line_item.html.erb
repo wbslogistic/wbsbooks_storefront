@@ -22,8 +22,10 @@
     <td class="price" data-hook="cart_item_price">
       <%= line_item.single_money.to_html %>
     </td>
-    <td class="quantity" data-hook="cart_item_quantity">
-      <%= item_form.number_field :quantity, :min => 0, :class => "line_item_quantity", :size => 5 %>
+    <td class="quantity td-w" data-hook="cart_item_quantity">
+      <span class="minus">-</span>
+      <%= item_form.text_field :quantity, :class => "line_item_quantity", :size => 1, data: { price: line_item.price } %>
+      <span class="plus">+</span>
     </td>
     <td class="cart-item-total" data-hook="cart_item_total">
       <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>

@@ -115,7 +115,7 @@
     <tbody>
       <tr>
         <td class="right"><b><%= Spree.t(:subtotal) %>:</b></td>
-        <td class="right"><%= @order.display_item_total.to_html %></td>
+        <td class="right total-sum"><%= @order.display_item_total.to_html %></td>
       </tr>
 
       <% if @order.line_item_adjustments.exists? %>
@@ -123,7 +123,7 @@
       <% order.all_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
       <tr>
         <td class="right"><b><%= Spree.t(:promotion) %>: <strong><%= label %></b></td>
-        <td class="right"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></td>
+        <td class="right total-sum"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></td>
       </tr>
       <% end %>
       <% end %>
@@ -132,7 +132,7 @@
       <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
       <tr>
         <td class="right"><b><%= Spree.t(:shipping) %>: <strong><%= name %></b></td>
-        <td class="right"><%= Spree::Money.new(shipments.sum(&:discounted_cost), currency: order.currency).to_html %></td>
+        <td class="right total-sum"><%= Spree::Money.new(shipments.sum(&:discounted_cost), currency: order.currency).to_html %></td>
       </tr>
       <% end %>
 
@@ -141,7 +141,7 @@
       <% order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
       <tr>
         <td class="right"><b><%= Spree.t(:tax) %>: <strong><%= label %></b></td>
-        <td class="right"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></td>
+        <td class="right total-sum"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></td>
       </tr>
       <% end %>
       <% end %>
@@ -150,13 +150,13 @@
       <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
       <tr>
         <td class="right"><b><%= adjustment.label %></b></td>
-        <td class="right"><%= adjustment.display_amount.to_html %></td>
+        <td class="right total-sum"><%= adjustment.display_amount.to_html %></td>
       </tr>
       <% end %>
 
       <tr>
         <td class="right"><b><%= Spree.t(:order_total) %>:</b></td>
-        <td class="right"><%= @order.display_total.to_html %></td>
+        <td class="right total-sum"><%= @order.display_total.to_html %></td>
       </tr>
 
     </tbody>
