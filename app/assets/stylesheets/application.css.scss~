@@ -30,4 +30,9 @@
 {
  display:none;
 }
+.product-list {
+  margin: 0;
+}
+
+
 

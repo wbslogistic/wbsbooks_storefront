@@ -19,3 +19,5 @@
 //= require selectize
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.uk.js
+//= require owl.carousel
+

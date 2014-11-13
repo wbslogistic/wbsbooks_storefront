@@ -142,6 +142,16 @@ module Spree
       end
       raw(links)
     end
+    
+    def taxon_author_products(product)
+      links = ""
+      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
+      return '' if au_taxons.blank?
+      au_taxons.map do |taxon|
+        links << Spree::Taxon.find_by_permalink!(taxon.permalink).id.to_s
+      end
+      raw(links)
+    end
 
     def taxon_publishers(product)
       links = ""
