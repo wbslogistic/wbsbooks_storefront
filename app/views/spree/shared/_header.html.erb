@@ -25,10 +25,7 @@
 
           <div class="toolbar-ct-5">
             <div class="btn-group">
-              <%= currency_icon(current_currency.downcase) %>
-              <button type="button" id="current_currency" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <%= Spree.t(current_currency.downcase) %>
-              </button>
+              <i class="fa fa-dollar fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= Spree.t(:dollar) %></button>
               <div class="dropdown-menu" role="menu">
                 <div class="t3-module module">
                   <div class="module-inner">
@@ -66,7 +63,7 @@
           <div class="t3-navbar navbar-collapse collapse">
             <div class="t3-megamenu animate slide" data-duration="400" data-responsive="true">
               <ul class="nav navbar-nav level0">
-                <li class="current active"><a href="#"><%= Spree.t(:whats_new) %></a></li>
+                <li><%= link_to Spree.t(:whats_new), new_items_path %></li>
                 <li><%= link_to Spree.t(:specials), specials_path %></li>
                 <% if spree_current_user %>
                   <li><%= link_to Spree.t(:bulk_order), bulk_orders_path %></li>
@@ -82,10 +79,10 @@
         <div class="col-xs-12 col-md-3 pull-right col-sm-6"> 
           <!-- HEAD SEARCH -->
           <div class="head-search ">
-            <div style="text-align:left">
+            <div style="text-align:right">
 
-              <%= render :partial => 'spree/shared/search_fast' %>
-              <%= link_to 'Advanced search', :search, class: 'search-adv'  %>
+              <%= render :partial => 'spree/shared/search' %>
+              <%= link_to Spree.t(:advanced_search), :search, class: 'search-adv'  %>
             </div>
           </div>
           <!-- //HEAD SEARCH --> 

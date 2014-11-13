@@ -3,8 +3,11 @@ categories = Spree::Taxonomy.find_by_name!("Categories")
 specials = Spree::Taxonomy.find_by_name!("Specials")
 publishers = Spree::Taxonomy.find_by_name!("Publishers")
 authors = Spree::Taxonomy.find_by_name!("Authors")
-suggested = Spree::Taxonomy.find_by_name!("Suggested titles")
+suggested = Spree::Taxonomy.find_by_name!("Suggested Titles")
 whats_new = Spree::Taxonomy.find_by_name!("Whats new")
+bestsellers = Spree::Taxonomy.find_by_name!("Bestsellers")
+new_items = Spree::Taxonomy.find_by_name!("New")
+comming_soon = Spree::Taxonomy.find_by_name!("Comming")
 
 products = { 
   :all_about_nothing => "All about nothing. How to get the most by investing at least",
@@ -21,7 +24,34 @@ products = {
   :victor_suvorov => "Viktor Suvorov without censorship. The cave against Stalinism",
   :complete_encyclopedia => "Complete encyclopedia of medicinal plants",
   :words => "Words. Developing book with stickers",
-  :abc => "My ABC Sticker Activity Book"
+  :abc => "My ABC Sticker Activity Book",
+#bestsellers
+  :the_fault => "The Fault in Our Stars",
+  :abode => "Abode",
+  :the_one => "The One Plus One",
+  :have_a_mercy => "Have a mercy on bastards",
+  :russian_canary => "The Russian Canary. Zheltukhin",
+  :husbands => "The Husband's Secret",
+  :billi => "Billi",
+  :the_most => "The most mysterious secret and other stories",
+  :bellman => "Bellman & Black",
+#new
+  :the_sequel => "The sequel to 'Angels do not Survive on Ice'",
+  :light_worlds => "Light Worlds",
+  :the_green_gambit => "The Green Gambit",
+  :death => "Death of the gods 2. Book 3 Ashes of Asgard",
+  :the_stranger => "The Stranger (The Labyrinths of Echo, Book 1)",
+  :the_wanderer => "The Wanderer and his country",
+  :adultery => "Adultery: A novel",
+  :bridget => "Bridget Jones. Mad About the Boy",
+  :grand => "Grand",
+  :dark_places => "Dark Places",
+#comming soon
+  :russian_brutal => "Russian Brutal Short Story",
+  :the_phantom => "The Phantom of the Heavenly Jerusalem",
+  :mr => "Mr. Mercedes",
+  :and_life => "And life was very good",
+  :dance => "Dance of the Happy Shades"
 }
 
 
@@ -40,24 +70,24 @@ taxons = [
       products[:baroque]
     ]
   },
-   {
-    :name => "Books in foreign languages",
-    :runame => "Книги на иностранных языках",
-    :taxonomy => categories,
-    :parent => "Categories",
-    :position => 0
-  },
-  {
-    :name => "Books in English",
-    :runame => "Книги на английском языке",
-    :taxonomy => categories,
-    :parent => "Books in foreign languages",
-    :position => 0,
-    :products => [
-      products[:th_century],
-      products[:baroque]
-    ]
-  },
+  #  {
+  #   :name => "Books in foreign languages",
+  #   :runame => "Книги на иностранных языках",
+  #   :taxonomy => categories,
+  #   :parent => "Categories",
+  #   :position => 0
+  # },
+  # {
+  #   :name => "Books in English",
+  #   :runame => "Книги на английском языке",
+  #   :taxonomy => categories,
+  #   :parent => "Books in foreign languages",
+  #   :position => 0,
+  #   :products => [
+  #     products[:th_century],
+  #     products[:baroque]
+  #   ]
+  # },
   {
     :name => "Business books",
     :runame => "Деловая литература",
@@ -89,17 +119,17 @@ taxons = [
       products[:peter_the_great]
     ]
   },
-  {
-    :name => "Limited Edition",
-    :runame => "Ограниченные издания",
-    :taxonomy => categories,
-    :parent => "Categories",
-    :position => 0,
-    :products => [
-      products[:learn_to_draw],
-      products[:paris_finds]
-    ]
-  },
+  # {
+  #   :name => "Limited Edition",
+  #   :runame => "Ограниченные издания",
+  #   :taxonomy => categories,
+  #   :parent => "Categories",
+  #   :position => 0,
+  #   :products => [
+  #     products[:learn_to_draw],
+  #     products[:paris_finds]
+  #   ]
+  # },
   {
     :name => "Non fiction",
     :runame => "Научная литература",
@@ -124,8 +154,20 @@ taxons = [
     ]
   },
   {
+    :name => "Russian Language Teaching",
+    :runame => "Обучение русскому языку",
+    :taxonomy => categories,
+    :parent => "Categories",
+    :position => 0,
+    :products => [
+      products[:star_dance],
+      products[:victor_suvorov],
+      products[:complete_encyclopedia]
+    ]
+  },
+  {
     :name => "Training and education",
-    :runame => "Занятия и обучение",
+    :runame => "Обучение и образование",
     :taxonomy => categories,
     :parent => "Categories",
     :position => 0
@@ -134,6 +176,7 @@ taxons = [
     :name => "Specials",
     :runame => "Акции",
     :taxonomy => specials,
+    :parent => "Specials",
     :products => [
       products[:th_century],
       products[:baroque],
@@ -197,10 +240,89 @@ taxons = [
     :parent => "Publishers",
     :position => 3,
     :products => [
-      products[:ocean_patrol],
-      products[:war_and_peace],
-      products[:peter_the_great],
-      products[:all_about_nothing],
+      products[:the_stranger],
+      products[:the_wanderer],
+      products[:adultery],
+      products[:bridget],
+      products[:grand],
+      products[:billi],
+      products[:the_most],
+      products[:mr],
+    ]
+  },
+  {
+    :name => "Eksmo",
+    :runame => "Эксмо",
+    :taxonomy => publishers,
+    :description => "",
+    :rudescription => "",
+    :parent => "Publishers",
+    :position => 3,
+    :products => [
+      products[:the_sequel],
+      products[:light_worlds],
+      products[:the_green_gambit],
+      products[:death],
+      products[:russian_canary],
+      products[:the_phantom],
+      products[:and_life],
+
+    ]
+  },
+  {
+    :name => "Azbuka",
+    :runame => "Азбука",
+    :taxonomy => publishers,
+    :description => "",
+    :rudescription => "",
+    :parent => "Publishers",
+    :position => 3,
+    :products => [
+      products[:dark_places],
+      products[:the_fault],
+      products[:have_a_mercy],
+      products[:husbands],
+      products[:bellman],
+      products[:dance]
+    ]
+  },
+    {
+    :name => "Corpus",
+    :runame => "Корпус",
+    :taxonomy => publishers,
+    :description => "",
+    :rudescription => "",
+    :parent => "Publishers",
+    :position => 3,
+    :products => [
+      products[:russian_brutal],
+
+    ]
+  },
+  {
+    :name => "Elena Shubina's Publishing house",
+    :runame => "Издательский дом Елены Шубиной",
+    :taxonomy => publishers,
+    :description => "",
+    :rudescription => "",
+    :parent => "Publishers",
+    :position => 3,
+    :products => [
+      products[:abode],
+
+    ]
+  },
+    {
+    :name => "Inostranka",
+    :runame => "Иностранка",
+    :taxonomy => publishers,
+    :description => "",
+    :rudescription => "",
+    :parent => "Publishers",
+    :position => 3,
+    :products => [
+      products[:the_one],
+
     ]
   },
   {
@@ -213,8 +335,8 @@ taxons = [
     :name => "E. Yanushko",
     :runame => "Е. Янушко",
     :taxonomy => authors,
-    :description => "<p>This name uses Eastern Slavic naming customs;</p> the patronymic is Nikolayevich and the family name is Tolstoy. Count Lev Nikolayevich Tolstoy (Russian: Лев Никола́евич Толсто́й, pronounced [lʲef nʲɪkɐˈlaɪvʲɪt͡ɕ tɐlˈstoj] ( listen); 9 September [O.S. 28 August] 1828 – 20 November [O.S. 7 November] 1910), also known as Leo Tolstoy, was a Russian writer, philosopher and political thinker who primarily wrote novels and short stories. Tolstoy was a master of realistic fiction and is widely considered one of the greatest novelists of all time. He is best known for two long novels, War and Peace (1869) and Anna Karenina (1877). Tolstoy first achieved literary acclaim in his 20s with his semi-autobiographical trilogy of novels, Childhood, Boyhood, and Youth (1852–1856) and Sevastopol Sketches (1855), based on his experiences in the Crimean War. His fiction output also includes two additional novels, dozens of short stories, and several famous novellas, including The Death of Ivan Ilyich, Family Happiness, and Hadji Murad. Later in life, he also wrote plays and essays.",
-    :rudescription => "<p>Это имя используется восточнославянских именования обычаи; </p> отчество является Николаевич и фамилии является Толстой. Граф Лев Николаевич Толстой (русский: Лев Николаевич Толстой, произносится [Леф nʲɪkɐlaɪvʲɪt͡ɕ tɐlstoj] (слушать); 9 сентября [OS 28 августа] 1828 - 20 ноября [OS 7 ноября] 1910), также известный как Лев Толстой, был русский писатель , философ и политический мыслитель, который, прежде всего, писал романы и рассказы. Толстой был мастером реалистической фантастики и считается одним из величайших романистов всех времен. Он является самым известным за двумя длинными романов, войны и мира (1869) и Анны Карениной (1877). Толстой впервые осуществлено литературное признание в его 20-ых с его полу-автобиографической трилогии романов, детства, отрочества и молодежи (1852-1856) и Севастопольских рассказах (1855), на основе своего опыта в Крымской войне. Его фантастика выход также включает в себя два дополнительных романов, десятки рассказов, и нескольких известных повестей, в том числе Смерти Ивана Ильича, семейного счастья, и Хаджи-Мурата. Позже в жизни, он также писал пьесы и эссе.",
+    :description => "",
+    :rudescription => "",
     :parent => "Authors",
     :position => 1,
     :products => [
@@ -229,9 +351,298 @@ taxons = [
     ]
   },
   {
-    :name => "Suggested titles",
+    :name => "John Green",
+    :runame => "Джон Гринн",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_fault],
+    ]
+  },
+    {
+    :name => "Zakhar Prilepin",
+    :runame => "Захар Прилепин",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:abode],
+    ]
+  },
+    {
+    :name => "Jojo Moyes",
+    :runame => "Джоджо Мойес",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_one],
+    ]
+  },
+    {
+    :name => "Viktoriya Tokareva",
+    :runame => "Виктория Токарева",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:have_a_mercy],
+    ]
+  },
+    {
+    :name => "Dina Rubina",
+    :runame => "Дина Рубина",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:russian_canary],
+    ]
+  },
+    {
+    :name => "Liane Moriarty",
+    :runame => "Лиана Мориарти",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:husbands],
+    ]
+  },
+    {
+    :name => "Anna Gavalda",
+    :runame => "Анна Гавальда",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:billi],
+    ]
+  },
+    {
+    :name => "Boris Akunin",
+    :runame => "Борис Акунин",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_most],
+    ]
+  },
+      {
+    :name => "Diane Setterfield",
+    :runame => "Диана Саттерфилд",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:bellman]
+    ]
+  },
+      {
+    :name => "Aleksandra  Marinina",
+    :runame => "Александра Маринина",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_sequel],
+    ]
+  },
+      {
+    :name => "Tatyana Tolstaya",
+    :runame => "Татьяна Толстая",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:light_worlds],
+    ]
+  },
+      {
+    :name => "Vadim Panov",
+    :runame => "Вадим Панов",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_green_gambit],
+    ]
+  },
+      {
+    :name => "Nick Perumov",
+    :runame => "Ник Перумов",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:death],
+    ]
+  },
+      {
+    :name => "Max Frei",
+    :runame => "Макс Фрай",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_stranger],
+    ]
+  },
+      {
+    :name => "Michael Weller",
+    :runame => "Михаил Веллер",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_wanderer],
+    ]
+  },
+      {
+    :name => "Paulo Coelho",
+    :runame => "Пауло Коэльо",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:adultery],
+    ]
+  },
+      {
+    :name => "Helen Fielding",
+    :runame => "Хелен Филдинг",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:bridget],
+    ]
+  },
+      {
+    :name => "Janusz Wisniewski",
+    :runame => "Януш Вишневский",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:grand],
+    ]
+  },
+      {
+    :name => "Gillian Flynn",
+    :runame => "Гиллиан Флинн",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:dark_places]
+    ]
+  },
+  {
+    :name => "Vladimir Sorokin",
+    :runame => "Владимир Сорокин",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:russian_brutal],
+    ]
+  },
+  {
+    :name => "Darya Dezombre",
+    :runame => "Дарья Дезомбре",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:the_phantom],
+    ]
+  },
+  {
+    :name => "Stephen King",
+    :runame => "Стивен Кинг",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:mr],
+    ]
+  },
+  {
+    :name => "Mariya Metlitskaya",
+    :runame => "Мария Метлицкая",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:and_life],
+    ]
+  },
+  {
+    :name => "Alice Munro",
+    :runame => "Элис Манро",
+    :taxonomy => authors,
+    :description => "",
+    :rudescription => "",
+    :parent => "Authors",
+    :position => 1,
+    :products => [
+      products[:dance]
+    ]
+  },
+  {
+    :name => "Suggested Titles",
     :runame => "Рекомендованные издания",
     :taxonomy => suggested,
+    :parent => "Suggested Titles",
     :products => [
       products[:th_century],
       products[:baroque],
@@ -244,6 +655,7 @@ taxons = [
     :name => "Whats new",
     :runame => "Новинки",
     :taxonomy => whats_new,
+    :parent => "Whats new",
     :products => [
       products[:all_about_nothing],
       products[:military_methods],
@@ -251,6 +663,53 @@ taxons = [
       products[:star_dance],
       products[:victor_suvorov],
       products[:complete_encyclopedia]
+    ]
+  },
+  {
+    :name => "Bestsellers",
+    :runame => "Бестселлеры",
+    :taxonomy => bestsellers,
+    :parent => "Bestsellers",
+    :products => [
+      products[:the_fault],
+      products[:the_one],
+      products[:have_a_mercy],
+      products[:russian_canary],
+      products[:husbands],
+      products[:billi],
+      products[:the_most],
+      products[:bellman]
+    ]
+  },
+  {
+    :name => "New",
+    :runame => "Новинки",
+    :taxonomy => new_items,
+    :parent => "New",
+    :products => [
+      products[:the_sequel],
+      products[:light_worlds],
+      products[:the_green_gambit],
+      products[:death],
+      products[:the_stranger],
+      products[:the_wanderer],
+      products[:adultery],
+      products[:bridget],
+      products[:grand],
+      products[:dark_places]
+    ]
+  },
+  {
+    :name => "Comming",
+    :runame => "Скоро поступление",
+    :taxonomy => comming_soon,
+    :parent => "Comming",
+    :products => [
+      products[:russian_brutal],
+      products[:the_phantom],
+      products[:mr],
+      products[:and_life],
+      products[:dance]
     ]
   }
 ]
