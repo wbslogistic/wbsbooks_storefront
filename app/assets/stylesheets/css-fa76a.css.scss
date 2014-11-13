@@ -1,3 +1,92 @@
+.box-product .price, .box-product .price-new, .product-grid .price, .product-grid .price-new,.owl-item .price, .owl-item .price-new ,.product-info .price, .product-info .price-new, .ja-product-grid .price, .ja-product-grid .price-new {
+    color: #f0141e;
+    font-family:'Roboto Slab',Georgia,Times,serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.owl-item > div,.product-item-2,.product-grid.row-2 > div.product-item-2, .product-grid.row-2 > div.product-item-4, .product-grid.row-2 > div.product-item-6, .product-grid.row-2 > div.product-item-8, .product-grid.row-2 > div.product-item-10, .product-grid.row-2 > div.product-item-12, .product-grid.row-2 > div.product-item-14, .product-grid.row-2 > div.product-item-16, .product-grid.row-2 > div.product-item-18, .product-grid.row-2 > div.product-item-20, .product-grid.row-2 > div.product-item-22, .product-grid.row-2 > div.product-item-24, .product-grid.row-2 > div.product-item-26, .product-grid.row-2 > div.product-item-28, .product-grid.row-2 > div.product-item-30, .product-grid.row-2 > div.product-item-32, .product-grid.row-2 > div.product-item-34, .product-grid.row-2 > div.product-item-36, .product-grid.row-2 > div.product-item-38, .product-grid.row-2 > div.product-item-40, .product-grid.row-2 > div.product-item-42, .product-grid.row-2 > div.product-item-44, .product-grid.row-2 > div.product-item-46, .product-grid.row-2 > div.product-item-48, .product-grid.row-2 > div.product-item-50 {
+    clear: both;
+}
+.product-grid .actions, .ja-product-grid .actions ,.owl-item .actions{
+    position: relative;
+}
+.product-grid .image, .ja-product-grid .image, .owl-item .image {
+    margin-bottom: 10px;
+}
+.product-grid .image > a,.owl-item .image >a, .ja-product-grid .image > a {
+    border: 1px solid #fff;
+    display: block;
+    outline: medium none;
+    padding: 0;
+    position: relative;
+    transition: border-color 0.25s ease-in-out 0s;
+}
+.owl-item .image img{
+width:136px;
+height:204px;
+}
+.owl-item .image  img:hover{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #e0e0e0;
+   // margin: -5px;
+    //margin-right:0px;
+    padding: 5px;
+}
+.product-grid .image img,.owl-item .image img, .ja-product-grid .image img {
+    border: 0 none;
+    max-width: 100%;
+}
+.product-grid .name a,.owl-item .name a ,.ja-product-grid .name a {
+    color: #000;
+    display: block;
+    /*font-family:'Roboto Slab',Georgia,Times,serif;*/
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0 19px 0 0;
+}
+/*.product-grid > div:hover .name a, .product-grid .name a:hover, .product-grid .name a:focus, .product-grid .name a:active, .ja-product-grid > div:hover .name a, .ja-product-grid .name a:hover, .ja-product-grid .name a:focus, .ja-product-grid .name a:active {
+    color: #3a859b;
+}*/
+
+.product-grid .cart, .product-grid .wishlist, .product-grid .compare,.owl-item .cart, .owl-item .wishlist, .owl-item .compare, .ja-product-grid .cart, .ja-product-grid .wishlist, .ja-product-grid .compare {
+    bottom: 6px;
+    display: none;
+    overflow: hidden;
+    height: 40px;
+    margin-bottom: 0;
+    position: absolute;
+    width: 40px;
+}
+
+.owl-item .wishlist{
+ right:110px;
+}
+.product-grid .wishlist a, .owl-item .wishlist a,.product-grid .compare a, .ja-product-grid .wishlist a, .ja-product-grid .compare a {
+    background: none repeat scroll 0 0 #000;
+    color: #fff;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+}
+
+.owl-item .cart
+{
+right:70px;
+}
+.product-grid .cart .btn,.owl-item .cart .btn, .box-product .cart .btn, .cart .btn {
+    background:url("/images/icon-cart.png") no-repeat scroll center center #f0141e;
+    height: 40px;
+    text-indent: -999em;
+    width: 40px;
+}
+.product-grid > div:hover .cart, .product-grid > div:hover .wishlist,.owl-item > div:hover .cart, .owl-item > div:hover .wishlist, .ja-product-grid > div:hover .cart, .ja-product-grid > div:hover .wishlist {
+    display: inline-block;
+}
 .mijoshop_heading_h1 {
     color: #000 !important;
     font-family: 'Roboto',sans-serif !important;
