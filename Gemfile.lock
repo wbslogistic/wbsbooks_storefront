@@ -179,7 +179,7 @@ GEM
     erubis (2.7.0)
     execjs (2.2.1)
     ffaker (1.24.0)
-    font-awesome-rails (4.1.0.0)
+    font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
@@ -211,7 +211,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.4.0)
+    minitest (5.4.3)
     monetize (0.3.0)
       money (~> 6.1.0.beta1)
     money (6.1.1)
@@ -366,7 +366,7 @@ GEM
     truncate_html (0.9.2)
     turbolinks (2.2.2)
       coffee-rails
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
@@ -400,6 +400,7 @@ DEPENDENCIES
   capistrano_colors
   coffee-rails (~> 4.0.0)
   deadweight
+  font-awesome-rails (~> 4.2.0)
   jbuilder (~> 2.0)
   jquery-rails
   net-ssh (~> 2.7.0)

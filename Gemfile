@@ -54,6 +54,7 @@ gem 'spree_editor',         github: 'jaemo/spree_editor', branch: '2-3-stable'
 gem 'pg'
 
 gem "net-ssh", "~> 2.7.0"
+gem "font-awesome-rails", "~> 4.2.0"
 
 # Better debug
 group :development do
