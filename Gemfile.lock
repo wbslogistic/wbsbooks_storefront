@@ -9,14 +9,6 @@ GIT
       tinymce-rails (~> 4.0.16)
 
 GIT
-  remote: git://github.com/johnu/ruport.git
-  revision: 00022f8987a5277b4f4c769fb67fb214639ea8b1
-  branch: ruby19-compat
-  specs:
-    ruport (1.7.0)
-      pdf-writer (= 1.1.8)
-
-GIT
   remote: git://github.com/spree-contrib/spree_static_content.git
   revision: b308a6148d3098eee17e3a2acf79d442d269d5dc
   branch: 2-3-stable
@@ -194,6 +186,7 @@ GEM
       devise (>= 2.1.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    fastercsv (1.5.5)
     ffaker (1.25.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
@@ -301,6 +294,9 @@ GEM
       open4
       thor
     rubyzip (1.1.6)
+    ruport (1.6.3)
+      fastercsv
+      pdf-writer (= 1.1.8)
     ruport-util (0.14.0)
       mailfactory (>= 1.2.3)
       rubyzip (>= 0.9.1)
@@ -433,7 +429,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.2)
   recap (~> 1.2)
-  ruport!
+  ruport
   ruport-util
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
