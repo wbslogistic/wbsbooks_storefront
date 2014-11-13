@@ -8,7 +8,7 @@ module Spree
     
     end
     
-    def updatesettings
+    def create
            Spree::Config.set(currency: params[:currency_id])
            session[:locale] = I18n.locale =  params[:locale_id]
            redirect_to_back_or_root_url
