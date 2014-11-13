@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   Spree::Core::Engine.routes.draw do
   get 'search_products/search'
-    resources :settings
+    resources :settings, :only => [:index,:update]
     post '/updatesettings' => "settings#updatesettings"
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    

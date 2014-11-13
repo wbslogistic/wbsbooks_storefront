@@ -11,8 +11,13 @@ module Spree
     def updatesettings
            Spree::Config.set(currency: params[:currency_id])
            session[:locale] = I18n.locale =  params[:locale_id]
-           redirect_to '/settings'
+           redirect_to_back_or_root_url
     end
+
+private
+  def redirect_to_back_or_root_url
+    redirect_to(request.referer.present? ? :back : root_path)
+  end
     
   end
 end
