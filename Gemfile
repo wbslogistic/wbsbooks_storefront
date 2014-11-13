@@ -50,7 +50,7 @@ gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch
 gem 'spree_editor',         github: 'jaemo/spree_editor', branch: '2-3-stable'
 gem 'ruport'
 gem 'ruport-util'
-gem 'spree_advanced_reporting', :path => 'vendor/extensions/advanced_reporting'
+gem 'spree_advanced_reporting', github: 'wbslogistic/spree-advanced-reporting' 
 # klisha
 gem 'pg'
 

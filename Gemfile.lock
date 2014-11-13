@@ -28,6 +28,15 @@ GIT
       spree_core (~> 2.3.0)
 
 GIT
+  remote: git://github.com/wbslogistic/spree-advanced-reporting.git
+  revision: 4bec74c5153ea17a3594a8c868af19903ab7c136
+  specs:
+    spree_advanced_reporting (2.0.0)
+      ruport (>= 1.6.3)
+      ruport-util
+      spree_core (>= 0.80.0.beta)
+
+GIT
   remote: git://github.com/wbslogistic/spree_wishlist.git
   revision: 24aa555e77c837529bb59402025cc8dc1d3949a4
   branch: 2-3-stable
@@ -55,14 +64,6 @@ GIT
   specs:
     spree_gateway (2.3.0.beta)
       spree_core (~> 2.3.0)
-
-PATH
-  remote: vendor/extensions/advanced_reporting
-  specs:
-    spree_advanced_reporting (2.0.0)
-      ruport (>= 1.6.3)
-      ruport-util
-      spree_core (>= 0.80.0.beta)
 
 GEM
   remote: https://rubygems.org/
@@ -215,6 +216,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.2)
+    libv8 (3.16.14.7)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -229,6 +231,7 @@ GEM
       i18n (>= 0.6.4, <= 0.7.0.beta1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    mysql2 (0.3.17)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -293,6 +296,7 @@ GEM
       capistrano (~> 2.9)
       open4
       thor
+    ref (1.0.5)
     rubyzip (1.1.6)
     ruport (1.6.3)
       fastercsv
@@ -373,10 +377,12 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sqlite3 (1.3.9)
     state_machine (1.2.0)
     stringex (1.5.1)
     sushi (0.0.4)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -424,6 +430,7 @@ DEPENDENCIES
   deadweight
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2
   net-ssh (~> 2.7.0)
   pg
   quiet_assets
@@ -443,8 +450,8 @@ DEPENDENCIES
   spree_static_content!
   spree_wishlist!
   spring
-  sqlite3
   sushi
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
