@@ -11,7 +11,7 @@
           <h1 class="mijoshop_heading_h1"><%= taxon.name %></h1>
         </div>
         <div class="box-content">
-          <% cache(cache_key_for_products, taxon.permalink) do %>
+          <% cache cache_key_for_products do %>
               <%= render :partial => 'spree/shared/products_no_filters', :locals => {:products => Spree::Product.in_taxon(taxon)} %>
           <% end %>
         </div>
