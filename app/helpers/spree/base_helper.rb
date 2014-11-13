@@ -146,7 +146,7 @@ module Spree
 
     def taxon_publishers(product)
       links = ""
-      pu_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "publishers%"})
+      pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "publishers%"})
       return '' if pu_taxons.blank?
       cnt = 0
       pu_taxons.map do |taxon|
