@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'about' => 'spree/home#about', :as => :about
   get 'contact' => 'spree/home#contact', :as => :contact
   get 'faq' => 'spree/home#faq', :as => :faq
+  post 'askquestion' => 'spree/home#askquestion', :as => :askquestion
   get 'ajax_books' => 'ajax#books', :as => :ajax_books
   get 'test' => 'test#index', :as => :test 
 
