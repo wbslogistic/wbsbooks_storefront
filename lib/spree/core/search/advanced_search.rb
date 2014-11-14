@@ -51,7 +51,7 @@ module Spree
 
           if taxons.any?
             id         = Spree::Product.arel_table[:id]
-            base_scope = base_scope.where(spree_taxons: { id: taxons.map { |t| t.self_and_descendants.pluck(:id) }.flatten.uniq }).group(id).having(id.count.eq(taxons.size))
+            base_scope = base_scope.where(spree_taxons: { id: taxons.map { |t| t.self_and_descendants.pluck(:id) }.flatten.uniq })
           end
 
           if min_price || max_price
@@ -60,7 +60,7 @@ module Spree
 
           if date_from || date_to
             base_scope = base_scope.where(
-              "created_at >= :date_from AND created_at <= :date_to",
+              "spree_products.created_at >= :date_from AND spree_products.created_at <= :date_to",
               date_from: (date_from || DateTime.new(1)),
               date_to: (date_to || DateTime.new(9999))
             )
