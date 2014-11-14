@@ -78,9 +78,9 @@
                     <% end %>
                   </td>
                   <td class="quantity td-w">
-                    <span class="minus">-</span>
+                    <button class="minus">-</button>
                     <%= text_field_tag "qty_#{index}", 0, onchange: 'bulk_order_sum(this);', onclick: '$(this).select()', price: product.price_in(current_currency).amount.to_s, :size => 1, data: { price: product.price_in(current_currency).amount.to_s }, class: 'line_item_quantity' %>
-                    <span class="plus">+</span>
+                    <button class="plus">+</button>
                   </td>
                   <%= content_tag :td, id: "tqty_#{index}", class: 'cart-item-total' do %>
                   <% end %>
