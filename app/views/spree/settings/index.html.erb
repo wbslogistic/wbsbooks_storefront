@@ -1,0 +1,43 @@
+          <div id="content_oc">
+            <div class="box_oc">
+              <div class="box-heading">
+                <h1 class="mijoshop_heading_h1">My settings</h1>
+              </div>
+              <div class="box-content">
+              
+		<form  method="post" action="/settings">
+                  <div class="content_oc">
+			<table class="form">
+                          <tbody>
+                            <tr>
+                              <td>Language:</td>
+                              <td><select name="locale_id" style="width:100px;">
+                                  <option <%if session[:locale] == 'en' %>selected<%end%> value="en">English</option>
+                                  <option <%if session[:locale] == 'ru' %>selected<%end%> value="ru">Russian</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                              <td>Currency:</td>
+                              <td><select name="currency_id" style="width:100px;">
+                                  <option <%if Spree::Config.currency == 'USD' %>selected<%end%> value="USD">Dollar</option>
+                                  <option <%if Spree::Config.currency == 'RUB' %>selected<%end%> value="RUB">Ruble</option>
+                                  <option <%if Spree::Config.currency == 'EUR' %>selected<%end%> value="EUR" >Euro</option>
+                                </select></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+                  
+                  <div class="buttons">
+                    <div>
+                      <input type="submit" class="btn btn-primary" value="Save">
+                      <input type="submit" class="btn" value="Cancel">
+                    </div>
+                  </div>
+                </form>
+                </div>
+                
+            </div>         
+         </div>
+           
+      

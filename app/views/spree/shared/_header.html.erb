@@ -7,7 +7,13 @@
       <div class="toolbar-ct col-xs-12 col-md-6  hidden-sm hidden-xs">
           <div class="toolbar-ct-5">
             <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= image_tag "eng.png" %><!-- <img alt="English" src="images/eng.png"> -->&nbsp;<%= Spree.t (:english) %></button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <%if session[:locale] == 'en'%>
+                <%= image_tag "eng.png" %><%= Spree.t (:english) %>
+              <%else%>
+                <%= image_tag "ru.png" %><%= Spree.t (:russian) %>
+              <%end%>
+              <!-- <img alt="English" src="images/eng.png"> -->&nbsp;</button>
               <div class="dropdown-menu" role="menu">
                 <div class="t3-module module">
                   <div class="module-inner">
