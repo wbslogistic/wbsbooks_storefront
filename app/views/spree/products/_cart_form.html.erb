@@ -50,19 +50,25 @@
 
         <div class="add-to-cart">
           <div class="cart">
-                      <div style="margin-bottom:10px;"><%= Spree.t(:quantity) %>:
-                        <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
-                      </div>
-                    </div>
-          <div class="lemmaBook">
-                        <div class="cartAdd">
-                            <!--<input type="button" class="btn btn-primary" value="Add to Cart">-->
-                            <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
-            <%= Spree.t(:add_to_cart) %>
-          <% end %>
-                        </div>          
-                    </div>
+            <div style="margin-bottom:10px;"><%= Spree.t(:quantity) %>:
+              <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
+              </div>
+            </div>
+            <div class="lemmaBook">
+              <div class="cartAdd">
+                <!--<input type="button" class="btn btn-primary" value="Add to Cart">-->
+                <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
+                  <%= Spree.t(:add_to_cart) %>
+                <% end %>
+              </div>          
 
+              <div class="wishlistAdd">
+                <%= form_for Spree::WishedProduct.new, :html => {:method => :post} do |f| %>
+                  <%= f.hidden_field :variant_id, :value => @product.master.id %>
+                  <a title="Add to Wish List" onclick="$(this).parent().submit();"><i class="fa fa-list"></i></a>
+                <%end%>
+            </div>
+          </div>
         </div>
       </div>
     <% else %>
