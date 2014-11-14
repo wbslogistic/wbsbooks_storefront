@@ -13,19 +13,3 @@
 @import "site_style";
 @import "products";
 @import "cart";
-
- #next {
-  float: right;
-  margin-top: -360px;
-  margin-right: -20px;
- }
- #prev
- { 
-    margin-top: -360px;
-	margin-right: 840px;
-	float: right;
- }
-.owl-theme .owl-controls
-{
- display:none;
-}

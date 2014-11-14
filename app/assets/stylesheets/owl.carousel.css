@@ -71,12 +71,12 @@
 
 #next {
   float: right;
-  margin-top: -360px;
+  margin-top: -280px;
   margin-right: -20px;
  }
  #prev
  { 
-    margin-top: -360px;
+    margin-top: -280px;
 	margin-right: 840px;
 	float: right;
  }
