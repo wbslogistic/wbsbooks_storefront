@@ -1,6 +1,5 @@
 module Spree
   module BaseHelper
-    AVAILABLE_CURRENCIES = [ 'usd', 'rub', 'eur' ]
 
     # Defined because Rails' current_page? helper is not working when Spree is mounted at root.
     def current_spree_page?(url)
@@ -21,7 +20,7 @@ module Spree
         text = "#{text}: (#{Spree.t('empty')})"
         css_class = 'empty'
       else
-        text = "#{text}: (#{simple_current_order.item_count})  <span class='amount'>#{simple_current_order.display_total.to_html}</span>"
+        text = "#{text}: (#{simple_current_order.item_count})  <span class='amount total-sum'>#{simple_current_order.display_total.to_html}</span>"
         css_class = 'full'
       end
 
@@ -143,10 +142,20 @@ module Spree
       end
       raw(links)
     end
+    
+    def taxon_author_products(product)
+      links = ""
+      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
+      return '' if au_taxons.blank?
+      au_taxons.map do |taxon|
+        links << Spree::Taxon.find_by_permalink!(taxon.permalink).id.to_s
+      end
+      raw(links)
+    end
 
     def taxon_publishers(product)
       links = ""
-      pu_taxons = product.taxons.where("permalink LIKE :link1", {:link1 => "publishers%"})
+      pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "publishers%"})
       return '' if pu_taxons.blank?
       cnt = 0
       pu_taxons.map do |taxon|
@@ -244,20 +253,5 @@ module Spree
         end
       end
     end
-
-    def currency_menu
-      menu_html = ''
-      AVAILABLE_CURRENCIES.each { |c|
-        menu_html += "<li>#{currency_icon(c)}#{link_to(Spree.t(c), currency_path(c))}</li>"
-      }
-      content_tag :ul, class: 'nav', id: 'currency_menu' do
-        menu_html.html_safe
-      end
-    end
-
-    def currency_icon(currency)
-      "<i class='fa fa-#{currency} fa-add'></i>".html_safe
-    end
-
   end
 end

@@ -78,9 +78,6 @@ pickle-email-*.html
 # Textmate project files
 /*.tmproj
 
-# Sublime project files
-*.sublime-*
-
 # vim artifacts
 **.swp
 

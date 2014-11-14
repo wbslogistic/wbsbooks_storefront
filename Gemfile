@@ -7,6 +7,7 @@ gem 'rails', '4.1.2'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'bootstrap-sass', '~> 3.3.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -43,16 +44,22 @@ gem 'spree', '2.3.1'
 gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-3-stable'
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-3-stable'
 
-gem 'spree_i18n',           github: 'spree/spree_i18n', branch: '2-3-stable'
-gem 'spree_wishlist',       github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
+
+
 #gem 'spree_multi_currency', github: 'pronix/spree-multi-currency'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: '2-3-stable'
 gem 'spree_editor',         github: 'jaemo/spree_editor', branch: '2-3-stable'
+gem 'spree_i18n', github: 'spree/spree_i18n', branch: '2-3-stable'
+gem 'spree_wishlist', github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
+gem 'owlcarousel-rails'
+
 
 # klisha
 gem 'pg'
 
 gem "net-ssh", "~> 2.7.0"
+
+gem "font-awesome-rails", "~> 4.2.0"
 
 # Better debug
 group :development do
