@@ -35,12 +35,12 @@ Spree::Product.class_eval do
   end
 
   def authors
-  	a = taxons.where("permalink like ?", "authors/%").order("name").map {|e| e.name}
+  	a = taxons.where("spree_taxons.permalink LIKE ?", "authors/%").order("spree_taxons.name").pluck(:name)
     a.join(", ")
   end
 
   def publishers
-  	p = taxons.where("permalink like ?", "publishers/%").order("name").map {|e| e.name}
+  	p = taxons.where("spree_taxons.permalink LIKE ?", "publishers/%").order("spree_taxons.name").pluck(:name)
     p.join(", ")
   end
 

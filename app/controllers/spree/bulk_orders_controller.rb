@@ -27,7 +27,7 @@ module Spree
         if params[:sort] == "isbn"
           "v.sku"
         elsif params[:sort] == "title" 
-          I18n.locale.to_s == "en" ? "name" : "p_tr.name"
+          I18n.locale.to_s == "en" ? "t.name" : "p_tr.name"
         elsif params[:sort] == "author"
           I18n.locale.to_s != "en" ? "t.name" : "t_tr.name"
         elsif params[:sort] == "publisher"
@@ -41,7 +41,7 @@ module Spree
         end  
       else
         # sort by title
-        "name"
+        "t.name"
       end
     end   
 
