@@ -10,7 +10,7 @@ class SearchProductsController < ApplicationController
     else
       books = SearchProduct.all
     end
-    list = books.map {|u| Hash[ id: u.product_id, name: u.concat_name]}
+    list = books.map {|u| Hash[ id: u.product_id, label: u.concat_name]}
     render json: list  	
   end
 end
