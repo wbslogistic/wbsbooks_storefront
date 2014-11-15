@@ -23,7 +23,7 @@
               <div class="box-content">
 
 <div class="product-filter">
-  <div class="display"><%= Spree.t(:display) %>: <a onclick="display('list');"><i class="fa fa-th-list"></i></a> <span><i class="fa fa-th-large"></i></span></div>
+  <div class="display">Display: <a onclick="display('list');"><i class="fa fa-th-list"></i></a><span><i class="fa fa-th-large"></i></span></div>
   <div class="limit">
     <div class="btn btn-primary"><%= link_to Spree.t(:remove_all), :controller => "wished_products", :action => "destroy_all" %></div>
 </div>
@@ -162,5 +162,8 @@
                 //--></script>
           
   </div>
+
+
+
 
 

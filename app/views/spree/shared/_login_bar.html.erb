@@ -10,9 +10,9 @@
                       <ul class="nav">
                         <li><%= link_to Spree.t(:my_account), :edit_spree_user_registration %></li>
                         <li><%= link_to Spree.t(:my_orders), spree.account_path %></li>
-                        <li><%= link_to Spree.t(:my_wishlist), default_wishlist_path %></li>
+                        <li><%= link_to Spree.t(:my_wishlist), spree_current_user.wishlist %></li>
                         <li><a href=""><%= Spree.t(:my_notifications) %></a></li>
-                        <li><a href=""><%= Spree.t(:my_settings) %></a></li>
+                        <li><a href="/settings"><%= Spree.t(:my_settings) %></a></li>
                         <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
                       </ul>
                     </div>

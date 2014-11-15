@@ -9,9 +9,9 @@
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <%if session[:locale] == 'en'%>
-                <%= image_tag "eng.png" %><%= Spree.t (:english) %>
+                <%= image_tag "eng.png" %>    <%= Spree.t (:english) %>
               <%else%>
-                <%= image_tag "ru.png" %><%= Spree.t (:russian) %>
+                <%= image_tag "ru.png" %>    <%= Spree.t (:russian) %>
               <%end%>
               <!-- <img alt="English" src="images/eng.png"> -->&nbsp;</button>
               <div class="dropdown-menu" role="menu">
