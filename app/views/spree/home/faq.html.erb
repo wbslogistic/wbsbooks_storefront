@@ -58,32 +58,32 @@
             <div class="row">
               <div class="contact-col2 col-md-12 col-sm-12 col-xs-12">
                 <div class="contact-form">
-                  <form id="contact-form">
+                  <form id="contact-form" method="post" action="/askquestion">
                     <fieldset>
                       <legend>Send an email. All fields with an * are required.</legend>
                       <div class="control-group-header">
                         <div class="row">
                           <div class="control-contact clearfix col-xs-12 col-sm-12 col-md-3">
                             <label class="hasTooltip required" title="">Name<span class="star">&nbsp;*</span></label>
-                            <input value="" size="30" type="text">
+                            <input value="" size="30" type="text" name="question_name">
                           </div>
                           <div class="control-contact clearfix col-xs-12 col-sm-12 col-md-3">
                             <label class="hasTooltip required" title="">Email<span class="star">&nbsp;*</span></label>
-                            <input  class="validate-email" value="" size="30" required aria-required="true" type="email">
+                            <input  class="validate-email" value="" name="question_mail" size="30" required aria-required="true" type="email">
                           </div>
                         </div>
                         <div class="control-contact clearfix">
                           <label class="hasTooltip required" title="">Subject<span class="star">&nbsp;*</span></label>
-                          <input value="" size="60" required aria-required="true" type="text">
+                          <input value="" size="60" required aria-required="true" name="question_subject" type="text">
                         </div>
                         <div class="control-contact clearfix">
                           <label class="hasTooltip required" title="">Message<span class="star">&nbsp;*</span></label>
-                          <textarea cols="50" rows="10" required aria-required="true"></textarea>
+                          <textarea cols="50" rows="10" required aria-required="true" name="question_message"></textarea>
                         </div>
                       </div>
                       <div class="control-group-footer clearfix">
                         <div class="control-group">
-                          <input value="1" type="checkbox">
+                          <input value="1" type="checkbox" name="question_send_copy">
                           <label data-original-title="<strong>Send copy to yourself</strong><br />Sends a copy of the message to the address you have supplied." id="jform_contact_email_copy-lbl" for="jform_contact_email_copy" class="hasTooltip" title="">&nbsp;Send copy to yourself</label>
                           <br>
                           <br>
