@@ -28,6 +28,15 @@ GIT
       spree_core (~> 2.3.0)
 
 GIT
+  remote: git://github.com/wbslogistic/spree-advanced-reporting.git
+  revision: 4bec74c5153ea17a3594a8c868af19903ab7c136
+  specs:
+    spree_advanced_reporting (2.0.0)
+      ruport (>= 1.6.3)
+      ruport-util
+      spree_core (>= 0.80.0.beta)
+
+GIT
   remote: git://github.com/wbslogistic/spree_wishlist.git
   revision: 24aa555e77c837529bb59402025cc8dc1d3949a4
   branch: 2-3-stable
@@ -156,6 +165,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    color (1.7.1)
     colorize (0.7.3)
     css_parser (1.2.6)
       addressable
@@ -179,6 +189,7 @@ GEM
       devise (>= 2.1.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    fastercsv (1.5.5)
     ffaker (1.25.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
@@ -207,9 +218,12 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.2)
+    libv8 (3.16.14.7)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailfactory (1.4.0)
+      mime-types (>= 1.13.1)
     mime-types (1.25.1)
     mini_portile (0.6.1)
     minitest (5.4.3)
@@ -219,6 +233,7 @@ GEM
       i18n (>= 0.6.4, <= 0.7.0.beta1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    mysql2 (0.3.17)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -239,6 +254,9 @@ GEM
       mime-types
     paranoia (2.0.2)
       activerecord (~> 4.0)
+    pdf-writer (1.1.8)
+      color (>= 1.4.0)
+      transaction-simple (~> 1.3)
     pg (0.17.1)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
@@ -282,6 +300,15 @@ GEM
       capistrano (~> 2.9)
       open4
       thor
+    ref (1.0.5)
+    rubyzip (1.1.6)
+    ruport (1.6.3)
+      fastercsv
+      pdf-writer (= 1.1.8)
+    ruport-util (0.14.0)
+      mailfactory (>= 1.2.3)
+      rubyzip (>= 0.9.1)
+      ruport (>= 1.6.0)
     sass (3.2.19)
     sass-rails (4.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -354,15 +381,22 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+
     sqlite3 (1.3.9)
+
+
     state_machine (1.2.0)
     stringex (1.5.1)
     sushi (0.0.4)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tinymce-rails (4.0.28.2)
       railties (>= 3.1.1)
+    transaction-simple (1.4.0.2)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -406,16 +440,20 @@ DEPENDENCIES
   font-awesome-rails (~> 4.2.0)
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2
   net-ssh (~> 2.7.0)
   owlcarousel-rails
   pg
   quiet_assets
   rails (= 4.1.2)
   recap (~> 1.2)
+  ruport
+  ruport-util
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selectize-rails
   spree (= 2.3.1)
+  spree_advanced_reporting!
   spree_auth_devise!
   spree_editor!
   spree_gateway!
@@ -423,8 +461,8 @@ DEPENDENCIES
   spree_static_content!
   spree_wishlist!
   spring
-  sqlite3
   sushi
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
