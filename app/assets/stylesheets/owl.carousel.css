@@ -42,6 +42,7 @@
 }
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{
+    display:none;
 	cursor: pointer;
 }
 .owl-controls {
@@ -72,7 +73,7 @@
 #next {
   float: right;
   margin-top: -280px;
-  margin-right: -20px;
+  margin-right: -10px;
  }
  #prev
  { 
@@ -80,7 +81,7 @@
 	margin-right: 840px;
 	float: right;
  }
-.owl-theme .owl-controls
+.owl-pagination
 {
- display:none;
+ display:none !important;
 }
