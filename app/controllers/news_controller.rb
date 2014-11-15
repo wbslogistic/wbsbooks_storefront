@@ -14,6 +14,7 @@ class NewsController < Spree::StoreController
 	PER_PAGE = 10
 
 	def index
+		@taxonomies = Spree::Taxonomy.includes(root: :children)
 		@curr_page = params[:curr_page].present? && params[:curr_page].to_i > 0 ? params[:curr_page].to_i : 1
 		
 		@source_type = params[:source_type] && SOURCE_LINKS.keys.include?(params[:source_type].to_sym) ? params[:source_type].to_sym : SOURCE_LINKS.keys.first

@@ -1,3 +1,9 @@
+<% content_for :sidebar do %>
+    <div data-hook="homepage_sidebar_navigation">
+      <%= render :partial => 'spree/shared/taxonomies' %>
+    </div>
+<% end %>
+
 <div class="box_oc">
 	<div class="box-heading">    
     <ul class="nav nav-pills">
@@ -28,3 +34,22 @@
 		</div>
 	<% end %>
 </div>
+
+<script type="text/javascript">
+	var wall = new freewall("#freewall");
+	wall.reset({
+		selector: '.brick',
+		animate: true,
+		cellW: 200,
+		cellH: 'auto',
+		onResize: function() {
+			wall.fitWidth();
+		}
+	});
+	
+	wall.container.find('.brick img').load(function() {
+		wall.fitWidth();
+	});
+
+
+</script>

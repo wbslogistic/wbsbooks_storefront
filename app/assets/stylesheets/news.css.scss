@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .free-wall {
-	margin: 15px 0px 15px 15px;
-	width: 100%;
-	display: block;
+	margin: 15px 15px 15px 15px;
 }
 .brick h3 a {
 	color: #333333;	
@@ -14,9 +12,19 @@
 .brick h3 a:focus {
 	color: #f0141e;
 }
+
 .brick {
-	margin-right: 15px;
 	margin-bottom: 15px;
+	color: #333333;
+	width: 221.2px;
+}
+.brick {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: medium none;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+.brick {
 	background-color: #FFFFFF;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -24,25 +32,12 @@
 	cursor: default;
 	float: left;
 	overflow: hidden;
-	
-	border: medium none;
-	border-radius: 3px;
-	
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-	color: #333333;
-
-	display: inline-block;
-	opacity: 1; 
-	width: 191.25px;
-	height: auto;
 }
 
 .brick img {
 	margin: auto;
 	padding: 0px;
 	display: block;
-	max-width: 191.25px;
-	vertical-align: middle;
 }
 
 .brick .info {
@@ -51,6 +46,4 @@
 }
 
 .feed_paging {
-	margin-right: 150px;
-	margin-left: 150px;
 }
