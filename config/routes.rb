@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   get 'search_products/search'
+  get 'news' => 'news#index'
+  get 'news/:source_type' => 'news#index'
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.

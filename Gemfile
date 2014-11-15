@@ -54,6 +54,9 @@ gem 'spree_wishlist', github: 'wbslogistic/spree_wishlist', branch: '2-3-stable'
 gem 'owlcarousel-rails'
 
 
+#gem "feedzirra", github: 'feedjira/feedjira'
+gem 'feedjira'
+
 # klisha
 gem 'pg'
 
