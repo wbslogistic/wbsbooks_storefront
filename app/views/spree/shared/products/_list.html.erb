@@ -56,9 +56,12 @@
                       <% end %>
                     </div>
                 <% end %>
-          <div class="wishlist">
-            <a title="Add to Wish List"><i class="fa fa-list"></i></a>
-          </div>
+	          <div class="wishlist">
+	             <%= form_for Spree::WishedProduct.new, :html => {:method => :post} do |f| %>
+															<%= f.hidden_field :variant_id, :value => product.master.id %>
+															<a title="Add to Wish List" onclick="$(this).parent().submit();"><i class="fa fa-list"></i></a>
+			    <%end%>
+	          </div>
         </div>
       </div>
     </div>

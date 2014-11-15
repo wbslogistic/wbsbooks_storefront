@@ -1,0 +1,166 @@
+<% content_for :sidebar do %>
+  <div data-hook="homepage_sidebar_navigation">
+    <% if "spree/products" == params[:controller] && @taxon %>
+      <%= render :partial => 'spree/shared/filters' %>
+    <% else %>
+      <%= render :partial => 'spree/shared/taxonomies' %>
+    <% end %>
+  </div>
+<% end %>
+
+<% content_for :head do %>
+    <% if @wishlist.respond_to?(:num_pages) %>
+        <%= rel_next_prev_link_tags @wishlist %>
+    <% end %>
+<% end %>
+
+         
+<div id="content_oc">
+            <div class="box_oc">
+              <div class="box-heading">
+                <h1 class="mijoshop_heading_h1"><%= Spree.t(:my_wishlist) %> new</h1>
+              </div>
+              <div class="box-content">
+
+<div class="product-filter">
+  <div class="display"><%= Spree.t(:display) %>: <a onclick="display('list');"><i class="fa fa-th-list"></i></a> <span><i class="fa fa-th-large"></i></span></div>
+  <div class="limit">
+    <div class="btn btn-primary"><%= link_to Spree.t(:remove_all), :controller => "wished_products", :action => "destroy_all" %></div>
+</div>
+</div>
+
+
+<div class="box-content">            
+  <div class="product-grid row row-5">
+
+
+  <% if @wishlist.wished_products.size > 0 %>
+    <% @wishlist.wished_products.each do |wish|
+        variant = wish.variant
+        product = variant.product %>
+    
+    <% if @wishlist.user == spree_current_user %>
+
+    <div class="product-item-0">
+      <div class="actions">
+        <div class="image"><% if variant.images.length == 0 %>
+         <a href="/products/<%=product.slug%>"> <%= product_image(variant.product) %></a>
+          <% else %>
+        <a href="/products/<%=product.slug%>">  <%= image_tag variant.images.first.attachment.url(:product) %></a>
+          <% end %>
+        </div>
+      
+      </div>
+      <div class="name"><h4><%= link_to product.name, product %></h4></div>
+      <div class="author">Dan Brown</div>
+      <div class="price"><%= display_price(variant) %></div>
+      <div class="lemmaBook" style="width:110%">
+        <div class="cartAdd">
+          <!--<input type="button" class="btn btn-primary" value="Add to Cart">-->
+          <%= form_for :order, :url => populate_orders_path do |f| %>
+             <%= hidden_field_tag "variant_id", product.master.id %>
+			 <%= hidden_field_tag "quantity", 1 %>
+          <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
+            <i class="fa-cart-add visible-sm-block"></i> <span class="hidden-sm">Add to Cart</span>
+          <% end %>
+        <% end %>
+       </div>
+       <div class="wishlistAdd"><%= link_to '', wish, :confirm => "Are you sure?",  :method => 'delete', :class => 'active fa fa-list' %></div>         
+     </div>    
+     <% end %> 
+    </div>
+        <% end %>
+  <% else -%>
+      <div class="product-item-0">
+          <%= Spree.t(:your_wishlist_is_empty) %>
+    </div>
+        <% end %>
+
+  </div>
+
+   </div>
+      </div>
+
+    </div>
+    	<script type="text/javascript"><!--
+                
+                    function display(view) {
+                        if (view == 'list') {
+                            jQuery('.product-grid').attr('class', 'product-list row');
+                            jQuery('.product-list > div').each(function(index, element) {
+                                html = '<div class="col-xs-12 col-sm-4 col-md-3">';
+                                
+                                var image = jQuery(element).find('.image').html();
+                                if (image != null) {
+                                    html += '<div class="image">' + image + '</div>';
+                                }
+                                html += '</div>';
+                                html += '<div class="left">';
+                                
+                                var price = jQuery(element).find('.price').html();
+                                if (price != null) {
+                                    html += '<div class="price">' + price + '</div>';
+                                }
+                
+                                html += '  <div class="name">' + jQuery(element).find('.name').html() + '</div>';  
+                                html += '  <div class="author">' + jQuery(element).find('.author').html() + '</div>';                
+                                html += '  <div class="description">' + jQuery(element).find('.description').html() + '</div>';
+                                html += '<div class="actions clearfix">';
+                                html += '  <div class="cartAdd">' + jQuery(element).find('.cartAdd').html() + '</div>';
+                                html += '  <div class="wishlistAdd">' + jQuery(element).find('.wishlistAdd').html() + '</div>';
+                                html += '</div>';
+                                html += '</div>';
+                                jQuery(element).html(html);
+                            });
+                
+                            jQuery('.display').html('Display: <span><i class="fa fa-th-list"></i></span> <a onclick="display(\'grid\');"><i class="fa fa-th-large"></i></a>');
+                
+                            jQuery.totalStorage('display', 'list');
+                        } else {
+                            jQuery('.product-list').attr('class', 'product-grid row row-5');                
+                            jQuery('.product-grid > div').each(function(index, element) {
+                                html = '';
+                
+                                var image = jQuery(element).find('.image').html();
+                                html += '<div class="actions">';
+                
+                                if (image != null) {
+                                    html += '<div class="image">' + image + '</div>';
+                                }
+                                html += '</div>';
+								
+								
+                                html += '<div class="name">' + jQuery(element).find('.name').html() + '</div>';      
+                                html += '  <div class="author">' + jQuery(element).find('.author').html() + '</div>';                             
+                                html += '<div class="description">' + jQuery(element).find('.description').html() + '</div>';
+                
+                                var price = jQuery(element).find('.price').html();
+                                if (price != null) {
+                                    html += '<div class="price">' + price + '</div>';
+                                }
+								
+								html += '<div class="lemmaBook">';								
+                                html += '<div class="cartAdd">' + jQuery(element).find('.cartAdd').html() + '</div>';
+                                html += '<div class="wishlistAdd">' + jQuery(element).find('.wishlistAdd').html() + '</div>';
+                                html += '</div>';
+                                jQuery(element).html(html);
+                            });
+                
+                            jQuery('.display').html('Display: <a onclick="display(\'list\');"><i class="fa fa-th-list"></i></a><span><i class="fa fa-th-large"></i></span>');
+                            jQuery.totalStorage('display', 'grid');
+                        }
+                    }
+                
+                    view = jQuery.totalStorage('display');
+                
+                    if (view) {
+                        display(view);
+                    } else {
+                        display('grid');
+                    }
+                                        
+                //--></script>
+          
+  </div>
+
+
