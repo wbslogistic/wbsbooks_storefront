@@ -11,7 +11,7 @@ class NewsController < Spree::StoreController
 										:pro_books => 'http://pro-books.ru',
 										:bookmix => 'http://bookmix.ru'		
 	}
-	PER_PAGE = 10
+	PER_PAGE = 20
 
 	def index
 		@taxonomies = Spree::Taxonomy.includes(root: :children)
@@ -20,7 +20,7 @@ class NewsController < Spree::StoreController
 		@source_type = params[:source_type] && SOURCE_LINKS.keys.include?(params[:source_type].to_sym) ? params[:source_type].to_sym : SOURCE_LINKS.keys.first
 		@feed = Feedjira::Feed.fetch_and_parse(SOURCE_LINKS[@source_type])
 		
-		@feed_entries = @feed.entries
+		@feed_entries = @feed.entries rescue []
 		@feed_entries = @feed_entries.slice((@curr_page - 1) * PER_PAGE, PER_PAGE)
 	end
 
