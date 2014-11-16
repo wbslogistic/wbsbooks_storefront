@@ -6,6 +6,8 @@
   <div class="info">
     <h3><a href="<%= entry.url %>" target="_blank"><%= raw entry.title %></a></h3>
     <h5><%= entry.published ? entry.published.strftime('%d %B %Y') : "" %></h5>
-    <p><%= raw pre_process_summary(entry.summary) %></p>
+    <% if entry.summary.present? %>
+    	<p><%= raw pre_process_summary(entry.summary) %></p>
+    <% end %>
   </div>
 </div>
