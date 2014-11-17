@@ -1,0 +1,125 @@
+<div data-hook="admin_user_form_fields" class="row">
+  <div class="alpha six columns">
+    <%= f.field_container :email do %>
+      <%= f.label :email, Spree.t(:email) %>
+      <%= f.email_field :email, :class => 'fullwidth' %>
+      <%= error_message_on :user, :email %>
+    <% end %>
+
+    <div data-hook="admin_user_form_roles" class="field">
+      <%= label_tag nil, Spree.t(:roles) %>
+      <ul>
+        <% @roles.each do |role| %>
+          <li>
+            <%= check_box_tag 'user[spree_role_ids][]', role.id, @user.spree_roles.include?(role), :id => "user_spree_role_#{role.name}" %>
+            <%= label_tag "user_spree_role_#{role.name}", role.name %>
+          </li>
+        <% end %>
+      </ul>
+      <%= hidden_field_tag 'user[spree_role_ids][]', '' %>
+    </div>
+    
+      <%= f.field_container :fax do %>
+      <%= f.label :fax, Spree.t('fax') %>
+      <%= f.text_field :fax, :class => 'fullwidth' %>
+      <%= f.error_message_on :fax %>
+    <% end %>
+    <%= f.field_container :accounttype do %>
+      <%= f.label :accounttype, Spree.t('account type') %>
+      <input type="radio" <%if @user.accounttype == 0%>checked="checked" <%end%> name="user[accounttype]" value="0">Individual
+      <input type="radio" <%if @user.accounttype == 1%>checked="checked" <%end%> name="user[accounttype]" value="1" class="m-l-10">Company
+      <%= f.error_message_on :accounttype %>
+    <% end %>
+     <%= f.field_container :actcompanyname do %>
+      <%= f.label :actcompanyname, Spree.t('company name') %>
+      <%= f.text_field :actcompanyname, :class => 'fullwidth' %>
+      <%= f.error_message_on :actcompanyname %>
+    <% end %>
+     <%= f.field_container :registerednumber do %>
+      <%= f.label :registerednumber, Spree.t('registered number') %>
+      <%= f.text_field :registerednumber, :class => 'fullwidth' %>
+      <%= f.error_message_on :registerednumber %>
+    <% end %>
+     <%= f.fields_for :ship_address, Spree::Address.default(@user, 'ship') do |ff| %>
+	    <div class="field ">
+	    <%= f.label :countryregistration, Spree.t('country of registration') %>
+	    <span id="countryregistration">
+	      <%= f.collection_select :countryregistration, available_countries, :id, :name, {}, {:class => 'select2 fullwidth'} %>
+	    </span>
+	  </div>
+	  <%end%>
+     <%= f.field_container :vat do %>
+      <%= f.label :vat, Spree.t('vat') %>
+      <%= f.text_field :vat, :class => 'fullwidth' %>
+      <%= f.error_message_on :vat %>
+    <% end %>
+     <%= f.field_container :years do %>
+      <%= f.label :fax, Spree.t('years') %>
+      <%= f.text_field :years, :class => 'fullwidth' %>
+      <%= f.error_message_on :years %>
+    <% end %>
+
+  </div>
+
+  <div data-hook="admin_user_form_password_fields" class="omega six columns">
+    <%= f.field_container :password do %>
+      <%= f.label :password, Spree.t(:password) %>
+      <%= f.password_field :password, :class => 'fullwidth' %>
+      <%= f.error_message_on :password %>
+    <% end %>
+
+    <%= f.field_container :password do %>
+      <%= f.label :password_confirmation, Spree.t(:confirm_password) %>
+      <%= f.password_field :password_confirmation, :class => 'fullwidth' %>
+      <%= f.error_message_on :password_confirmation %>
+    <% end %>
+    
+     <%= f.field_container :othstreet do %>
+      <%= f.label :othstreet, Spree.t('other street') %>
+      <%= f.text_field :othstreet, :class => 'fullwidth' %>
+      <%= f.error_message_on :othstreet %>
+    <% end %>
+
+   <%= f.field_container :othsuburb do %>
+      <%= f.label :othsuburb, Spree.t('other suburb') %>
+      <%= f.text_field :othsuburb, :class => 'fullwidth' %>
+      <%= f.error_message_on :othsuburb %>
+    <% end %>
+     
+      <%= f.field_container :othpostalcode do %>
+      <%= f.label :othpostalcode, Spree.t('other postalcode') %>
+      <%= f.text_field :othpostalcode, :class => 'fullwidth' %>
+      <%= f.error_message_on :othpostalcode %>
+    <% end %>
+     
+      <%= f.field_container :othcity do %>
+      <%= f.label :othcity, Spree.t('other city') %>
+      <%= f.text_field :othcity, :class => 'fullwidth' %>
+      <%= f.error_message_on :othcity %>
+    <% end %>
+      <%= f.fields_for :ship_address, Spree::Address.default(@user, 'ship') do |ff| %>
+    <div class="field ">
+    <%= f.label :othcountry, Spree.t('other country') %>
+    <span id="othcountry">
+      <%= f.collection_select :othcountry, available_countries, :id, :name, {}, {:class => 'select2 fullwidth'} %>
+    </span>
+  </div>
+
+  <div class="field ">
+    <%= f.label :othstate, Spree.t('other state') %>
+    <span id="state">
+      <%= f.text_field :othstate,
+            :style => "display: #{ff.object.country.states.empty? ? 'block' : 'none' };",
+           :disabled => !ff.object.country.states.empty?, :class => 'fullwidth state_name' %>
+      <%= f.collection_select :othstate, ff.object.country.states.sort, :id, :name, {:include_blank => true}, {:class => 'select2 fullwidth', :style => "display: #{ff.object.country.states.empty? ? 'none' : 'block' };", :disabled => ff.object.country.states.empty?} %>
+    </span>
+  </div>
+   <%= f.field_container :newsletter do %>
+      <%= f.label :newsletter, Spree.t('newsletter') %>
+        <input type="radio" <% if @user.newsletter == true %> checked="checked" <%end%> value="1" name="user[newsletter]">Yes
+        <input type="radio" value="0" <% if @user.newsletter == false %> checked="checked" <%end%> name="user[newsletter]" class="m-l-10">No 
+      <%= f.error_message_on :newsletter %>
+    <% end %>
+          <%end%>
+  </div>
+</div>

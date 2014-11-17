@@ -89,7 +89,7 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
         bill_address_attributes: Spree::PermittedAttributes.address_attributes
       }
       Spree::PermittedAttributes.user_attributes.push :id,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
-      params.require(:user).permit(*attrs)
+      params.require(:spree_user).permit(*attrs)
       
     end
     

@@ -1,49 +1,44 @@
- <script type="text/javascript" charset="utf-8">
+  <script type="text/javascript" charset="utf-8">
     $(function() {
-       $("input[type=radio][name='user[accounttype]']").change(function() {
+       $("input[type=radio][name='spree_user[accounttype]']").change(function() {
       
             if ($(this).val()  == '0') {
-                 $("input[type=text][name='user[actcompanyname]']").parent().parent().hide();
-                 $("input[type=text][name='user[registerednumber]']").parent().parent().hide();
-                 $("input[type=text][name='user[vat]']").parent().parent().hide();
-                 $("select[name='user[countryregistration]']").parent().parent().hide();
-                 $("input[type=text][name='user[years]']").parent().parent().hide();
+                 $("input[type=text][name='spree_user[actcompanyname]']").parent().parent().hide();
+                 $("input[type=text][name='spree_user[registerednumber]']").parent().parent().hide();
+                 $("input[type=text][name='spree_user[vat]']").parent().parent().hide();
+                 $("select[name='spree_user[countryregistration]']").parent().parent().hide();
+                 $("input[type=text][name='spree_user[years]']").parent().parent().hide();
             }
             else {
-                 $("input[type=text][name='user[actcompanyname]']").parent().parent().show();
-                 $("input[type=text][name='user[registerednumber]']").parent().parent().show();
-                 $("input[type=text][name='user[vat]']").parent().parent().show();
-                 $("select[name='user[countryregistration]']").parent().parent().show();
-                 $("input[type=text][name='user[years]']").parent().parent().show();
+                 $("input[type=text][name='spree_user[actcompanyname]']").parent().parent().show();
+                 $("input[type=text][name='spree_user[registerednumber]']").parent().parent().show();
+                 $("input[type=text][name='spree_user[vat]']").parent().parent().show();
+                 $("select[name='spree_user[countryregistration]']").parent().parent().show();
+                 $("input[type=text][name='spree_user[years]']").parent().parent().show();
                 
             }
         });
-          if ($("input[type=radio][name='user[accounttype]']").val()  == '0') {
-                 $("input[type=text][name='user[actcompanyname]']").parent().parent().hide();
-                 $("input[type=text][name='user[registerednumber]']").parent().parent().hide();
-                 $("input[type=text][name='user[vat]']").parent().parent().hide();
-                 $("select[name='user[countryregistration]']").parent().parent().hide();
-                 $("input[type=text][name='user[years]']").parent().parent().hide();
-            }
-        $('#user_ship_address_attributes_country_id').change(function() {
+         
+        
+        $('#spree_user_ship_address_attributes_country_id').change(function() {
             if ($(this).val() == "49") {
-                $('#user_ship_address_attributes_state_id').show();
+                $('#spree_user_ship_address_attributes_state_id').show();
                 $('#statelabel').parent().show();
             } 
             else {
-                $('#user_ship_address_attributes_state_id').hide();
+                $('#spree_user_ship_address_attributes_state_id').hide();
                 $('#statelabel').parent().hide();
             }
             });
-          $('#user_othcountry').change(function() {
+         $('#spree_user_othcountry').change(function() {
             if ($(this).val() == "49") {
-               // $('#user_othstate').show();
-                $('#user_othstate').next().show();
+               // $('#spree_user_othstate').show();
+                $('#spree_user_othstate').next().show();
                 $('#statelabel1').parent().show();
             } 
             else {
-                $('#user_othstate').next().hide();
-                 $('#user_othstate').hide();
+                $('#spree_user_othstate').next().hide();
+                 $('#spree_user_othstate').hide();
                 $('#statelabel1').parent().hide();
             }
         });
@@ -51,17 +46,7 @@
    
 </script>
  <div class="box-content">
-              
-			<div class="tabbable tabs-left">
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#lA">My Details</a></li>
-                <li><a data-toggle="tab" href="#lB">Password</a></li>
-                <li><a data-toggle="tab" href="#lC">My Discount</a></li>
-              </ul>
-              <div class="tab-content">
-                <div id="lA" class="tab-pane active">
-
-             
+                  <p style="margin:10px;margin-left:0px;">If you already have an account with us, please login at the <a href="/login">login page</a>.</p>
                   <h2>My Account</h2>
                   <div class="content_oc">
                     <table class="form">
@@ -90,8 +75,8 @@
                         <tr>
                           <td><span class="required">*</span> Account type:</td>
                            <td>
-                            <input type="radio" <%if @user.accounttype == 0%>checked="checked" <%end%> name="user[accounttype]" value="0">Individual
-                            <input type="radio" <%if @user.accounttype == 1%>checked="checked" <%end%> name="user[accounttype]" value="1" class="m-l-10">Company
+                            <input type="radio"  name="spree_user[accounttype]" value="0">Individual
+                            <input type="radio"  name="spree_user[accounttype]" value="1" class="m-l-10">Company
                           
                           </td>
                         </tr>
@@ -207,7 +192,23 @@
                     </table>
                   </div>
 
-                 
+                  <h2>Your Password</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                        <tr>
+                          <td><span class="required">*</span> Password:</td>
+                          <td><%= f.password_field :password ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> Password Confirm:</td>
+                          <td><%= f.password_field :password_confirmation ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+
                   <h2>Newsletter</h2>
                   <div class="content_oc">
                     <table class="form">
@@ -215,9 +216,9 @@
                         <tr>
                           <td>Subscribe:</td>
                           <td>
-                           <input type="radio" <% if @user.newsletter == true %> checked="checked" <%end%> value="1" name="user[newsletter]">
+                           <input type="radio"  value="1" name="spree_user[newsletter]">
                             Yes
-                            <input type="radio" value="0" <% if @user.newsletter == false %> checked="checked" <%end%> name="user[newsletter]" class="m-l-10">
+                            <input type="radio" value="0"  name="spree_user[newsletter]" class="m-l-10">
                             No </td>
                         </tr>
                       </tbody>
@@ -234,42 +235,8 @@
                 
                 </div>
                 
-                <div id="lB" class="tab-pane">
-                                     
-                      <h2>Change Password</h2>
-                      <br/>
-                        <p>You do not remember your password or just want to change it? No problem, just choose a new one by filling in the form below.</p>
-                      <div class="content_oc">
-                        <table class="form">
-                          <tbody>
-                              <tr>
-		                          <td><span class="required">*</span> Current Password:</td>
-		                          <td><%= f.password_field :currentpassword ,:style => "width: 120px !important;" %></td>
-		                       </tr>
-		                       
-                              <tr>
-		                          <td><span class="required">*</span> New Password:</td>
-		                          <td><%= f.password_field :password ,:style => "width: 120px !important;" %></td>
-		                       </tr>
-		                       <tr>
-		                          <td><span class="required">*</span> Confirm Password:</td>
-		                          <td><%= f.password_field :password_confirmation ,:style => "width: 120px !important;" %></td>
-		                       </tr>
-                         </tbody>
-                        </table>
-                      </div>
-                      <div class="buttons">
-                        <div>
-                            <input type="submit" class="btn btn-primary" value="Save">
-                        </div>
-                      </div>
-                    
-                </div>
-                
-                <div id="lC" class="tab-pane">
-                  <p>$ 4 discount on your next purchase</p>
-                </div>
-              </div>
+               
+             
             </div>         
                 
               </div>
