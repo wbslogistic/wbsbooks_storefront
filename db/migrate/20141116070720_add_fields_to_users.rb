@@ -13,6 +13,6 @@ class AddFieldsToUsers < ActiveRecord::Migration
     add_column :spree_users, :countryregistration, :integer
     add_column :spree_users, :vat, :integer
     add_column :spree_users, :years, :integer
-    add_column :spree_users, :newsletter, :integer
+  
   end
 end
