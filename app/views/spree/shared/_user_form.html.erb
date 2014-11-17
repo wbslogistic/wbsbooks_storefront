@@ -1,6 +1,6 @@
-<script type="text/javascript" charset="utf-8">
+ <script type="text/javascript" charset="utf-8">
     $(function() {
-        $('input[type=radio][name=accounttype]').change(function() {
+       /* $('input[type=radio][name=accounttype]').change(function() {
             if (this.value == 'individual') {
                 $('.officeaddress').hide();
                 $('#youraddress').removeClass('col-md-6').addClass('col-md-12')
@@ -9,99 +9,270 @@
                 $('.officeaddress').show();
                 $('#youraddress').removeClass('col-md-12').addClass('col-md-6')
             }
-        });
+        });*/
         
-        $('.country').change(function() {
+        $('#user_ship_address_attributes_country_id').change(function() {
             if ($(this).val() == "49") {
-                $(this).parents('table').find('.state').show();
+                $('#user_ship_address_attributes_state_id').show();
+                $('#statelabel').parent().show();
             } 
             else {
-                $(this).parents('table').find('.state').hide();
+                $('#user_ship_address_attributes_state_id').hide();
+                $('#statelabel').parent().hide();
             }
         });
     });
 </script>
-<h2>My Personal Details</h2>
-<div class="content_oc">
-  <table class="form">
-    <tbody>
-    <%= f.fields_for :ship_address, Spree::Address.default(resource, 'ship') do |ff| %>
-        <tr>
-          <td><span class="required">*</span><%= ff.label :firstname, Spree.t(:firstname) %></td>
-          <td><%= ff.text_field :firstname %></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span><%= ff.label :lastname, Spree.t(:lastname) %></td>
-          <td><%= ff.text_field :lastname %></td>
-        </tr>
-    <% end %>
-    <tr>
-      <td><span class="required">*</span><%= f.label :email, Spree.t(:email) %></td>
-      <td><%= f.email_field :email %></td>
-    </tr>
-    <% unless resource.new_record? %>
-    <tr>
-      <td><span class="required">*</span><%= f.label :current_password, Spree.t(:current_password) %></td>
-      <td><%= f.password_field :current_password %></td>
-    </tr>
-    <% end %>
-    <tr>
-      <td><% if resource.new_record? %><span class="required">*</span><%end%><%= f.label :password, Spree.t(:password) %></td>
-      <td><%= f.password_field :password %></td>
-    </tr>
-    <tr>
-      <td><% if resource.new_record? %><span class="required">*</span><%end%><%= f.label :password_confirmation, Spree.t(:confirm_password) %></td>
-      <td><%= f.password_field :password_confirmation %></td>
-    </tr>
-    <tr>
-      <td><span class="required">*</span> Account type:</td>
-      <td><input type="radio" value="individual" name="accounttype" <%= params[:accounttype].to_s != 'company' ? "checked='checked'" : "" %>>
-        Individual
-        <input type="radio" value="company" name="accounttype" class="m-l-10" <%= params[:accounttype].to_s == 'company' ? "checked='checked'" : "" %>>
-        Company
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+ <div class="box-content">
+              
+			<div class="tabbable tabs-left">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#lA">My Details</a></li>
+                <li><a data-toggle="tab" href="#lB">Password</a></li>
+                <li><a data-toggle="tab" href="#lC">My Discount</a></li>
+              </ul>
+              <div class="tab-content">
+                <div id="lA" class="tab-pane active">
 
-<div>
-  <div id="youraddress" class="col-md-12" style="padding-left:0;">
-    <h2>Your Address</h2>
+             
+                  <h2>My Account</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                      <%= f.fields_for :ship_address, Spree::Address.default(resource, 'ship') do |ff| %>
+                        <tr>
+                          <td><span class="required">*</span> First Name:</td>
+                          <td><%= ff.text_field :firstname ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> Last Name:</td>
+                          <td><%= ff.text_field :lastname ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> E-Mail:</td>
+                          <td><%= f.text_field :email ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                      </tbody>
+                     
+                    </table>
+                  </div>
+                  <h2>Company details</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                        <tr>
+                          <td><span class="required">*</span> Account type:</td>
+                           <td>
+                            <input type="radio" <%if @user.accounttype == 0%>checked="checked" <%end%> name="user[accounttype]" value="0">Individual
+                            <input type="radio" <%if @user.accounttype == 1%>checked="checked" <%end%> name="user[accounttype]" value="1" class="m-l-10">Company
+                          
+                          </td>
+                        </tr>
+                       <tr>
+                          <td><span class="required">*</span> Company name:</td>
+                          <td><%= f.text_field :actcompanyname ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span>Registered Number:</td>
+                          <td><%= f.text_field :registerednumber ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> Country of registration:</td>
+                          <td><%= f.collection_select :countryregistration, available_countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span>VAT Number:</td>
+                          <td><%= f.text_field :vat ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span>No. of years in business:</td>
+                          <td><%= f.text_field :years ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <h2>Your Address</h2>
+                  <div class="content_oc">
+                   
+                    <table class="form">
+                      <tbody>
+                       <tr>
+                          <td><span class="required">*</span> Street Address:</td>
+                          <td><%= ff.text_field :address1 ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span> Suburb:</td>
+                          <td><%= ff.text_field :address2 ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> Post Code:</td>
+                          <td><%= ff.text_field :zipcode ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required" id="postcode-required">*</span> City:</td>
+                          <td><%= ff.text_field :city ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> Country:</td>
+                          <td> <%= ff.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="required" id="statelabel">*</span> Region / State:</td>
+                          <td> <%= ff.text_field :state_name,:style => "display: #{ff.object.country.states.empty? ? 'block' : 'none' };width: 200px !important;",:disabled => !ff.object.country.states.empty?, :class => 'fullwidth state_name' %>
+                                <%= ff.collection_select :state_id, ff.object.country.states.sort, :id, :name, {:include_blank => true}, {:class => 'select2 fullwidth', :style => "width: 200px !important;display: #{ff.object.country.states.empty? ? 'none' : 'block' };", :disabled => ff.object.country.states.empty?} %>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                  <h2>Office Address (if different from above)</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                       <tr>
+                          <td><span class="required"></span>Street Address:</td>
+                          <td><%= f.text_field :othstreet ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span>Suburb:</td>
+                          <td><%= f.text_field :othsuburb ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span>Post Code:</td>
+                          <td><%= f.text_field :othpostalcode ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required" id="postcode-required"></span>City:</td>
+                          <td><%= f.text_field :othcity ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span> Country:</td>
+                          <td> <%= f.collection_select :othcountry, available_countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %><td>
+                         </td>
+                        </tr>
+                        <tr>
+                          <td><span class="required"></span> Region / State:</td>
+                          <td><%= f.text_field :othstate,:style => "display: #{ff.object.country.states.empty? ? 'block' : 'none' };width: 200px !important;",:disabled => !ff.object.country.states.empty?, :class => 'fullwidth state_name' %>
+                              <%= f.collection_select :othstate, ff.object.country.states.sort, :id, :name, {:include_blank => true}, {:class => 'select2 fullwidth', :style => "width: 200px !important;display: #{ff.object.country.states.empty? ? 'none' : 'block' };", :disabled => ff.object.country.states.empty?} %>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
 
-    <div class="content_oc">
-      <%= f.fields_for :ship_address, Spree::Address.default(resource, 'ship') do |ff| %>
-          <%= render 'spree/address/form', form: ff, address_type: "shipping", include_name: false  %>
-      <% end %>
-    </div>
-  </div>
+                  <h2>Your Contact Information</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                       
+	                        <tr>
+	                          <td><span class="required">*</span> Telephone:</td>
+	                          <td><%= ff.text_field :phone ,:style => "width: 120px !important;" %></td>
+	                        </tr>
+                        <%end%>
+                        <tr>
+                          <td>Fax:</td>
+                          <td><%= f.text_field :fax ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
 
-  <div class="col-md-6 officeaddress" style="padding-right:0; display: <%= params[:accounttype] != 'company' ? 'none' : 'block' %>">
-    <h2>Office Address</h2>
+                  <h2>Your Password</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                        <tr>
+                          <td><span class="required">*</span> Password:</td>
+                          <td><%= f.password_field :password ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                        <tr>
+                          <td><span class="required">*</span> Password Confirm:</td>
+                          <td><%= f.password_field :password_confirmation ,:style => "width: 120px !important;" %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
 
-    <div class="content_oc">
-      <%= f.fields_for :bill_address, Spree::Address.default(resource, 'bill') do |ff| %>
-          <%= render 'spree/address/form', form: ff, address_type: "billing", include_name: true  %>
-      <% end %>
-    </div>
-  </div>
-</div>
 
-<div class="col-md-12" style="padding-left:0;">
-
-<h2>Newsletter</h2>
-<div class="content_oc">
-  <table class="form">
-    <tbody>
-    <tr>
-      <td>Subscribe:</td>
-      <td><%= f.radio_button :newsletter, true, checked: true %>
-        Yes
-        <%= f.radio_button :newsletter, false %>
-        No
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+                  <h2>Newsletter</h2>
+                  <div class="content_oc">
+                    <table class="form">
+                      <tbody>
+                        <tr>
+                          <td>Subscribe:</td>
+                          <td>
+                           <input type="radio" <% if @user.newsletter == true %> checked="checked" <%end%> value="1" name="user[newsletter]">
+                            Yes
+                            <input type="radio" value="0" <% if @user.newsletter == false %> checked="checked" <%end%> name="user[newsletter]" class="m-l-10">
+                            No </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                  <div id="checkboxerror" style="display:none;color:#FF0000;">Please check the Privacy Policy</div>
+                  <div class="buttons">
+                    <div class="right">I have read and agree to the <a alt="Privacy Policy" href="#" class="colorbox cboxElement"><b>Privacy Policy</b></a>
+                      <input type="checkbox" value="1" name="agree" id ="chkterms" >
+                      <input type="submit" class="btn btn-primary m-l-10" value="Continue" onclick="javascript:return isCheckedById();">
+                    </div>
+                  </div>
+                
+                </div>
+                
+                <div id="lB" class="tab-pane">
+                    <form>                  
+                      <h2>Change Password</h2>
+                      <br/>
+                        <p>You do not remember your password or just want to change it? No problem, just choose a new one by filling in the form below.</p>
+                      <div class="content_oc">
+                        <table class="form">
+                          <tbody>
+                              <tr>
+		                          <td><span class="required">*</span> Current Password:</td>
+		                          <td><%= f.password_field :currentpassword ,:style => "width: 120px !important;" %></td>
+		                       </tr>
+		                       
+                              <tr>
+		                          <td><span class="required">*</span> New Password:</td>
+		                          <td><%= f.password_field :password ,:style => "width: 120px !important;" %></td>
+		                       </tr>
+		                       <tr>
+		                          <td><span class="required">*</span> Confirm Password:</td>
+		                          <td><%= f.password_field :password_confirmation ,:style => "width: 120px !important;" %></td>
+		                       </tr>
+                         </tbody>
+                        </table>
+                      </div>
+                      <div class="buttons">
+                        <div>
+                            <input type="submit" class="btn btn-primary" value="Save">
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                
+                <div id="lC" class="tab-pane">
+                  <p>$ 4 discount on your next purchase</p>
+                </div>
+              </div>
+            </div>         
+                
+              </div>
+              
+              <script type="text/javascript">
+			    function isCheckedById() {
+			        var checkedprop = $('#chkterms').prop("checked");
+			
+			        if (checkedprop) {
+			            $("#checkboxerror").hide();
+			            return true;
+			        } else {
+			            $("#checkboxerror").show();
+			            return false;
+			        }
+			    }
+			</script>

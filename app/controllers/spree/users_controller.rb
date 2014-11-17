@@ -41,7 +41,9 @@ class Spree::UsersController < Spree::StoreController
 
   private
     def user_params
+       Spree::PermittedAttributes.user_attributes.push :id,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
       params.require(:user).permit(Spree::PermittedAttributes.user_attributes)
+     
     end
 
     def load_object

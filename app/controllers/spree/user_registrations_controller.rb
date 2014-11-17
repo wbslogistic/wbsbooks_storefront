@@ -45,6 +45,7 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+  @user = resource
     super
   end
 
@@ -53,6 +54,8 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     if params[:accounttype] == 'individual' and params[:user]
       params[:user].delete :bill_address_attributes
     end
+    @user = Spree::User.find(spree_current_user.id)
+    @user.update(account_update_params)
     
     super
   end
@@ -80,21 +83,29 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     def spree_user_params      
       attrs = Spree::PermittedAttributes.user_attributes
       attrs << :newsletter
+      attrs << :id
       attrs << {
         ship_address_attributes: Spree::PermittedAttributes.address_attributes,
         bill_address_attributes: Spree::PermittedAttributes.address_attributes
       }
-      params.require(:spree_user).permit(*attrs)
+      Spree::PermittedAttributes.user_attributes.push :id,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
+      params.require(:user).permit(*attrs)
+      
     end
     
     def account_update_params
       attrs = Spree::PermittedAttributes.user_attributes
+      
       attrs << :newsletter
+      attrs << :id
       attrs << :current_password
+      
       attrs << {
         ship_address_attributes: Spree::PermittedAttributes.address_attributes,
         bill_address_attributes: Spree::PermittedAttributes.address_attributes
       }
+      Spree::PermittedAttributes.user_attributes.push :id,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
       params.require(:user).permit(*attrs)
+     
     end
 end

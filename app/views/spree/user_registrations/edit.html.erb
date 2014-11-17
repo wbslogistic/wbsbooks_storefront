@@ -5,28 +5,15 @@
 <div data-hook="login_extras"></div>
 
 
-<div class="t3-content col-xs-12" id="t3-content">
-  <div id="system-message-container" style="display: none;"></div>
-  <div id="container_oc">
+
     <div id="content_oc">
-      <div class="box_oc">
-        <div class="box-heading">
-          <h1 class="mijoshop_heading_h1">Edit Account</h1>
-        </div>
-
-
-        <%= form_for resource, as: :user, url: :spree_user_registration, html: { method: :put } do |f| %>
-
-            <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
-
-
-
-            <div class="buttons col-md-12">
-                <%= f.submit Spree.t(:update), :class => 'btn btn-primary' %>
+            <div class="box_oc">
+              <div class="box-heading">
+                <h1 class="mijoshop_heading_h1">My details</h1>
+              </div>
+             <%= form_for resource, as: :user, url: :spree_user_registration, html: { method: :put } do |f| %>
+                <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+                  
+             <% end %>
             </div>
-        <% end %>
-
-      </div>
     </div>
-  </div>
-</div>
