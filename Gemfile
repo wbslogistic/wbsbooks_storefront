@@ -58,6 +58,9 @@ gem 'ruport'
 gem 'ruport-util'
 gem 'spree_advanced_reporting', github: 'wbslogistic/spree-advanced-reporting' 
 
+#gem "feedzirra", github: 'feedjira/feedjira'
+gem 'feedjira'
+
 # klisha
 gem 'pg'
 

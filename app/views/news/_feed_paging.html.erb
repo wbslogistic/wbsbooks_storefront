@@ -1,0 +1,21 @@
+<% if feed_entry_pagings %>
+	<ul class="pagination">
+		<% if feed_entry_pagings[:prev].present? %>
+	    <li class="prev"><%= link_to "‹ Prev", feed_entry_pagings[:prev], rel: "prev" %></li>
+    <% end %>
+	  <% feed_entry_pagings[:pages].each do |item| %>
+	  	<% if item[:active].present? %>
+	  		<li class="page active"><%= link_to item[:page], item[:url], class: "active" %></li>
+	  	<% elsif item[:page] == @curr_page + 1 %>
+	  		<li class="page"><%= link_to item[:page], item[:url], ref: "next" %></li>
+	  	<% elsif item[:page] == @curr_page - 1 %>
+	  		<li class="page"><%= link_to item[:page], item[:url], ref: "prev" %></li>
+	  	<% else %>
+	  		<li class="page"><%= link_to item[:page], item[:url] %></li>
+	  	<% end %>
+	  <% end %>
+	  <% if feed_entry_pagings[:next].present? %>
+	    <li class="next"><%= link_to "Next ›", feed_entry_pagings[:next], rel: "next" %></li>
+    <% end %>
+	</ul>
+<% end %>
