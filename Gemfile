@@ -56,8 +56,7 @@ gem 'owlcarousel-rails'
 
 gem 'ruport'
 gem 'ruport-util'
-#gem 'spree_advanced_reporting', github: 'wbslogistic/spree-advanced-reporting' 
-gem 'spree_advanced_reporting', path: 'vendor/extensions' 
+gem 'spree_advanced_reporting', github: 'wbslogistic/spree-advanced-reporting' 
 
 #gem "feedzirra", github: 'feedjira/feedjira'
 gem 'feedjira'

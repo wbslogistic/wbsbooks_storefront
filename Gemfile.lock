@@ -28,6 +28,15 @@ GIT
       spree_core (~> 2.3.0)
 
 GIT
+  remote: git://github.com/wbslogistic/spree-advanced-reporting.git
+  revision: e09dbadad409a5439a016fe937d3bf62ebdff93b
+  specs:
+    spree_advanced_reporting (2.0.0)
+      ruport (>= 1.6.3)
+      ruport-util
+      spree_core (>= 0.80.0.beta)
+
+GIT
   remote: git://github.com/wbslogistic/spree_wishlist.git
   revision: 8ffa57e3c1ffe41b20e3c5059cd0c71965ebc270
   branch: 2-3-stable
@@ -55,14 +64,6 @@ GIT
   specs:
     spree_gateway (2.3.0.beta)
       spree_core (~> 2.3.0)
-
-PATH
-  remote: vendor/extensions
-  specs:
-    spree_advanced_reporting (2.0.0)
-      ruport (>= 1.6.3)
-      ruport-util
-      spree_core (>= 0.80.0.beta)
 
 GEM
   remote: https://rubygems.org/
