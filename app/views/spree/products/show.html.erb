@@ -49,6 +49,49 @@
                     </div>
                   </div>
                 </div> -->
+                
+                <%@variants = best_selling_products() %>
+              
+                <%if @variants.present?%>
+                  <h3 class="module-title">Recommended Books</h3>
+                     <div class="col-xs-12 col-md-12 col-sm-12" style="margin-left:50px;margin-bottom:20px;">
+                        <div class="owl-carousel" id="recommended">
+	                       
+			                   <% @variants.each_with_index do |variant,i| %>
+				                  <% recproduct = Spree::Product.find(Spree::Variant.find_by_id(variant).product_id) %>
+					                  <div class="product-item-<%=i%>">
+						                    <div class="actions">
+							                    <div class="image"><a href="<%=product_url(recproduct, :taxon_id => @taxonid)%>"> <%= product_image(recproduct, :itemprop => "image", :style => 'display: inline-block') %></a></div>
+							                    <div class="cart">
+								                     <%= form_for :order, :url => populate_orders_path do |f| %>
+										               <%= hidden_field_tag "variant_id", recproduct.master.id %>
+										               <%= hidden_field_tag "quantity", 1 %>
+										               <input type="button" value="Add to Cart" class="btn btn-primary" onclick="$(this).parent().submit();">
+										             <%end%>
+							                    </div>
+							                    <div class="wishlist">
+									                  <%= form_for Spree::WishedProduct.new, :html => {:method => :post} do |f| %>
+														<%= f.hidden_field :variant_id, :value => recproduct.master.id %>
+														<a title="Add to Wish List" onclick="$(this).parent().submit();"><i class="fa fa-list"></i></a>
+													  <%end%>
+												</div>
+						                    </div>
+						                    <div class="name"><a href="<%=recproduct.slug%>"><%=recproduct.name%></a></div>
+						                    <div class="author"><%= taxon_authors(@product) %></div>
+						                    <div class="price"> <%= display_price(recproduct) %></div>
+					                  </div>
+				                  
+		                      <%end%>
+		                 </div>
+		                 <div  id="prev">
+			                    <i class="fa fa-chevron-circle-left"></i>
+			             </div>
+		                 <div  id="next">
+			                    <i class="fa fa-chevron-circle-right"></i>
+			             </div> 
+	               </div>
+              <%end%> 
+               <br/>
 
                 <h3 class="module-title"><%= Spree.t(:properties)%></h3>
                 <div class="col-xs-12 col-md-12 col-sm-12">

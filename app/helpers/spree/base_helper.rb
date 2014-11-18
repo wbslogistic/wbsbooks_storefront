@@ -152,7 +152,14 @@ module Spree
       end
       raw(links)
     end
-
+    
+    def best_selling_products()
+     @connection = ActiveRecord::Base.connection
+     query = "SELECT  variant_id FROM spree_line_items INNER JOIN spree_orders ON spree_orders.id = spree_line_items.order_id WHERE  spree_orders.state = 'complete'  GROUP BY variant_id  order by sum(quantity) desc limit 10"
+     results =  @connection.select_all(query)
+     results.rows
+    end
+    
     def taxon_publishers(product)
       links = ""
       pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "publishers%"})
