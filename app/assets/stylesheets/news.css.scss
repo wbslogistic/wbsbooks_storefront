@@ -1,0 +1,49 @@
+// Place all the styles related to the news controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.free-wall {
+	margin: 15px 15px 15px 15px;
+}
+.brick h3 a {
+	color: #333333;	
+}
+.brick h3 a:hover,
+.brick h3 a:focus {
+	color: #f0141e;
+}
+
+.brick {
+	margin-bottom: 15px;
+	color: #333333;
+	width: 221.2px;
+}
+.brick {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: medium none;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+.brick {
+	background-color: #FFFFFF;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: default;
+	float: left;
+	overflow: hidden;
+}
+
+.brick img {
+	margin: auto;
+	padding: 0px;
+	display: block;
+}
+
+.brick .info {
+	padding: 15px;
+	color: #333;
+}
+
+.feed_paging {
+}
