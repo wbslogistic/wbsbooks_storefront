@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/wbslogistic/spree-advanced-reporting.git
-  revision: e09dbadad409a5439a016fe937d3bf62ebdff93b
+  revision: 016bbbcd7d65f8361aacb6a4e2c29bad7c94c4bd
   specs:
     spree_advanced_reporting (2.0.0)
       ruport (>= 1.6.3)
