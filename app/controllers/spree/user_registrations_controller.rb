@@ -36,8 +36,7 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     if resource.save
       set_flash_message(:notice, :signed_up)
       #sign_in(:spree_user, @user)
-      puts "=====================coming"
-      session[:spree_user_signup] = true
+       session[:spree_user_signup] = true
       associate_user
       
       redirect_to '/accountconfirm'
@@ -66,7 +65,7 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     
     super
     
-   
+   set_flash_message :notice, :updated
     
   end
 
