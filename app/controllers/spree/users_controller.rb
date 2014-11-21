@@ -11,7 +11,11 @@ class Spree::UsersController < Spree::StoreController
   def show
     @orders = @user.orders.complete.order('completed_at desc')
   end
-
+ 
+  def account_confirm
+     
+  end
+  
   def create
     @user = Spree::User.new(user_params)
     if @user.save
@@ -41,7 +45,7 @@ class Spree::UsersController < Spree::StoreController
 
   private
     def user_params
-       Spree::PermittedAttributes.user_attributes.push :id,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
+       Spree::PermittedAttributes.user_attributes.push :id,:othcountry, :othstate,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
       params.require(:user).permit(Spree::PermittedAttributes.user_attributes)
      
     end

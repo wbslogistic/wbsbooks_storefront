@@ -1,57 +1,6 @@
- <script type="text/javascript" charset="utf-8">
-    $(function() {
-       $("input[type=radio][name='user[accounttype]']").change(function() {
-      
-            if ($(this).val()  == '0') {
-                 $("input[type=text][name='user[actcompanyname]']").parent().parent().hide();
-                 $("input[type=text][name='user[registerednumber]']").parent().parent().hide();
-                 $("input[type=text][name='user[vat]']").parent().parent().hide();
-                 $("select[name='user[countryregistration]']").parent().parent().hide();
-                 $("input[type=text][name='user[years]']").parent().parent().hide();
-            }
-            else {
-                 $("input[type=text][name='user[actcompanyname]']").parent().parent().show();
-                 $("input[type=text][name='user[registerednumber]']").parent().parent().show();
-                 $("input[type=text][name='user[vat]']").parent().parent().show();
-                 $("select[name='user[countryregistration]']").parent().parent().show();
-                 $("input[type=text][name='user[years]']").parent().parent().show();
-                
-            }
-        });
-          if ($("input[type=radio][name='user[accounttype]']").val()  == '0') {
-                 $("input[type=text][name='user[actcompanyname]']").parent().parent().hide();
-                 $("input[type=text][name='user[registerednumber]']").parent().parent().hide();
-                 $("input[type=text][name='user[vat]']").parent().parent().hide();
-                 $("select[name='user[countryregistration]']").parent().parent().hide();
-                 $("input[type=text][name='user[years]']").parent().parent().hide();
-            }
-        $('#user_ship_address_attributes_country_id').change(function() {
-            if ($(this).val() == "49") {
-                $('#user_ship_address_attributes_state_id').show();
-                $('#statelabel').parent().show();
-            } 
-            else {
-                $('#user_ship_address_attributes_state_id').hide();
-                $('#statelabel').parent().hide();
-            }
-            });
-          $('#user_othcountry').change(function() {
-            if ($(this).val() == "49") {
-               // $('#user_othstate').show();
-                $('#user_othstate').next().show();
-                $('#statelabel1').parent().show();
-            } 
-            else {
-                $('#user_othstate').next().hide();
-                 $('#user_othstate').hide();
-                $('#statelabel1').parent().hide();
-            }
-        });
-        });
-   
-</script>
+ 
  <div class="box-content">
-              
+              <% @countries = Rails.configuration.countries%>
 			<div class="tabbable tabs-left">
               <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#lA">My Details</a></li>
@@ -105,7 +54,7 @@
                         </tr>
                         <tr>
                           <td><span class="required">*</span> Country of registration:</td>
-                          <td><%= f.collection_select :countryregistration, available_countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %></td>
+                          <td><%= f.collection_select :countryregistration, @countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %></td>
                         </tr>
                         <tr>
                           <td><span class="required"></span>VAT Number:</td>
@@ -141,7 +90,7 @@
                         </tr>
                         <tr>
                           <td><span class="required">*</span> Country:</td>
-                          <td> <%= ff.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %>
+                          <td> <%= ff.collection_select :country_id, @countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %>
                           </td>
                         </tr>
                         <tr>
@@ -176,7 +125,7 @@
                         </tr>
                         <tr>
                           <td><span class="required"></span> Country:</td>
-                          <td> <%= f.collection_select :othcountry, available_countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %><td>
+                          <td> <%= f.collection_select :othcountry, @countries, :id, :name, {}, {:class => 'select2 fullwidth',:style => "width: 200px !important;"} %><td>
                          </td>
                         </tr>
                         <tr>
@@ -274,7 +223,51 @@
                 
               </div>
               
-              <script type="text/javascript">
+              <script type="text/javascript" charset="utf-8">
+    $(function() {
+       $("input[type=radio][name='user[accounttype]']").change(function() {
+      
+            if ($(this).val()  == '0') {
+                 $("input[type=text][name='user[actcompanyname]']").parent().parent().hide();
+                 $("input[type=text][name='user[registerednumber]']").parent().parent().hide();
+                 $("input[type=text][name='user[vat]']").parent().parent().hide();
+                 $("select[name='user[countryregistration]']").parent().parent().hide();
+                 $("input[type=text][name='user[years]']").parent().parent().hide();
+            }
+            else {
+                 $("input[type=text][name='user[actcompanyname]']").parent().parent().show();
+                 $("input[type=text][name='user[registerednumber]']").parent().parent().show();
+                 $("input[type=text][name='user[vat]']").parent().parent().show();
+                 $("select[name='user[countryregistration]']").parent().parent().show();
+                 $("input[type=text][name='user[years]']").parent().parent().show();
+                
+            }
+        });
+          
+        $('#user_ship_address_attributes_country_id').change(function() {
+            if ($(this).val() == "49") {
+                $('#user_ship_address_attributes_state_id').show();
+                $('#statelabel').parent().show();
+            } 
+            else {
+                $('#user_ship_address_attributes_state_id').hide();
+                $('#statelabel').parent().hide();
+            }
+            });
+          $('#user_othcountry').change(function() {
+            if ($(this).val() == "49") {
+               // $('#user_othstate').show();
+                $('#user_othstate').next().show();
+                $('#statelabel1').parent().show();
+            } 
+            else {
+                $('#user_othstate').next().hide();
+                 $('#user_othstate').hide();
+                $('#statelabel1').parent().hide();
+            }
+        });
+        });
+
 			    function isCheckedById() {
 			        var checkedprop = $('#chkterms').prop("checked");
 			
