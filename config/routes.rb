@@ -18,11 +18,12 @@ Rails.application.routes.draw do
   post 'askquestion' => 'spree/home#askquestion', :as => :askquestion
   get 'ajax_books' => 'ajax#books', :as => :ajax_books
   get 'test' => 'test#index', :as => :test 
-
+ 
 
   Spree::Core::Engine.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
     get 'search_products/search'
+    match '/accountconfirm', to: 'users#account_confirm' , via: :get
     resources :settings, :only => [:index,:create]
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
       post :empty_bulk_order, :on => :collection
     end
     
- namespace :admin do
+  namespace :admin do
       resources :reports do
         collection do
           [

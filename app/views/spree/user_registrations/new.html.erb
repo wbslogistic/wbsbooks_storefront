@@ -16,18 +16,10 @@
 
 
         <%= form_for resource, :as => :spree_user, :url => spree.registration_path(@user) do |f| %>
+            
+            <%= render :partial => 'spree/shared/user_form_new', :locals => { :f => f } %>
 
-            <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
 
-
-
-            <div class="buttons col-md-12">
-              <div class="right">I have read and agree to the
-                <a alt="Privacy Policy" href="#" class="colorbox cboxElement"><b>Privacy Policy</b></a>
-                <input type="checkbox" value="1" name="agree">
-                <%= f.submit Spree.t(:create), :class => 'btn btn-primary' %>
-              </div>
-            </div>
         <% end %>
 
       </div>
