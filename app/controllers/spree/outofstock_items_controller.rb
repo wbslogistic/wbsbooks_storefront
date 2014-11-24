@@ -10,8 +10,12 @@ module Spree
     end
     
     def create
-           @outofstock = OutofstockItem.new(:user_email => spree_current_user.email , :product_id => params[:product_id])
-           @outofstock.save
+           @present =  OutofstockItem.where(:user_email => spree_current_user.email , :product_id => params[:product_id])
+           if @present.count == 0
+            @outofstock = OutofstockItem.new(:user_email => spree_current_user.email , :product_id => params[:product_id])
+            @outofstock.save
+           end
+           
            redirect_to   outofstock_items_url
     end
    

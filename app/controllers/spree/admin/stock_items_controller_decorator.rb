@@ -12,6 +12,8 @@ Spree::Admin::StockItemsController.class_eval do
 	                  if out.product_id == variant.product_id
 	                       product = Spree::Product.find(variant.product_id).name
 	                       OutofstockMailer.sendmail(out.user_email,product).deliver
+	                       
+	                       OutofstockItem.find(out.id).destroy
 	                  end
 	          end
           flash[:success] = flash_message_for(stock_movement, :successfully_created)
