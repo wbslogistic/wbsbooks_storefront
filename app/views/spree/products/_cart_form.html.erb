@@ -1,4 +1,9 @@
-
+<%if !@product.master.can_supply?%>
+<style type="text/css">
+   .wishlistAdd { margin-left: 90px;
+                  margin-top: -30px; }
+</style>
+<%end%>
 <%= form_for :order, :url => populate_orders_path do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
@@ -30,44 +35,48 @@
     <% end %>
 
     <% if @product.price_in(current_currency) and !@product.price.nil? %>
-      <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
-
+      <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>" <%if !@product.master.can_supply?%> style="margin-top:-10px;" <%end%>>
+ 
         <div id="product-price">
+          <%if @product.master.can_supply?%>
           <div>
             <span class="price selling" itemprop="price">
               <%= display_price(@product) %>
             </span>
             <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
           </div>
+          <%end%>
+          
 
           <% if @product.master.can_supply? %>
             <link itemprop="availability" href="http://schema.org/InStock" />
           <% elsif @product.variants.empty? %>
-            <br />
-            <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
-          <% end %>
+            <span>Availability: </span>
+            <span class="out-of-stock">Not in Stock</span>
+          <% end %><br/>
         </div>
 
-        <div class="add-to-cart">
+        <div class="add-to-cart" <%if !@product.master.can_supply?%> style="padding-top:10px;" <%end%>>
+         <%if @product.master.can_supply?%>
           <div class="cart">
             <div style="margin-bottom:10px;"><%= Spree.t(:quantity) %>:
               <%= number_field_tag :quantity, 1, :style => 'display: inline-block; width:60px !important;', :size => '2', :min => 1 %>
               </div>
             </div>
+        <%end%>
             <div class="lemmaBook">
-              <div class="cartAdd">
+             <div class="cartAdd">
+              <%if @product.master.can_supply?%>
                 <!--<input type="button" class="btn btn-primary" value="Add to Cart">-->
                 <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
                   <%= Spree.t(:add_to_cart) %>
                 <% end %>
-              </div>          
+              <%else%>
+              
+             <%end%>    
+             </div>    
 
-              <div class="wishlistAdd">
-                <%= form_for Spree::WishedProduct.new, :html => {:method => :post} do |f| %>
-                  <%= f.hidden_field :variant_id, :value => @product.master.id %>
-                  <a title="Add to Wish List" onclick="$(this).parent().submit();"><i class="fa fa-list"></i></a>
-                <%end%>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -79,5 +88,13 @@
     <% end %>
   </div>
 <% end %>
-
+ <%if !@product.master.can_supply? %>
+ <form  method="post" action="/outofstock_items">
+                
+                <button type="submit" name="btn btn-primary" id="btnSave" class="btn btn-primary">
+                          <i class="fa-cart-add visible-sm-block"></i> <span class="hidden-sm">Subscribe</span>
+                </button>
+                <input type="hidden" name="product_id"  value="<%=@product.master.id %>" > </input>
+ </form>
+ <% end %>
 <%= render :partial => 'wishlist_form' %> 

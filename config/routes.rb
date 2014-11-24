@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
     get 'search_products/search'
     resources :settings, :only => [:index,:create]
+    resources :outofstock_items
+    get 'out_destroy_all' => 'outofstock_items#destroy_all'
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    
     get 'search' => 'products#advanced_search', :as => :search

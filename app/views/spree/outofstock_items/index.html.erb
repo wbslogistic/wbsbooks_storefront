@@ -8,24 +8,20 @@
   </div>
 <% end %>
 
-<% content_for :head do %>
-    <% if @wishlist.respond_to?(:num_pages) %>
-        <%= rel_next_prev_link_tags @wishlist %>
-    <% end %>
-<% end %>
+
 
          
 <div id="content_oc">
             <div class="box_oc">
               <div class="box-heading">
-                <h1 class="mijoshop_heading_h1"><%= Spree.t(:my_wishlist) %> </h1>
+                <h1 class="mijoshop_heading_h1">Out of stock Items</h1>
               </div>
               <div class="box-content">
 
 <div class="product-filter">
   <div class="display">Display: <a onclick="display('list');"><i class="fa fa-th-list"></i></a><span><i class="fa fa-th-large"></i></span></div>
   <div class="limit">
-    <div class="btn btn-primary"><%= link_to Spree.t(:remove_all), :controller => "wished_products", :action => "destroy_all" %></div>
+    <div class="btn btn-primary"><%= link_to Spree.t(:remove_all), :controller => "outofstock_items", :action => "destroy_all" %></div>
 </div>
 </div>
 
@@ -34,45 +30,30 @@
   <div class="product-grid row row-5">
 
 
-  <% if @wishlist.wished_products.size > 0 %>
-    <% @wishlist.wished_products.each do |wish|
-        variant = wish.variant
-        product = variant.product %>
+  <% if @outofstock.present? %>
     
-    <% if @wishlist.user == spree_current_user %>
-
+    <% @outofstock.each do |product1| %>
+    <% product = Spree::Product.find(product1.product_id) %>
+    <% if product1.user_email == spree_current_user.email %>
+    
     <div class="product-item-0">
       <div class="actions">
-        <div class="image"><% if variant.images.length == 0 %>
-         <a href="/products/<%=product.slug%>"> <%= product_image(variant.product) %></a>
-          <% else %>
-        <a href="/products/<%=product.slug%>">  <%= image_tag variant.images.first.attachment.url(:product) %></a>
-          <% end %>
+        <div class="image">
+         <a href="/products/<%=product.slug%>"> <%= product_image(product) %></a>
+          
         </div>
       
       </div>
       <div class="name"><h4><%= link_to product.name, product %></h4></div>
       <div class="author"><%= taxon_authors(product) %></div>
-      <div class="price"><%= display_price(variant) %></div>
-      <div class="lemmaBook" style="width:110%">
-        <div class="cartAdd">
-          <!--<input type="button" class="btn btn-primary" value="Add to Cart">-->
-          <%= form_for :order, :url => populate_orders_path do |f| %>
-             <%= hidden_field_tag "variant_id", product.master.id %>
-			 <%= hidden_field_tag "quantity", 1 %>
-          <%= button_tag :class => 'btn btn-primary', :id => 'add-to-cart-button', :type => :submit do %>
-            <i class="fa-cart-add visible-sm-block"></i> <span class="hidden-sm">Add to Cart</span>
-          <% end %>
-        <% end %>
-       </div>
-       <div class="wishlistAdd"><%= link_to '', wish, :confirm => "Are you sure?",  :method => 'delete', :class => 'active fa fa-list' %></div>         
-     </div>    
+      <div class="price"><%= display_price(product) %></div>
+          
      <% end %> 
     </div>
         <% end %>
   <% else -%>
-      <div class="product-item-0">
-          <%= Spree.t(:your_wishlist_is_empty) %>
+      <div style="width:40%">
+          You don't have any out of stock items.
     </div>
         <% end %>
 
@@ -82,6 +63,7 @@
       </div>
 
     </div>
+    
     	<script type="text/javascript"><!--
                 
                     function display(view) {
@@ -162,8 +144,6 @@
                 //--></script>
           
   </div>
-
-
 
 
 
