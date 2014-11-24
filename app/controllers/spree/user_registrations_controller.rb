@@ -22,10 +22,12 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
   def new
     super
     @user = resource
+  
   end
 
   # POST /resource/sign_up
   def create
+    
     if params[:accounttype] == 'individual' and params[:spree_user]
       params[:spree_user].delete :bill_address_attributes
     end
@@ -33,10 +35,11 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     @user = build_resource(spree_user_params)
     if resource.save
       set_flash_message(:notice, :signed_up)
-      sign_in(:spree_user, @user)
-      session[:spree_user_signup] = true
+      #sign_in(:spree_user, @user)
+       session[:spree_user_signup] = true
       associate_user
-      respond_with resource, location: after_sign_up_path_for(resource)
+      
+      redirect_to '/accountconfirm'
     else
       clean_up_passwords(resource)
       render :new
@@ -45,16 +48,25 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    @user = resource
     super
   end
-
+  
+  
+   
   # PUT /resource
   def update
     if params[:accounttype] == 'individual' and params[:user]
       params[:user].delete :bill_address_attributes
     end
     
+    @user = Spree::User.find(spree_current_user.id)
+    @user.update(account_update_params)
+    
     super
+    
+   set_flash_message :notice, :updated
+    
   end
 
   # DELETE /resource
@@ -72,6 +84,10 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
   end
 
   protected
+     def after_sign_up_path_for(resource)
+       '/accountconfirm'
+     end
+  
     def check_permissions
       authorize!(:create, resource)
     end
@@ -80,21 +96,29 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
     def spree_user_params      
       attrs = Spree::PermittedAttributes.user_attributes
       attrs << :newsletter
+      attrs << :id
       attrs << {
         ship_address_attributes: Spree::PermittedAttributes.address_attributes,
         bill_address_attributes: Spree::PermittedAttributes.address_attributes
       }
+      Spree::PermittedAttributes.user_attributes.push :id,:othcountry, :othstate,:othstreet,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
       params.require(:spree_user).permit(*attrs)
+      
     end
     
     def account_update_params
       attrs = Spree::PermittedAttributes.user_attributes
+      
       attrs << :newsletter
+      attrs << :id
       attrs << :current_password
+      
       attrs << {
         ship_address_attributes: Spree::PermittedAttributes.address_attributes,
         bill_address_attributes: Spree::PermittedAttributes.address_attributes
       }
+      Spree::PermittedAttributes.user_attributes.push :id,:othstreet,:othcountry, :othstate,:othsuburb,:othpostalcode,:othcity,:fax,:accounttype,:actcompanyname,:registerednumber,:countryregistration,:vat,:years
       params.require(:user).permit(*attrs)
+     
     end
 end
