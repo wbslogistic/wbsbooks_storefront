@@ -1,0 +1,51 @@
+<div id="content_oc">
+            <div class="box_oc">
+              <div class="box-heading">
+                <h1 class="mijoshop_heading_h1">My notifications</h1>
+              </div>
+
+              <div class="box-content">
+                <p>We offer a variety of convenient email options to keep you updated with everything that's happening at wbsbooks.com. From sale announcements to personal order updates, our emails are the best way to stay in the loop! To choose which types of email you'd like to receive, select from the options below.</p>
+
+                <p>Which email types would you like to subscribe to? (You may select more than one)</p>
+
+                <br>
+
+              </div>
+
+              <div class="box-content">
+              <%= form_for UserNotification.new , url: user_notifications_url, method: :post do |f| %>
+                  <div class="cart-info">
+                    <table class="table-line">
+                      <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Description</td>
+                          <td class="td-w text-center">Notifications</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                         <% @notifications.each do |notification|%>
+                               <tr>
+		                          <td><%= notification.name.capitalize %></td>
+		                          <td><%= notification.description.capitalize %></td>
+		                          <% elm = UserNotification.where(:user_id => spree_current_user.id , :notification_id => notification.id) %>
+		                          <td class="td-w text-center"><input type="checkbox"  <%if elm.present? %> checked <%end%> name="user_notification_check[<%=notification.id%>]"></td>
+		                        </tr>
+                         <%end%>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                      <div class="buttons pull-right">
+                        <div>
+                          <input type="hidden" name="user_notification[:user_id]" value="<%=spree_current_user.id%>" />
+                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="cancel"  class="btn btn-primary">Cancel</button>
+                        </div>
+                      </div>
+                  <% end %>
+              </div>
+            </div>
+          </div>

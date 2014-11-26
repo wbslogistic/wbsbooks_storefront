@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     match '/accountconfirm', to: 'users#account_confirm' , via: :get
     resources :settings, :only => [:index,:create]
     resources :outofstock_items
+    resources :user_notifications
     get 'out_destroy_all' => 'outofstock_items#destroy_all'
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
     end
     
   namespace :admin do
+       resources :notifications
       resources :reports do
         collection do
           [
