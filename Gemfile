@@ -93,4 +93,4 @@ end
 
 gem 'selectize-rails'
 gem 'bootstrap-datepicker-rails'
-gem 'debugger'
+

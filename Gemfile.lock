@@ -175,7 +175,6 @@ GEM
     coffee-script-source (1.8.0)
     color (1.7.1)
     colorize (0.7.3)
-    columnize (0.8.9)
     css_parser (1.2.6)
       addressable
       rdoc
@@ -184,12 +183,6 @@ GEM
       css_parser (~> 1.2.6)
       nokogiri
     debug_inspector (0.0.2)
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.5)
     deface (1.0.1)
       colorize (>= 0.5.8)
       nokogiri (~> 1.6.0)
@@ -451,7 +444,6 @@ DEPENDENCIES
   capistrano_colors
   coffee-rails (~> 4.0.0)
   deadweight
-  debugger
   feedjira
   font-awesome-rails (~> 4.2.0)
   jbuilder (~> 2.0)
