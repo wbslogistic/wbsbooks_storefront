@@ -46,7 +46,7 @@ gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git
 
 
 
-#gem 'spree_multi_currency', github: 'pronix/spree-multi-currency'
+gem 'spree_multi_currency', :github => "spree-contrib/spree_multi_currency", branch: '2-3-stable'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: '2-3-stable'
 gem 'spree_editor',         github: 'jaemo/spree_editor', branch: '2-3-stable'
 
@@ -93,3 +93,4 @@ end
 
 gem 'selectize-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'debugger'

@@ -1,6 +1,3 @@
-
-
-
   <div id="toolbar">
     <div class="container">
       <div class="row">
@@ -28,15 +25,23 @@
               </div>
             </div>
           </div>
+          <%
+            selected_iso = selected_currency.try(:iso_code).try(:downcase)
+          %>
 
           <div class="toolbar-ct-5">
             <div class="btn-group">
-              <i class="fa fa-dollar fa-add"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= Spree.t(:dollar) %></button>
+              <i class="fa fa-add fa-<%=selected_iso %>"></i><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= selected_currency.try(:name) %></button>
               <div class="dropdown-menu" role="menu">
                 <div class="t3-module module">
                   <div class="module-inner">
                     <div class="module-ct">
                       <%#= currency_menu %>
+                      <% if Spree::Config[:allow_currency_change] && Spree::Config[:show_currency_selector] && supported_currencies.size > 1 %>
+                      <ul class="nav">
+                        <% supported_currencies.each do |currency|%>
+                        <li><i class="fa fa-add fa-<%=currency.iso_code.downcase %>"> </i> <a href="#" class="toggle-currency" value="<%=currency.iso_code%>" ><%=currency.name %></a></li>
+                      <% end %> </ul><% end %>
                     </div>
                   </div>
                 </div>
@@ -81,7 +86,8 @@
           </div>
         </nav>
         <!-- //MAIN NAVIGATION -->
-        
+
+
         <div class="col-xs-12 col-md-3 pull-right col-sm-6"> 
           <!-- HEAD SEARCH -->
           <div class="head-search ">
