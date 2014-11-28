@@ -5,11 +5,11 @@ module Spree
     layout 'no_catalog'
     
     def index
-      @notifications = Notification.all
+      @notifications = Subscription.all
     end
     
     def create
-            @check = params[:user_notification_check]
+             @check = params[:user_notification_check]
              @present =  UserNotification.where(:user_id => spree_current_user.id)
              @present.destroy_all
             
@@ -17,11 +17,17 @@ module Spree
               
 		              @UserNotification = UserNotification.new(:user_id => spree_current_user.id , :notification_id => check[0])
 		              @UserNotification.save
-		              mail = Spree::User.find(@UserNotification.user_id).email
-		              subject = Notification.find(@UserNotification.notification_id).name.capitalize
-		              body = Notification.find(@UserNotification.notification_id).body
-		              description = Notification.find(@UserNotification.notification_id).description
-		              NotificationsMailer.sendmail(mail,subject,body,description).deliver
+		              @notifications = Notification.where(:subscription_id => @UserNotification.notification_id)
+		              if @notifications.present?
+			              @notifications.each do |notification|
+				              mail = Spree::User.find(@UserNotification.user_id).email
+				              subject = notification.name.capitalize
+				              body = notification.body
+				              description = notification.description
+				              NotificationsMailer.sendmail(mail,subject,body,description).deliver
+				              notification.update_attributes(:posted => Time.now)
+				          end
+				      end
             end
             
             redirect_to user_notifications_url

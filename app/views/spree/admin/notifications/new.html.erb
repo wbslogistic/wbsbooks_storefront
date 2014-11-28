@@ -6,7 +6,7 @@
 			<%= f.label :name, Spree.t(:name) %>
 			<%= f.text_field :name, :class => 'fullwidth' %>
 			<%end %>
-			        
+			 <input type="hidden" name="notification[subscription_id]" value="<%=params[:subscription_id]%>" />       
 			<%= f.field_container :body do %>
 			<%= f.label :body, Spree.t(:body) %>
 			<%= f.cktext_area :body, :class => 'fullwidth' %>

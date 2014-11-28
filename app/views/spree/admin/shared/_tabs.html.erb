@@ -8,7 +8,7 @@
 <%= tab :reports, :icon => 'file' %>
 <% end %>
 
-<%= tab('Notifications', :url => '/admin/notifications', :icon => 'bullhorn') %>
+<%= tab('Subscriptions', :url => '/admin/subscriptions', :icon => 'bullhorn') %>
 
 <%= tab :configurations, :general_settings, :tax_categories, :tax_rates, :zones, :countries, :states, :payment_methods, :shipping_methods, :shipping_categories, :stock_transfers, :stock_locations, :trackers, :label => 'configuration', :icon => 'wrench', :url => spree.edit_admin_general_settings_path %>
 <% if can? :admin, Spree::Promotion %>

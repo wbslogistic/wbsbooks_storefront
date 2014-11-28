@@ -40,10 +40,11 @@ Rails.application.routes.draw do
     
   namespace :admin do
        resources :notifications
+        resources :subscriptions
       resources :reports do
         collection do
           [
-            :revenue,:sales_total, :count, :units, :profit, :top_customers, :top_products,
+          :revenue,:sales_total, :count, :units, :profit, :top_customers, :top_products,
             :geo_revenue, :geo_units, :geo_profit
           ].each do |method_name|
             get method_name

@@ -1,5 +1,5 @@
 <div data-hook="admin_user_new_form">
-<%= form_for @notification , url: admin_notification_url(@notification), method: :put do |f| %>
+<%= form_for Subscription.new , url: admin_subscriptions_url, method: :post do |f| %>
        <div data-hook="admin_user_form_fields" class="row">
 		 <div class="alpha ten columns">
 			<%= f.field_container :name do %>
@@ -7,17 +7,12 @@
 			<%= f.text_field :name, :class => 'fullwidth' %>
 			<%end %>
 			        
-			<%= f.field_container :body do %>
-			<%= f.label :body, Spree.t(:body) %>
-			<%= f.text_area :body, :class => 'fullwidth' %>
-			<% end %>
-			 <input type="hidden" name="notification[subscription_id]" value="<%=@notification.subscription_id%>" />       
-			
+						
 			<%= f.field_container :description do %>
 			<%= f.label :description, Spree.t(:description) %>
 			<%= f.text_area :description, :class => 'fullwidth' %>
 			<% end %>
-           <%=f.submit 'Update'%>
+           <%=f.submit 'save'%>
         </div>
        </div>
 <% end %>
