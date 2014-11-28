@@ -48,7 +48,12 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+
     @user = resource
+    connection = ActiveRecord::Base.connection
+    query = "select preferences from spree_calculators where calculable_type = 'Spree::PromotionAction' and calculable_id = "+
+       "( select id from spree_promotion_actions where promotion_id = (select promotion_id from spree_promotion_rules where id = (select promotion_rule_id from spree_promotion_rules_users where user_id ="+ spree_current_user.id.to_s+")));"
+    @result = connection.execute(query) 
     super
   end
   

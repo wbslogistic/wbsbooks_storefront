@@ -210,9 +210,12 @@
                       </div>
                     
                 </div>
-                
+                <% disc = ''%>
                 <div id="lC" class="tab-pane">
-                  <p>$ 4 discount on your next purchase</p>
+                         <%@result.each do |row| %>
+							<% disc = row[0].split[3].split('.')[1].to_i%>
+							<%end%>
+                  <p>$ <%= disc%> discount on your next purchase</p>
                 </div>
               </div>
             </div>         
