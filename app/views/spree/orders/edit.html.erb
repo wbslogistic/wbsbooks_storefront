@@ -23,7 +23,7 @@
           <div data-hook="cart_items">
             <%= render :partial => 'form', :locals => { :order_form => order_form } %>
           </div>
-
+          <!--             <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %> -->
           <div class="links columns sixteen alpha omega" data-hook="cart_buttons" style="text-align: right">
            <div><%= link_to Spree.t(:continue_shopping), root_path, :class => 'btn btn-primary' %>
          
