@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :settings, :only => [:index,:create]
     resources :outofstock_items
     resources :user_notifications
+    match '/user_notifications_confirm', to: 'user_notifications#confirm' , via: :get
     get 'out_destroy_all' => 'outofstock_items#destroy_all'
     resources :specials, :only => [:index]
     resources :partners, :only => [:index, :show]    

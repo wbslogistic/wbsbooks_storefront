@@ -13,24 +13,26 @@ module Spree
              @present =  UserNotification.where(:user_id => spree_current_user.id)
              @present.destroy_all
             
-            @check.each do |check|
-              
-		              @UserNotification = UserNotification.new(:user_id => spree_current_user.id , :notification_id => check[0])
-		              @UserNotification.save
-		              @notifications = Notification.where(:subscription_id => @UserNotification.notification_id)
-		              if @notifications.present?
-			              @notifications.each do |notification|
-				              mail = Spree::User.find(@UserNotification.user_id).email
-				              subject = notification.name.capitalize
-				              body = notification.body
-				              description = notification.description
-				              NotificationsMailer.sendmail(mail,subject,body,description).deliver
-				              notification.update_attributes(:posted => Time.now)
-				          end
-				      end
-            end
+            if  @check.present?
+	            @check.each do |check|
+	              
+			              @UserNotification = UserNotification.new(:user_id => spree_current_user.id , :notification_id => check[0])
+			              @UserNotification.save
+			              @notifications = Notification.where(:subscription_id => @UserNotification.notification_id)
+			              if @notifications.present?
+				              @notifications.each do |notification|
+					              mail = Spree::User.find(@UserNotification.user_id).email
+					              subject = notification.name.capitalize
+					              body = notification.body
+					              description = notification.description
+					              NotificationsMailer.sendmail(mail,subject,body,description).deliver
+					              notification.update_attributes(:posted => Time.now)
+					          end
+					      end
+	            end
+	       end
             
-            redirect_to user_notifications_url
+            redirect_to '/user_notifications_confirm'
     end
     def edit
       @UserNotification  = UserNotification.find(params[:id])
