@@ -19,6 +19,7 @@ module Spree
     end
 
     def update
+	 
       if @order.contents.update_cart(order_params)
         respond_with(@order) do |format|
           format.html do
@@ -132,7 +133,19 @@ module Spree
           redirect_to root_path and return
         end
       end
+      
+     def apply_coupon_code
+            connection = ActiveRecord::Base.connection
+	    query = "select code from spree_promotions where id = (select promotion_id from spree_promotion_rules where id = (select promotion_rule_id from    spree_promotion_rules_users where user_id = "+ spree_current_user.id.to_s+"));"
+	    @result = connection.execute(query) 
 
+
+      return if @result.blank?
+      if promotion = Spree::Promotion.where(:code => @result).first
+        promotion.activate(order: @order, :coupon_code => @result)
+        true
+      end
+    end
 
       
   end

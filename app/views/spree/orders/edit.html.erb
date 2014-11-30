@@ -26,8 +26,7 @@
 
           <div class="links columns sixteen alpha omega" data-hook="cart_buttons" style="text-align: right">
            <div><%= link_to Spree.t(:continue_shopping), root_path, :class => 'btn btn-primary' %>
-<!--             <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %> -->
-
+         
                 <%= button_tag :class => 'btn btn-primary', :id => 'update-button' do %>
                 <%= Spree.t(:update) %>
               <% end %>
