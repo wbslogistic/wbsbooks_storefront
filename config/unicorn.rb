@@ -1,4 +1,4 @@
-deploy_to   = "/home/wbsbooks_storefront/apps/wbsbooks.cloudapp.net"
+deploy_to   = rails_root
 rails_root  = deploy_to
 pid_file    = deploy_to + "/tmp/pids/unicorn.pid"
 socket_file = deploy_to + "/unicorn.sock"
