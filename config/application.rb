@@ -24,7 +24,6 @@ module WbsBasic
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
-    ENV['RAILS_RELATIVE_URL_ROOT'] = "/"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
