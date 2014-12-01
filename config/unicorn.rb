@@ -1,4 +1,8 @@
-deploy_to   = rails_root
+if ENV['RAILS_ENV'] == 'staging'
+  deploy_to   = "/home/wbsbooks_storefront/apps/wbsbooks.cloudapp.net"
+else
+  deploy_to   = "/home/oleg/apps/wbsbooks_storefront"
+end
 rails_root  = deploy_to
 pid_file    = deploy_to + "/tmp/pids/unicorn.pid"
 socket_file = deploy_to + "/unicorn.sock"
