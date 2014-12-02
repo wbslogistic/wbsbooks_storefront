@@ -1,6 +1,7 @@
 module Spree
 class RepeatedOrdersController < Spree::StoreController
 include Spree::SpreeRepeatedOrder::ControllerHelpers::RepeatedOrder
+skip_before_filter :verify_authenticity_token  
 before_filter :check_authorization
 def create
 past_order = Spree::Order.find_by(number: params[:number])

@@ -1,4 +1,3 @@
-
 <!--       <div class="t3-content col-xs-12" id="t3-content"> -->
 
  
@@ -19,9 +18,12 @@
               <div class="box-heading">
               <div class="row" style="height:60px;margin:0px;">
               	<div class="span6"><h1 class="mijoshop_heading_h1">Status order: Wait pay</h1></div>
-              	<div class="span6">
-              	<%=button_link_to Spree.t(:repeat_order), repeat_order_path(@order.number), :method => :post , :class => 'btn pull-right'%>
-              	<input type="button" class="btn pull-right" value="Cancel order"></div>   
+              	<%if order.state != 'confirm'%>
+	              	<div class="span6">
+	              	    <a href="#"> <input type="button" class="btn pull-right" value="Cancel order" style="margin-left:30px"></a>
+	              	 	<form method="post" action="<%=repeat_order_path(@order.number)%>" id="repeat-order"><input type="submit" class="btn pull-right"   value="Repeat order"></form>
+	              	  </div>  
+              	<%end%> 
               </div>
               </div>
 
