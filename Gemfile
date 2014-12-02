@@ -94,3 +94,4 @@ end
 gem 'selectize-rails'
 gem 'bootstrap-datepicker-rails'
 
+gem 'newrelic_rpm'
