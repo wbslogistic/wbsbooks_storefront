@@ -142,8 +142,7 @@
                   <div class="content_oc">
                     <table class="form">
                       <tbody>
-                       
-	                        <tr>
+                           <tr>
 	                          <td><span class="required">*</span> Telephone:</td>
 	                          <td><%= ff.text_field :phone ,:style => "width: 120px !important;" %></td>
 	                        </tr>
@@ -212,10 +211,8 @@
                 </div>
                 <% disc = ''%>
                 <div id="lC" class="tab-pane">
-                         <%@result.each do |row| %>
-							<% disc = row[0].split[3].split('.')[1].to_i%>
-							<%end%>
-                  <p>$ <%= disc%> discount on your next purchase</p>
+                   <% disc = @result[0]['preferences'].split('.')[1].to_i %>
+                   <p>$ <%= disc%> discount on your next purchase</p>
                 </div>
               </div>
             </div>         
