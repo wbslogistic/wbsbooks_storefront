@@ -16,11 +16,12 @@
 
             <div class="box_oc order-page">
               <div class="box-heading">
-              <div class="row" style="height:60px;margin:0px;">
+              <div class="row" style="height:30px;margin:0px;">
               	<div class="span6"><h1 class="mijoshop_heading_h1">Status order: Wait pay</h1></div>
               	<%if order.state != 'confirm'%>
-	              	<div class="span6">
-	              	    <a href="#"> <input type="button" class="btn pull-right" value="Cancel order" style="margin-left:30px"></a>
+              	
+	              	<div class="span6" style="margin-top: -30px;">
+	              	    <a href="#"> <input type="button" class="btn pull-right" value="Cancel order" style="margin-left:10px"></a>
 	              	 	<form method="post" action="<%=repeat_order_path(@order.number)%>" id="repeat-order"><input type="submit" class="btn pull-right"   value="Repeat order"></form>
 	              	  </div>  
               	<%end%> 
