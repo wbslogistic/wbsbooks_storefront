@@ -1,30 +1,29 @@
 
 <!--       <div class="t3-content col-xs-12" id="t3-content"> -->
 
-<!-- 
+ 
           <nav class="hidden-sm hidden-xs"> 
             <div class="container1">
               <ol class="breadcrumb ">
-                <li><%= link_to Spree.t(:orders), account_path %></li>
-                <li><a href="#" class="pathway">№152648793</a></li>
+                <li><%= link_to Spree.t('My Order'), '#' %></li>
+                <li><a href="/orders/<%= order.number %>" class="pathway">№ <%= order.number %></a></li>
               </ol>
             </div>  
           </nav>
-           -->
+          
 
 
-<div id="container_oc">
-          <div id="content_oc">
+
+
             <div class="box_oc order-page">
-<!--               <div class="box-heading">
-
-              <div class="row">
-                <div class="span6"><h1 class="mijoshop_heading_h1"><%= Spree.t(:order) %>: <%= order.number %></h1></div>
-                <div class="span6"><input type="button" value="Cancel order" class="btn pull-right"></div>   
+              <div class="box-heading">
+              <div class="row" style="height:60px;margin:0px;">
+              	<div class="span6"><h1 class="mijoshop_heading_h1">Status order: Wait pay</h1></div>
+              	<div class="span6">
+              	<%=button_link_to Spree.t(:repeat_order), repeat_order_path(@order.number), :method => :post , :class => 'btn pull-right'%>
+              	<input type="button" class="btn pull-right" value="Cancel order"></div>   
               </div>
-
-              </div> -->
-
+              </div>
 
               <div class="box-content">
 
@@ -164,5 +163,5 @@
 </div>
               </div>
             </div>
-          </div>
-        </div>
+ 
+      

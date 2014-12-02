@@ -28,8 +28,8 @@ module Spree
 
     def edit
       if @order.address?
-        @order.create_bill_address (spree_current_user.bill_address || spree_current_user.ship_address).attributes.except('id', 'updated_at', 'created_at')
-        @order.create_ship_address spree_current_user.ship_address.attributes.except('id', 'updated_at', 'created_at')
+      #  @order.create_bill_address (spree_current_user.bill_address || spree_current_user.ship_address).attributes.except('id', 'updated_at', 'created_at')
+      #  @order.create_ship_address spree_current_user.ship_address.attributes.except('id', 'updated_at', 'created_at')
         if @order.next
           redirect_to checkout_state_path(@order.state)
         else
@@ -50,7 +50,7 @@ module Spree
         if @order.completed?
           @current_order = nil
           flash.notice = Spree.t(:order_processed_successfully)
-          flash[:order_completed] = true
+         # flash[:order_completed] = true
           redirect_to completion_route
         else
           redirect_to checkout_state_path(@order.state)
@@ -134,17 +134,17 @@ module Spree
       def before_delivery
         return if params[:order].present?
 
-        packages = @order.shipments.map { |s| s.to_package }
-        @differentiator = Spree::Stock::Differentiator.new(@order, packages)
+       #  packages = @order.shipments.map { |s| s.to_package }
+        # @differentiator = Spree::Stock::Differentiator.new(@order, packages)
       end
 
       def before_payment
         if @order.checkout_steps.include? "delivery"
-          packages = @order.shipments.map { |s| s.to_package }
-          @differentiator = Spree::Stock::Differentiator.new(@order, packages)
-          @differentiator.missing.each do |variant, quantity|
-            @order.contents.remove(variant, quantity)
-          end
+         # packages = @order.shipments.map { |s| s.to_package }
+         # @differentiator = Spree::Stock::Differentiator.new(@order, packages)
+         # @differentiator.missing.each do |variant, quantity|
+          #  @order.contents.remove(variant, quantity)
+          #end
         end
 
         if try_spree_current_user && try_spree_current_user.respond_to?(:payment_sources)
