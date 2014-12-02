@@ -1,11 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[Error Notifier ] ",
-    :sender_address => %{"notifier" <notifier@example.com>},
-    :exception_recipients => %w{bh11.kumar@gmail.com mail@olegkrasnov.com}
-  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -40,7 +34,7 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
   
-  config.action_mailer.default_url_options = { :host => "178.21.239.6"  }
+  config.action_mailer.default_url_options = { :host => "wbsbooks.cloudapp.net"  }
   
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
