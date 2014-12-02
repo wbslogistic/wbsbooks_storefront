@@ -8,8 +8,11 @@ class Spree::UsersController < Spree::StoreController
 
   layout "no_catalog"
 
+
   def show
-    @orders = @user.orders.complete.order('completed_at desc')
+    complete_orders = @user.orders.complete
+    complete_orders = complete_orders.send(params["duration"]) rescue complete_orders if params["duration"]
+    @orders = complete_orders.order('completed_at desc')
   end
  
   def account_confirm

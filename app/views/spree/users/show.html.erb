@@ -15,21 +15,22 @@
                 <h1 class="mijoshop_heading_h1"><%= Spree.t(:my_orders) %></h1>
               </div>
               <div class="box-content">
-                <% if @orders.present? %>
-              <div class="product-filter">
+                
+                <div class="product-filter">
                   <div class="limit"><b><%= Spree.t(:show) %></b>
                     <div class="select-box" style="width:195px !important">
-                      <div class="sub-select-box">
-                        <select onchange="location = this.value;" style="width:185px !important">
-                          <option value="#" selected="selected"><%= Spree.t(:view_open_orders) %></option>
-                          <option value="#"><%= Spree.t(:three_months) %></option>
-                          <option value="#"><%= Spree.t(:last_year) %></option>
-                          <option value="#"><%= Spree.t(:complete_history) %></option>
+                      <div id="duration_select_box" class="sub-select-box">
+                        <select onchange="location ='/account?duration='+this.value;" style="width:185px !important">
+                          <option value="" <%= "selected" if params["duration"].blank? %> ><%= Spree.t(:view_open_orders) %></option>
+                          <option value="last_three_months" <%= "selected" if params["duration"] == "last_three_months" %> > <%= Spree.t(:three_months) %></option>
+                          <option value="last_year" <%= "selected" if params["duration"] == "last_year" %>><%= Spree.t(:last_year) %></option>
+                          <option value="complete" <%= "selected" if params["duration"] == "complete" %> ><%= Spree.t(:complete_history) %></option>
                         </select>
                       </div>
                     </div>
                   </div>
                 </div>
+                <% if @orders.present? %>
                   <div class="cart-info">
                     <table class="table-line">
                       <thead>
