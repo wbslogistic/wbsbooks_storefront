@@ -103,7 +103,15 @@ module Spree
         Spree.t(:shopping_cart)
       end
     end
-
+    
+    def cancel
+          @order = Spree::Order.includes(:adjustments).find_by_number!(params[:number])
+          @order.cancel
+          Spree::OrderMailer.cancel_email(@order.id).deliver
+          flash[:success] = Spree.t(:order_canceled)
+          redirect_to '/'
+    end
+    
     def check_authorization
       cookies.permanent.signed[:guest_token] = params[:token] if params[:token]
       order = Spree::Order.find_by_number(params[:id]) || current_order

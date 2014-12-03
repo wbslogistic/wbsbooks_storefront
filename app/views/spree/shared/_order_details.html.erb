@@ -11,9 +11,6 @@
           </nav>
           
 
-
-
-
             <div class="box_oc order-page">
               <div class="box-heading">
               <div class="row" style="height:30px;margin:0px;">
@@ -21,7 +18,11 @@
               	<%if order.state != 'confirm'%>
               	
 	              	<div class="span6" style="margin-top: -30px;">
-	              	    <a href="#"> <input type="button" class="btn pull-right" value="Cancel order" style="margin-left:10px"></a>
+	              	   <form accept-charset="UTF-8" action="/orders/<%=@order.number%>/cancel" method="post">
+                           <div style="display:none"><input name="utf8" type="hidden" value="✓">
+                           </div>
+                           <input type="submit" class="btn pull-right" data-confirm="Are you sure you want to cancel this order?"  value="Cancel order" style="margin-left:10px">
+	              	   </form>
 	              	 	<form method="post" action="<%=repeat_order_path(@order.number)%>" id="repeat-order"><input type="submit" class="btn pull-right"   value="Repeat order"></form>
 	              	  </div>  
               	<%end%> 

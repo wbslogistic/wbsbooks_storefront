@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
     get 'search_products/search'
     post '/orders/:number/repeated_order' => 'repeated_orders#create', as: :repeat_order
+    match '/orders/:number/cancel' => 'orders#cancel', as: :cancel_order, via: [:post,:get]
     match '/accountconfirm', to: 'users#account_confirm' , via: :get
     resources :settings, :only => [:index,:create]
     resources :outofstock_items
