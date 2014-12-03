@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111141727) do
+ActiveRecord::Schema.define(version: 20141122105527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20141111141727) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "outofstock_items", force: true do |t|
+    t.string   "user_email"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "search_products", force: true do |t|
     t.integer  "product_id"
@@ -982,8 +989,25 @@ ActiveRecord::Schema.define(version: 20141111141727) do
     t.string   "spree_api_key",          limit: 48
     t.datetime "remember_created_at"
     t.boolean  "newsletter"
+    t.string   "othstreet"
+    t.string   "othsuburb"
+    t.integer  "othpostalcode"
+    t.string   "othcity"
+    t.integer  "othcountry"
+    t.integer  "othstate"
+    t.integer  "fax"
+    t.integer  "accounttype"
+    t.string   "actcompanyname"
+    t.integer  "registerednumber"
+    t.integer  "countryregistration"
+    t.integer  "vat"
+    t.integer  "years"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "spree_users", ["confirmation_token"], name: "index_spree_users_on_confirmation_token", unique: true, using: :btree
   add_index "spree_users", ["email"], name: "email_idx_unique", unique: true, using: :btree
   add_index "spree_users", ["spree_api_key"], name: "index_spree_users_on_spree_api_key", using: :btree
 
