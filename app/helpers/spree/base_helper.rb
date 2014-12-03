@@ -149,6 +149,7 @@ module Spree
       return '' if au_taxons.blank?
       au_taxons.map do |taxon|
         links << Spree::Taxon.find_by_permalink!(taxon.permalink).id.to_s
+        break
       end
       raw(links)
     end

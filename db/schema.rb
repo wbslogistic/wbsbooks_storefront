@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122105527) do
+ActiveRecord::Schema.define(version: 20141203175225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -489,7 +489,7 @@ ActiveRecord::Schema.define(version: 20141122105527) do
   add_index "spree_product_translations", ["spree_product_id"], name: "index_spree_product_translations_on_spree_product_id", using: :btree
 
   create_table "spree_products", force: true do |t|
-    t.string   "name",                 default: "", null: false
+    t.string   "name",                 limit: 1000, default: "", null: false
     t.text     "description"
     t.datetime "available_on"
     t.datetime "deleted_at"
@@ -890,17 +890,17 @@ ActiveRecord::Schema.define(version: 20141122105527) do
     t.string   "meta_title"
     t.string   "meta_description"
     t.string   "meta_keywords"
-    t.string   "permalink"
+    t.text     "permalink"
   end
 
   add_index "spree_taxon_translations", ["locale"], name: "index_spree_taxon_translations_on_locale", using: :btree
   add_index "spree_taxon_translations", ["spree_taxon_id"], name: "index_spree_taxon_translations_on_spree_taxon_id", using: :btree
 
   create_table "spree_taxonomies", force: true do |t|
-    t.string   "name",                   null: false
+    t.string   "name",       limit: 1000,             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "position",   default: 0
+    t.integer  "position",                default: 0
   end
 
   add_index "spree_taxonomies", ["position"], name: "index_spree_taxonomies_on_position", using: :btree
@@ -918,9 +918,9 @@ ActiveRecord::Schema.define(version: 20141122105527) do
 
   create_table "spree_taxons", force: true do |t|
     t.integer  "parent_id"
-    t.integer  "position",          default: 0
-    t.string   "name",                          null: false
-    t.string   "permalink"
+    t.integer  "position",                       default: 0
+    t.string   "name",              limit: 1000,             null: false
+    t.text     "permalink"
     t.integer  "taxonomy_id"
     t.integer  "lft"
     t.integer  "rgt"
