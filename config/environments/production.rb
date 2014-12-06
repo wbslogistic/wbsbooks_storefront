@@ -35,8 +35,9 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
   #config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
+  config.assets.precompile += ['owl.carousel.css','owl.theme.css','selectize.wbsbooks.css','*.js', '*.css', '*.css.erb']
 
   # Generate digests for assets URLs.
   config.assets.digest = true
