@@ -136,17 +136,16 @@ module Spree
       
      def apply_coupon_code
        return if !spree_current_user
+   	    @result = ActiveRecord::Base.connection.execute "select code from spree_promotions where id = (select promotion_id from spree_promotion_rules where id = (select promotion_rule_id from    spree_promotion_rules_users where user_id = "+ spree_current_user.id.to_s+"));"
 
-        connection = ActiveRecord::Base.connection
-	    query = "select code from spree_promotions where id = (select promotion_id from spree_promotion_rules where id = (select promotion_rule_id from    spree_promotion_rules_users where user_id = "+ spree_current_user.id.to_s+"));"
-	    @result = connection.execute(query) 
-	    disc = 0
-        disc = @result[0]
-        
-	   if promotion = Promotion.where(:code => disc['code']).first
+
+      if @result.count > 0
+       disc = @result[0]
+	     if promotion = Promotion.where(:code => disc['code']).first
 	        promotion.activate(order: @order, :coupon_code => disc)
 	        puts "---------------------"+promotion.inspect
        end
+      end
     end
 
       
