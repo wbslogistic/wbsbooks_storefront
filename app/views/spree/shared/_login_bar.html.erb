@@ -11,7 +11,7 @@
                         <li><%= link_to Spree.t(:my_account), :edit_spree_user_registration %></li>
                         <li><%= link_to Spree.t(:my_orders), spree.account_path %></li>
                         <li><%= link_to Spree.t(:my_wishlist), spree_current_user.wishlist %></li>
-                        <li><%= link_to Spree.t('out of stock'), outofstock_items_url %></li>
+                        <li><%= link_to Spree.t(:out_of_stock), outofstock_items_url %></li>
                         <li><a href=""><%= Spree.t(:my_notifications) %></a></li>
                         <li><a href="/settings"><%= Spree.t(:my_settings) %></a></li>
                         <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
@@ -30,7 +30,7 @@
           <div id="header_oc">
             <div id="cart" style="left:0 !important;">
               <div class="heading">
-                <i class="fa fa-shopping-cart"></i> <%= link_to_cart %></div>
+                 <%= image_tag "cart.png" %> <%= link_to_cart %></div>
               </div>
             </div>
           </div>

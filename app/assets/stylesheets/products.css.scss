@@ -115,13 +115,13 @@
     text-decoration:none;
     padding-left:18px;
     display:block;
-    background:url('/components/com_mijoshop/opencart/catalog/view/theme/default/image/add.png') left center no-repeat
+    background:url('/images/add.png') left center no-repeat
   }
   .compare a {
     text-decoration:none;
     padding-left:18px;
     display:block;
-    background:url('/components/com_mijoshop/opencart/catalog/view/theme/default/image/add.png') left 60% no-repeat
+    background:url('/images/add.png') left 60% no-repeat
   }
 
   .image {
@@ -229,13 +229,13 @@
     text-decoration:none;
     padding-left:18px;
     display:block;
-    background:url('/components/com_mijoshop/opencart/catalog/view/theme/default/image/add.png') left center no-repeat
+    background:url('/images/add.png') left center no-repeat
   }
   .compare a {
     text-decoration:none;
     padding-left:18px;
     display:block;
-    background:url('/components/com_mijoshop/opencart/catalog/view/theme/default/image/add.png') left center no-repeat
+    background:url('/images/add.png') left center no-repeat
   }
 }
 
@@ -530,4 +530,14 @@
     font-family: 'Roboto Slab';
     font-size: 14px;
   }
+}
+
+.cart-button-right {
+  float: right;
+  padding: 0 0 0 5px;
+}
+
+.cart-button-left {
+  float: left;
+  padding: 0 5px 0 0;
 }
