@@ -133,7 +133,7 @@ module Spree
 
     def taxon_authors(product)
       links = ""
-      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
+      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1 and  spree_taxons.permalink <> :author  ", {:link1 => "authors%", :author=> 'authors'})
       return '' if au_taxons.blank?
       au_taxons.map do |taxon|
         links << '<div class="author">'
@@ -145,7 +145,7 @@ module Spree
     
     def taxon_author_products(product)
       links = ""
-      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "authors%"})
+      au_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1 and  spree_taxons.permalink <> :author", {:link1 => "authors%", :author=> 'authors'})
       return '' if au_taxons.blank?
       au_taxons.map do |taxon|
         links << Spree::Taxon.find_by_permalink!(taxon.permalink).id.to_s
@@ -156,7 +156,7 @@ module Spree
 
     def taxon_publishers(product)
       links = ""
-      pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1", {:link1 => "publishers%"})
+      pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1 and spree_taxons.permalink<> :publisher ", {:link1 => "publishers%",:publisher=> 'publishers'})
       return '' if pu_taxons.blank?
       cnt = 0
       pu_taxons.map do |taxon|
