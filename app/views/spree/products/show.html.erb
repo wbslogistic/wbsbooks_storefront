@@ -1,4 +1,13 @@
-<script src=" <%=  asset_path 'owlconfig' %>" />
+<%
+    if Rails.env.development?
+      %>
+    <script src="/assets/owlconfig.js" />
+    <%
+      else %>
+    <%=    javascript_include_tag  'owlconfig' %>
+
+    <%end %>
+
 <% content_for :sidebar do %>
   <div data-hook="homepage_sidebar_navigation">
     <% if "spree/products" == params[:controller] && @taxon %>
