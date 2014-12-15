@@ -25,23 +25,27 @@
           </div>
           <!--             <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %> -->
           <div class="links columns sixteen alpha omega" data-hook="cart_buttons" style="text-align: right">
-           <div><%= link_to Spree.t(:continue_shopping), root_path, :class => 'btn btn-primary' %>
-         
-                <%= button_tag :class => 'btn btn-primary', :id => 'update-button' do %>
-                <%= Spree.t(:update) %>
-              <% end %>
-              <%= button_tag :class => 'btn btn-primary', :id => 'checkout-link', :name => 'checkout' do %>
-                <%= Spree.t(:checkout) %>
+
+           <div>
+            <div class="cart-button-right"><%= button_tag :class => 'btn btn-primary', :id => 'checkout-link', :name => 'checkout' do %>
+              <%= Spree.t(:checkout) %>
             </div>
-
-
             <% end %>
+          </div>
+          <div class="cart-button-right"><%= button_tag :class => 'btn btn-primary', :id => 'update-button' do %>
+            <%= Spree.t(:update) %>
+            <% end %></div>
+            <div class="cart-button-right"><%= form_tag empty_cart_path, :method => :put do %>
+              <%= submit_tag Spree.t(:empty_cart), :class => 'btn btn-primary' %>
+              <% end %>
+            </div>
+            <div class="cart-button-left"><%= link_to Spree.t(:continue_shopping), root_path, :class => 'btn btn-primary' %></div>
+
           </div>
 
         </div>
       <% end %>
     </div>
-
 
   <% end %>
 </div>

@@ -2066,7 +2066,7 @@ legend + .control-group {
 	z-index:1000;
 	display:none;
 	float:left;
-	min-width:165px;
+	min-width:212px;
 	padding:5px 0;
 	margin:2px 0 0;
 	list-style:none;
@@ -4583,7 +4583,16 @@ th.visible-print,td.visible-print {
 	 white-space:nowrap;
 }
 
+.cart-table-items {
+	text-align: center
+}
+
+.cart-table-item-first {
+	text-align: left
+	
+}
+
 .checkout-content .row {
-	margin-bottom:20px;
+	margin-bottom:20px
 }
 

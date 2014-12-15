@@ -1,5 +1,5 @@
 <tr class="adjustment">
-  <td class="right"><b><%if label.include? 'Promotion'%> Discount: <%else%>  <%= label %> <%end%> </b></td>
+  <td class="right"><b><%if label.include? 'Promotion'%> <%= Spree.t(:discount) %> <%else%>  <%= label %> <%end%> </b></td>
   <td class="right total-sum">
    <%= Spree::Money.new(adjustments.sum(&:amount), :currency => @order.currency) %>
   </td>

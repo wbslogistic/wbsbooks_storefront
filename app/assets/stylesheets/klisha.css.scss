@@ -15,7 +15,7 @@
 
 .div-total {
 	padding-bottom: 15px;
-	padding-right: 20px;
+	padding-right: 0px;
 }
 
 .pag {
@@ -57,4 +57,46 @@ input[type="submit"].bulk_search {
 
 .img-logo-partner {
 margin-bottom: 20px;
+}
+
+.bulk-isbn {
+	min-width:145px;
+}
+
+.bulk-instock {
+	min-width:85px;
+}
+
+.bulk-up {
+	min-width:95px;
+}
+.bulk-center{
+	text-align: center;
+}
+.bulk-left{
+	text-align: left;
+}
+
+.bulk-right {
+	text-align: right;
+}
+
+.bulk-plus{
+	margin-bottom: 0px !important;
+}
+
+.bulk-filters{
+	margin-bottom: 15px !important;
+}
+
+.bulk-filter {
+	min-width: 200px !important;
+}
+
+.bulk-cart {
+	color: #f0141e !important;
+}
+
+.cart-center {
+	text-align: center !important;
 }

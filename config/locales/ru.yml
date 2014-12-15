@@ -326,6 +326,7 @@ ru:
     help_and_support: Помощь
     mail_to: E-mail
     fax: Факс
+    out_of_stock: Отсутвуют на складе
     details: Подробнее
     show: Показать
     view_open_orders: Открытые заказы
@@ -333,6 +334,10 @@ ru:
     last_year: Заказы за последний год
     complete_history: Полная история заказов
     abbreviation: Аббревиатура
+    author: Автор
+    publisher: Издательство
+    rrp: RRP
+    discount: Скидка
     account: Учетная запись
     account_updated: Учетная запись обновлена!
     action: Действие
@@ -885,7 +890,6 @@ ru:
     order_total: Итого заказ
     order_updated: Заказ обновлен
     orders: Заказы
-    out_of_stock: Нет в наличии
     overview: Обзор
     package_from: Фасовку в
     pagination:
@@ -1170,7 +1174,7 @@ ru:
     time: Время
     to_add_variants_you_must_first_define: Перед добавлением вариантов, вы должны определить
     total: Сумма
-    total_sum: Общая стоимость без учета стоимости доставки
+    total_sum: Общая стоимость
     total_sales: Всего продано на
     track_inventory: Отслеживать наличие
     tracking: Отслеживание

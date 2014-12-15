@@ -88,7 +88,7 @@ right:70px;
     display: inline-block;
 }
 .mijoshop_heading_h1 {
-    color: #000 !important;
+    color: #f0141e !important;
     font-family: 'Roboto',sans-serif !important;
     font-size: 15px !important;
     font-weight: 400;
@@ -779,8 +779,8 @@ right:70px;
 }
 .cart-info tbody .name a {
     /*font-family: 'Roboto Slab',serif;*/
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
 }
 .cart-info tbody .name small {
     color: #888;
@@ -827,7 +827,7 @@ right:70px;
     font-weight: 400;
 }
 .cart-info td {
-    padding: 15px 20px;
+    padding: 10px 10px;
 }
 
 .cart-info td.image {
@@ -847,15 +847,15 @@ table.radio td {
     vertical-align: middle;
 }
 .cart-total #total {
-    width: 470px;
+    min-width: 350px;
 }
 .cart-total tr td {
     border-color: #eee;
     color: #444;
     font-weight: 300;
     padding: 10px 0;
-    text-align: left;
-    /*padding-right: 148px;*/
+    text-align: right;
+    padding-left: 15px;
 }
 .cart-total tr td:last-child {
     color: #f0141e;

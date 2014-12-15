@@ -319,6 +319,10 @@ en:
     last_year: Orders placed in last year
     complete_history: Complete order history
     abbreviation: Abbreviation
+    author: Author
+    publisher: Publisher
+    rrp: RRP
+    discount: Discount
     account: Account
     account_updated: Account updated
     action: Action
@@ -859,7 +863,7 @@ en:
     order_total: Order Total
     order_updated: Order Updated
     orders: Orders
-    out_of_stock: Out of Stock
+    out_of_stock: Out of stock
     overview: Overview
     package_from: package from
     pagination:
@@ -981,7 +985,7 @@ en:
     reference: Reference
     refund: Refund
     register: Register
-    registration: Registration
+    registration: Create an account
     remember_me: Remember me
     remove: Remove
     rename: Rename
