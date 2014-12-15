@@ -1,12 +1,8 @@
-<%
-    if Rails.env.development?
-      %>
-    <script src="/assets/owlconfig.js" />
-    <%
-      else %>
-    <%=    javascript_include_tag  'owlconfig' %>
-
-    <%end %>
+<% if Rails.env.development? %>
+  <script src="/assets/owlconfig.js" />
+    <% else %>
+    <%= javascript_include_tag 'owlconfig' %>
+<%end %>
 
 <% content_for :sidebar do %>
   <div data-hook="homepage_sidebar_navigation">
