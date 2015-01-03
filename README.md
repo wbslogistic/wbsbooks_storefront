@@ -7,10 +7,6 @@ You could get screenshots of old version of storefront here: https://www.dropbox
 
 User interface mockups: http://ninjamock.com/s/whuzww
 
-To edit mockups go here: http://ninjamock.com/<br/>
-Login: oakrasnov@yandex.ru<br/>
-Password: 1qaz2wsx<br/>
-Project name: WBSBooks (storefront)
 
 <h3>Spree platform</h3>
 ===================
