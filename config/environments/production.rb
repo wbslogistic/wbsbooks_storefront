@@ -37,7 +37,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
   #config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
-  config.assets.precompile += ['owl.carousel.css','owl.theme.css','owlconfig.js','selectize.wbsbooks.css','*.js', '*.css', '*.css.erb']
+  config.assets.precompile += ['owl.carousel.css','owl.theme.css','owlconfig.js','selectize.wbsbooks.css'] #, '*.js', '*.css', '*.css.erb']
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -53,8 +53,8 @@ Rails.application.configure do
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => 'gmail.com',
-  :user_name            => 'wbsbooks.test@gmail.com',
-  :password             => 'wbs123456',
+  :user_name            => 'wbs20155@gmail.com',
+  :password             => 'crk34zjkl',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 
