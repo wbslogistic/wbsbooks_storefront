@@ -20,16 +20,21 @@
       </td>
     </td>
     <td class="cart-table-items">
-      author
+       <%= taxon_authors variant.product %>
+
     </td>
     <td class="cart-table-items">
-      publisher
+      <%=   taxon_publishers(variant.product) %>
     </td>
-    <td class="cart-table-items">50 kg</td>
+
+    <td class="cart-table-items">
+      <%= variant.weight  %>       gr
+
+      </td>
     <td class="cart-table-items" data-hook="cart_item_price">
       <%= line_item.single_money.to_html %>
     </td>
-    <td class="cart-table-items">$100</td>
+    <td class="cart-table-items"><%=  line_item.rrp(get_publisher_taxon_name(variant.product)).to_html  %></td>
     <td class="quantity td-w" data-hook="cart_item_quantity">
       <button class="minus bulk-plus">-</button>
       <%= item_form.text_field :quantity, :class => "line_item_quantity", :size => 1, data: { price: line_item.price } %>

@@ -154,6 +154,14 @@ module Spree
       raw(links)
     end
 
+    def get_publisher_taxon_name(product)
+      taxon = ""
+      pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1 and spree_taxons.permalink<> :publisher  ", {:link1 => "publishers%",:publisher=> 'publishers'}).take
+      taxon = pu_taxons.name  if pu_taxons
+
+      taxon
+    end
+
     def taxon_publishers(product)
       links = ""
       pu_taxons = product.taxons.where("spree_taxons.permalink LIKE :link1 and spree_taxons.permalink<> :publisher ", {:link1 => "publishers%",:publisher=> 'publishers'})
@@ -254,5 +262,10 @@ module Spree
         end
       end
     end
+
+
+
+
+
   end
 end

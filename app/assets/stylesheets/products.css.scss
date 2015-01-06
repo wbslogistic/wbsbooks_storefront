@@ -416,7 +416,7 @@
     right: 1px;
 }
 .product-grid .cart .btn, .box-product .cart .btn, .cart .btn {
-    background:url("/images/icon-cart.png") no-repeat scroll center center #f0141e;
+    background:asset-url("icon-cart.png") no-repeat scroll center center #f0141e;
     height: 40px;
     text-indent: -999em;
     width: 40px;
@@ -448,7 +448,7 @@
     margin-bottom: 0;
 }
 .product-list .cart .btn {
-    background-image:url("/images/icon-cart.png");
+    background-image:asset-url("icon-cart.png");
     background-position: 10px center;
     background-repeat: no-repeat;
     line-height: normal;

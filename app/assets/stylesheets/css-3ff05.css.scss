@@ -1310,7 +1310,7 @@ div.mod-languages ul.lang-inline li {
 
 }
 .sticky-module .addthis_32x32_style .at15nc.at300bs,.sticky-module .addthis_32x32_style .at15nc.at15t {
-	background-image:url("/images/social.png") !important;
+	background-image: asset-url("social.png") !important;
 	height:30px !important;
 	line-height:30px !important;
 	width:30px !important
@@ -5713,7 +5713,7 @@ div.acymailing_module_success {
 	margin-bottom:0
 }
 .liteAccordion .slide > div .cart .btn  {
-	background-image:url("/images/icon-cart.png");
+	background-image:asset-url("icon-cart.png");
 	background-repeat:no-repeat;
 	background-position:10px center;
 	padding-left:30px;

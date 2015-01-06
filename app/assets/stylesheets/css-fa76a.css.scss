@@ -79,7 +79,7 @@ height:204px;
 right:70px;
 }
 .product-grid .cart .btn,.owl-item .cart .btn, .box-product .cart .btn, .cart .btn {
-    background:url("/images/icon-cart.png") no-repeat scroll center center #f0141e;
+    background:asset-url("icon-cart.png") no-repeat scroll center center #f0141e;
     height: 40px;
     text-indent: -999em;
     width: 40px;
@@ -303,7 +303,7 @@ height:204px;
 right:70px;
 }
 .owl-item .cart .btn {
-    background:url("/images/icon-cart.png") no-repeat scroll center center #f0141e;
+    background:asset-url("icon-cart.png") no-repeat scroll center center #f0141e;
     height: 40px;
     text-indent: -999em;
     width: 40px;
@@ -511,7 +511,7 @@ right:70px;
     margin: 20px 0;
 }
 .product-info .cart .btn {
-    background-image: url("/images/icon-cart.png");
+    background-image: asset-url("icon-cart.png");
     background-position: 10px center;
     background-repeat: no-repeat;
     float: left;
