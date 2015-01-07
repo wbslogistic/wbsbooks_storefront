@@ -50,6 +50,12 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      resource :exchange_rates do
+        collection do
+          post :dismiss_alert
+        end
+      end
     end
   end
 

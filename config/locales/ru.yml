@@ -671,6 +671,16 @@ ru:
     gateway_error: Ошибка платежного шлюза
     general: Основные
     general_settings: Общие настройки
+    valid_text: Валидация
+    exchange_rates: курс валют
+    dollar: доллар
+    euro: евро
+    rrt_rates: RRT
+    rrt: RRT
+    azbuka: Азбука
+    szko: SZKO
+    piter: Питер
+    eksmo: Эксмо
     google_analytics: Google Analytics
     google_analytics_id: Google Analytics ID
     guest_checkout: Гостевой заказ

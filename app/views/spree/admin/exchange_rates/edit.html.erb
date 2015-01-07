@@ -1,0 +1,78 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t :valid_text %>
+<% end %>
+
+<%= form_tag admin_exchange_rates_path, :method => :put do %>
+  <div id="preferences" data-hook>
+
+    <fieldset class="general no-border-top">
+        <div class="field">
+           <%= label_tag(:euro_exchange_rate, Spree.t(:dollar) ) %>
+          <br />
+          <%= text_field_tag(:dollar_exchange_rate,@dollar,class: 'fullwidth') %>
+        </div>
+
+      <div class="field">
+         <%= label_tag(:euro_exchange_rate, Spree.t(:euro) ) %>
+        <br />
+        <%= text_field_tag(:euro_exchange_rate,@euro,class: 'fullwidth') %>
+      </div>
+
+
+
+      <div class="row">
+        <div class="alpha">
+          <fieldset class="security no-border-bottom">
+            <legend align="center"><%= Spree.t(:rrt_rates)%></legend>
+
+
+      <div class="field">
+         <%= label_tag(:azbuka_label, Spree.t(:azbuka) ) %>
+        <br />
+        <%= text_field_tag(:azbuka_rrt,@azbuka_rrt,class: 'fullwidth') %>
+      </div>
+
+      <div class="field">
+         <%= label_tag(:eksmo_label, Spree.t(:eksmo) ) %>
+        <br />
+        <%= text_field_tag(:eksmo_rrt,@eksmo_rrt,class: 'fullwidth') %>
+      </div>
+
+
+      <div class="field">
+         <%= label_tag(:piter_rrt_label, Spree.t(:piter) ) %>
+        <br />
+        <%= text_field_tag(:piter_rrt,@piter_rrt,class: 'fullwidth') %>
+      </div>
+
+      <div class="field">
+         <%= label_tag(:szko_rrt_label, Spree.t(:szko) ) %>
+        <br />
+        <%= text_field_tag(:szko_rrt,@szko_rrt,class: 'fullwidth') %>
+      </div>
+
+      <div class="field">
+         <%= label_tag(:default_rrt_label, Spree.t(:default) +" " + Spree.t(:rrt) ) %>
+        <br />
+        <%= text_field_tag(:default_rrt,@default_rrt,class: 'fullwidth') %>
+      </div>
+
+             </fieldset>
+          </div>
+        </div>
+
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'refresh' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), edit_admin_general_settings_url, :class => 'button' %>
+      </div>
+    </fieldset>
+
+
+
+  </div>
+
+
+<% end %>

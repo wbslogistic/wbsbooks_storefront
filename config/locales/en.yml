@@ -643,6 +643,16 @@ en:
     gateway_error: Gateway Error
     general: General
     general_settings: General Settings
+    valid_text: Validation
+    exchange_rates: Exchange Rates
+    dollar: Dollar
+    euro: Euro
+    rrt_rates: RRT Rates
+    rrt: RRT
+    azbuka: Azbuka
+    szko: SZKO
+    piter: Piter
+    eksmo: Eksmo
     google_analytics: Google Analytics
     google_analytics_id: Analytics ID
     guest_checkout: Guest Checkout
