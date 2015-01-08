@@ -1,19 +1,22 @@
 class NewsController < Spree::StoreController
   helper 'spree/products'
 
-  SOURCE_LINKS = Hash.new
-  Spree::NItem.all.each do  |el|
-     SOURCE_LINKS[el.name.to_sym]= el.location
-   end
+
 
 	PER_PAGE = 20
 
 	def index
+
+    @source_links_hash = Hash.new
+    Spree::NItem.all.each do  |el|
+      @source_links_hash[el.name.to_sym]= el.location
+    end
+
 		@taxonomies = Spree::Taxonomy.includes(root: :children)
 		@curr_page = params[:curr_page].present? && params[:curr_page].to_i > 0 ? params[:curr_page].to_i : 1
 		
-		@source_type = params[:source_type] && SOURCE_LINKS.keys.include?(params[:source_type].to_sym) ? params[:source_type].to_sym : SOURCE_LINKS.keys.first
-		@feed = Feedjira::Feed.fetch_and_parse(SOURCE_LINKS[@source_type])
+		@source_type = params[:source_type] && @source_links_hash.keys.include?(params[:source_type].to_sym) ? params[:source_type].to_sym : @source_links_hash.keys.first
+		@feed = Feedjira::Feed.fetch_and_parse(@source_links_hash[@source_type])
 		
 		@feed_entries = @feed.entries rescue []
 		@feed_entries = @feed_entries.slice((@curr_page - 1) * PER_PAGE, PER_PAGE)
@@ -27,7 +30,7 @@ class NewsController < Spree::StoreController
 		helper_method :title
 
 		def news_tabs
-			return SOURCE_LINKS.keys.map{|key| {title: key.to_s.gsub('_', ' ').capitalize, url: "/news/#{key.to_s}", active: @source_type == key} } 
+			return @source_links_hash.keys.map{|key| {title: key.to_s.gsub('_', ' ').capitalize, url: "/news/#{key.to_s}", active: @source_type == key} }
 		end
 		helper_method :news_tabs
 
@@ -49,7 +52,7 @@ class NewsController < Spree::StoreController
 
 		def pre_process_summary(summary)
 			#change the Root URL in RSS content
-      domain =  URI.parse(SOURCE_LINKS[@source_type]).host.downcase
+      domain =  URI.parse(@source_links_hash[@source_type]).host.downcase
 
 			summary.gsub("href=\"/", "target=\"_blank\" href=\"#{domain}/")
 		end
