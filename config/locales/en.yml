@@ -424,6 +424,7 @@ en:
     back: Back
     back_end: Backend
     backordered: Backordered
+    back_to_news_list: Back to news List
     back_to_adjustments_list: Back To Adjustments List
     back_to_images_list: Back To Images List
     back_to_option_types_list: Back To Option Types List
@@ -560,6 +561,7 @@ en:
     default_tax: Default Tax
     default_tax_zone: Default Tax Zone
     delete: Delete
+    location: Location
     delivery: Delivery
     depth: Depth
     description: Description
@@ -583,6 +585,7 @@ en:
     editing_stock_movement: Editing Stock Movement
     editing_tax_category: Editing Tax Category
     editing_tax_rate: Editing Tax Rate
+    editing_news: Editing news item
     editing_tracker: Editing Tracker
     editing_user: Editing User
     editing_zone: Editing Zone
@@ -646,6 +649,7 @@ en:
     valid_text: Validation
     exchange_rates: Exchange Rates
     dollar: Dollar
+    news: News
     euro: Euro
     rrt_rates: RRT Rates
     rrt: RRT
@@ -716,6 +720,7 @@ en:
     listing_reports: Listing Reports
     listing_tax_categories: Listing Tax Categories
     listing_users: Listing Users
+    listing_news: Listing news
     loading: Loading
     locale_changed: Locale Changed
     location: Location
@@ -755,6 +760,7 @@ en:
     name_or_sku: Name or SKU (enter at least first 4 characters of product name)
     new: New
     new_adjustment: New Adjustment
+    new_n_item: New item
     new_customer: New Customer
     new_country: New Country
     new_image: New Image
@@ -767,6 +773,7 @@ en:
     new_promotion: New Promotion
     new_property: New Property
     new_prototype: New Prototype
+    new_item: New Item
     new_return_authorization: New Return Authorization
     new_shipping_category: New Shipping Category
     new_shipping_method: New Shipping Method

@@ -56,6 +56,7 @@ Rails.application.routes.draw do
           post :dismiss_alert
         end
       end
+      resource :n_items
     end
   end
 
@@ -115,3 +116,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+

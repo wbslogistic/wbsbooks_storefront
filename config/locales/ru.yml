@@ -457,6 +457,7 @@ ru:
     back_end: в администраторском интерфейсе
     back_to_adjustments_list: Вернуться к списку корректировок
     back_to_countries_list: Вернуться к списку стран
+    back_to_news_list: Вернуться к списку новостей
     back_to_images_list: Вернуться к списку изображений
     back_to_option_types_list: Вернуться к списку товарных опций
     back_to_orders_list: Вернуться к cписку заказов
@@ -598,6 +599,7 @@ ru:
     display: Показать
     display_currency: Показывать валюту
     edit: Редактировать
+    editing_news: Редактирование новости
     editing_option_type: Редактирование опции
     editing_payment_method: Редактирование способа оплаты
     editing_product: Редактирование товара
@@ -681,6 +683,8 @@ ru:
     szko: SZKO
     piter: Питер
     eksmo: Эксмо
+    news: Новости
+    location: Расположение
     google_analytics: Google Analytics
     google_analytics_id: Google Analytics ID
     guest_checkout: Гостевой заказ
@@ -747,6 +751,7 @@ ru:
     listing_reports: Список отчетов
     listing_tax_categories: Список категорий налогов
     listing_users: Список пользователей
+    listing_news: Список новостей
     loading: Загружается
     locale_changed: Язык изменён
     location: Местоположение
@@ -786,6 +791,8 @@ ru:
     name: Наименование
     name_or_sku: Наименование или артикул
     new: Новый
+    new_item: Новый элемент
+    new_n_item: Новый элемент
     new_adjustment: Новая корректировка
     new_country: Новая страна
     new_customer: Для новых пользователей

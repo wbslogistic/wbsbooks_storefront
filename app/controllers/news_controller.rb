@@ -1,16 +1,11 @@
 class NewsController < Spree::StoreController
   helper 'spree/products'
 
-	SOURCE_LINKS = { 	:eksmo => 'http://eksmo.ru/subscr/news_rss.php',
-										:inostranka => 'http://inostrankabooks.ru/rss.xml',
-										:pro_books => 'http://pro-books.ru/news/3/feed',
-										:bookmix => 'http://bookmix.ru/news.xml'
-									}
-	SOURCE_ROOTS = {	:eksmo => 'http://eksmo.ru',
-										:inostranka => 'http://inostrankabooks.ru',
-										:pro_books => 'http://pro-books.ru',
-										:bookmix => 'http://bookmix.ru'		
-	}
+  SOURCE_LINKS = Hash.new
+  Spree::NItem.all.each do  |el|
+     SOURCE_LINKS[el.name.to_sym]= el.location
+   end
+
 	PER_PAGE = 20
 
 	def index
@@ -54,7 +49,9 @@ class NewsController < Spree::StoreController
 
 		def pre_process_summary(summary)
 			#change the Root URL in RSS content
-			summary.gsub("href=\"/", "target=\"_blank\" href=\"#{SOURCE_ROOTS[@source_type]}/")
+      domain =  URI.parse(SOURCE_LINKS[@source_type]).host.downcase
+
+			summary.gsub("href=\"/", "target=\"_blank\" href=\"#{domain}/")
 		end
 		helper_method :pre_process_summary
 
