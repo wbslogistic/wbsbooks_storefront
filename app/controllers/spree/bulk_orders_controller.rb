@@ -17,13 +17,13 @@ module Spree
           JOIN spree_prices pr on v.id = pr.variant_id
           JOIN spree_stock_items s on v.id = s.variant_id").
         where("t.permalink like ? and t_tr.locale = ? and p_tr.locale = ?", publisher_or_author_taxon, locale, locale).
-        order(sort_column + " " + sort_dir).page(params[:page]).per(10)         
+        order(sort_column + " " + sort_dir).page(params[:page]).per(10)
       end
     end    
 
     private
     def sort_column
-      if %w[isbn title author publisher stock rrp price].include?(params[:sort])
+      if %w[isbn title author publisher stock rrp price weight].include?(params[:sort])
         if params[:sort] == "isbn"
           "v.sku"
         elsif params[:sort] == "title" 
@@ -37,7 +37,9 @@ module Spree
         elsif params[:sort] == "rrp"
           "pr.amount"                       
         elsif params[:sort] == "price"
-          "pr.amount"         
+          "pr.amount"
+        elsif params[:sort] == "weight"
+          "v.weight"
         end  
       else
         # sort by title

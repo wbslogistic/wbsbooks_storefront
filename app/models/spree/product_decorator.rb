@@ -1,4 +1,5 @@
 Spree::Product.class_eval do
+
   def self.search(name, isbn, author, publisher, sort_column, sort_dir)   
    locale = I18n.locale.to_s
     Rails.logger.info("!!!locale #{locale}")
@@ -31,20 +32,52 @@ Spree::Product.class_eval do
   end
 
   def isbn
-    master.sku
+    master.sku.split('_site').first
   end
 
   def authors
-  	a = taxons.where("spree_taxons.permalink LIKE ?", "authors/%").order("spree_taxons.name").pluck(:name)
+  	a = taxons.where("spree_taxons.permalink LIKE ?", "authors/%").order("spree_taxons.name").distinct.pluck(:name)
     a.join(", ")
   end
 
   def publishers
-  	p = taxons.where("spree_taxons.permalink LIKE ?", "publishers/%").order("spree_taxons.name").pluck(:name)
-    p.join(", ")
+  	 publisher_name_list.join(", ")
+  end
+
+  def publisher_name_list
+    taxons.where("spree_taxons.permalink LIKE ?", "publishers/%").order("spree_taxons.name").distinct.pluck(:name)
   end
 
   def qty
     master.stock_items.first.count_on_hand
   end
+
+
+  def rrp
+    factor = 1.8
+    dynamic_factor = 0.85
+    publisher_name_list.each do |publisher_name|
+        case publisher_name
+          when "Эксмо".force_encoding("UTF-8"),"Eksmo",'eksmo'
+            dynamic_factor = Spree::Config.eksmo_rrt ? Spree::Config.eksmo_rrt : 0.7
+            break
+          when "Azbuka","Азбука".force_encoding("UTF-8")
+            dynamic_factor = Spree::Config.azbuka_rrt ? Spree::Config.azbuka_rrt : 0.72
+            break
+          when "SZKO","szko","Szko","СЗКО".force_encoding("UTF-8")
+            dynamic_factor = Spree::Config.szko_rrt ? Spree::Config.szko_rrt : 0.76
+            break
+          when "Piter","питер".force_encoding("UTF-8"),"Питер".force_encoding("UTF-8")
+            dynamic_factor = Spree::Config.piter_rrt ? Spree::Config.piter_rrt : 0.85
+            break
+          else
+            dynamic_factor = Spree::Config.default_rrt ? Spree::Config.default_rrt : 0.85
+        end
+    end
+
+    rrp_price =  price * factor * dynamic_factor
+
+    Spree::Money.new(rrp_price, { currency: currency })
+  end
+
 end

@@ -71,13 +71,13 @@
                   <td class="bulk-left"><%= link_to product.name, product %></td>
                   <td class="bulk-left"><%= product.authors %></td>
                   <td class="bulk-center"><%= product.publishers %></td>
-                  <td class="bulk-center">30kg</td>
+                  <td class="bulk-center"> <%=  product.weight if product %>  <%= Spree.t(:weight_gr)  %> </td>
                   <td class="bulk-center"><% if product.qty > 0 %>
                         <%= product.qty %> 
                       <% else %> 
                         <i class="fa fa-times red"></i></td>
                       <% end %>
-                  <td class="bulk-center"><%= (product.price * 1.25).round(2) %></td>
+                  <td class="bulk-center"><%= product.rrp %></td>
                   <td class="bulk-center"><% if product.price_in(current_currency) and !product.price.nil? %>
                       <%= display_price(product) %>
                     <% end %>
