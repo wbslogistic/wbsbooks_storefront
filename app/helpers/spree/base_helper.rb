@@ -265,6 +265,14 @@ module Spree
 
 
 
+    def self.one_is_not_blank? *args
+      args.each do |e|
+        if !e.blank?
+          return  true
+        end
+      end
+      false
+    end
 
 
   end

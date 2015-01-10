@@ -3,9 +3,10 @@ module Spree
     helper_method :sort_column, :sort_dir
   	layout "bulk_order_layout"
     def index
-      if (!params[:title].blank? or !params[:isbn].blank? or !params[:author].blank? or !params[:publisher].blank?)
+
+      if (Spree::BaseHelper.one_is_not_blank? params[:title],params[:isbn],params[:author],params[:publisher],params[:sugested])
         @products = Product.search(params[:title],params[:isbn],params[:author], 
-          params[:publisher], sort_column, sort_dir).
+          params[:publisher], sort_column, sort_dir,params[:sugested]).
         page(params[:page]).per(10)
       else
         locale = I18n.locale.to_s

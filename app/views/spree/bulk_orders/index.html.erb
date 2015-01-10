@@ -8,6 +8,16 @@
         <%= select_tag :isbn, params[:isbn], placeholder: "Suggested", class: "form-control bulk-filter" %>
       </div> -->
         <div class="form-group bulk-filters">
+          <label class="sr-only1">Suggested titles</label>
+
+          <% eval 'class MiniTaxon; attr_accessor :name,:id; end '
+             c=   MiniTaxon.new
+             c.name  = 'Show all titles'; c.id = ''
+          %>
+           <%= select_tag "sugested", options_from_collection_for_select([c] + [@root_suggested_taxon.children.first] + @root_suggested_taxon.children.first.children    , "id", "name", params['sugested']),{:class => 'sugested-filter form-control bulk-filter'} %>
+        </div>
+
+        <div class="form-group bulk-filters">
           <label class="sr-only1">ISBN</label>
         <%= text_field_tag :isbn, params[:isbn], placeholder: "ISBN", class: "form-control bulk-filter" %>
       </div>
