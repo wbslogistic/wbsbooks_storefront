@@ -28,7 +28,8 @@
     </td>
 
     <td class="cart-table-items">
-      <%= variant.weight  %>       gr
+      <%= variant.weight  %>   <%= Spree.t(:weight_gr)  %>
+
 
       </td>
     <td class="cart-table-items" data-hook="cart_item_price">
@@ -37,7 +38,8 @@
     <td class="cart-table-items"><%=  line_item.rrp(get_publisher_taxon_name(variant.product)).to_html  %></td>
     <td class="quantity td-w" data-hook="cart_item_quantity">
       <button class="minus bulk-plus">-</button>
-      <%= item_form.text_field :quantity, :class => "line_item_quantity", :size => 1, data: { price: line_item.price } %>
+
+      <%= item_form.text_field :quantity, :class => "line_item_quantity", :html => { :onclick => '$(this).select();'}, :size => 1, data: { price: line_item.price } %>
       <button class="plus bulk-plus">+</button>
     </td>
     <td class="cart-table-items" data-hook="cart_item_total cart-center">

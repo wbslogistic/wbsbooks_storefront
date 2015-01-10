@@ -764,6 +764,7 @@ ru:
     login_failed: Вход не выполнен.
     login_name: Логин
     logout: Выйти
+    weight_gr: грамм
     logs: Журналы событий
     look_for_similar_items: Посмотрите похожие товары
     maestro_or_solo_cards: Кредитные карты Maestro/Solo

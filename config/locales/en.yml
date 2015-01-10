@@ -735,6 +735,8 @@ en:
     login_failed: Login authentication failed.
     login_name: Login
     logout: Logout
+    weight_gr: gr
+
     look_for_similar_items: Look for similar items
     make_refund: Make refund
     master_price: Master Price
