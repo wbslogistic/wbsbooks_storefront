@@ -28,7 +28,7 @@ Spree::Product.class_eval do
       if (not publisher.blank?)
         taxon_pub_name = "%#{publisher.downcase}%"
         taxon_pub_type ="publishers/%"
-        taxon_name =  '____CLOSED____' if taxon_name = '%%'
+        taxon_name =  '____CLOSED____' if taxon_name == '%%'
       else
 
       end
