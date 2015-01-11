@@ -102,5 +102,6 @@ gem 'exception_notification'
 
 gem 'datashift', :git => 'https://github.com/autotelik/datashift.git'
 gem 'datashift_spree', :git=> 'https://github.com/agilestep/datashift_spree.git'
+#gem 'datashift_spree'
 
 

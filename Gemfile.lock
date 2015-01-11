@@ -54,7 +54,7 @@ GIT
 
 GIT
   remote: https://github.com/agilestep/datashift_spree.git
-  revision: dfbf13e03f50248e14c601766b8266b67c636ef7
+  revision: 83ae0f0daa7ff844c31c3c7688aaf8c100ea60ca
   specs:
     datashift_spree (0.6.0)
       datashift (~> 0.16, >= 0.16.0)
@@ -210,7 +210,7 @@ GEM
       warden (~> 1.2.3)
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
-    domain_name (0.5.22)
+    domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     exception_notification (4.0.1)
